@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Now | Elite Cuts Studio</title>
+  <meta name="description"
+    content="Book your next premium haircut or shave at Elite Cuts Studio in Gainesville, GA. Classic cuts, hot towel shaves, fades, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Bitter:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=Caveat:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- SOCIAL SHARE (OG TAGS) -->
+  <meta property="og:title" content="Book Now | Elite Cuts Studio">
+  <meta property="og:description"
+    content="Reserve your spot for a premium haircut or hot towel shave. Classic 70s aesthetics meet modern barbering excellence.">
+  <meta property="og:image" content="assets/Photo_3.webp">
+  <meta property="og:url" content="https://forge-dev-studio.github.io/elite-cuts-studio/appointments.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    :root {
+      --orange: #e85118;
+      --orange-deep: #b83e12;
+      --olive: #7a8c3f;
+      --olive-dark: #546030;
+      --cream: #f0e8d0;
+      --ink: #1a1710;
+      --amber: #c8780a;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Bitter', Georgia, serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      /* 🎯 RETRO CROSSHAIR CURSOR 🎯 */
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%23e85118' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23e85118'/%3E%3C/svg%3E") 16 16, auto;
+    }
+
+    /* Keep crosshair on interactive elements */
+    a,
+    button,
+    .btn-book,
+    .service-card {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%2300e5a0' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%2300e5a0' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%2300e5a0' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%2300e5a0' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%2300e5a0'/%3E%3C/svg%3E") 16 16, pointer !important;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: .06;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* BARBER STRIP */
+    .barber-strip {
+      height: 14px;
+      background: repeating-linear-gradient(-45deg, #b83228 0, #b83228 11px, #fff 11px, #fff 22px, var(--amber) 22px, var(--amber) 33px, #fff 33px, #fff 44px);
+      background-size: 62px 62px;
+      animation: pole 3.4s linear infinite;
+    }
+
+    @keyframes pole {
+      to {
+        background-position: 62px 62px
+      }
+    }
+
+    /* NAV */
+    .site-nav {
+      background: var(--ink);
+      padding: 0 48px;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      border-bottom: 3px solid var(--orange);
+    }
+
+    .nav-brand {
+      font-family: 'Shrikhand', cursive;
+      font-size: 1.5rem;
+      color: var(--amber);
+    }
+
+    /* APPOINTMENTS HERO */
+    .apt-hero {
+      background: var(--olive);
+      padding: 100px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .apt-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle, rgba(0, 0, 0, .08) 1.2px, transparent 1.2px);
+      background-size: 20px 20px;
+    }
+
+    .apt-title {
+      font-family: 'Shrikhand', cursive;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: .9;
+      color: #fff;
+      text-shadow: 4px 4px 0 rgba(0, 0, 0, .2);
+      margin-bottom: 20px;
+    }
+
+    .apt-sub {
+      font-family: 'Caveat', cursive;
+      font-size: 1.8rem;
+      color: rgba(255, 255, 255, .8);
+    }
+
+    /* SERVICE GRID — VEGAS BILLBOARD STYLE */
+    .services-container {
+      max-width: 1200px;
+      margin: -60px auto 100px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .vegas-billboard {
+      background: #060504;
+      border: 3px solid #1a140c;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, .6);
+      padding: 60px 40px;
+      position: relative;
+    }
+
+    /* CHASING LIGHTS WRAP */
+    .vegas-lights-wrap {
+      position: absolute;
+      inset: -26px;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .vegas-bulb {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 10px var(--amber);
+    }
+
+    .vegas-bulb.dim {
+      background: #2a1a04;
+      box-shadow: none;
+    }
+
+    .vegas-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .vegas-eyebrow {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: .4em;
+      color: var(--amber);
+      opacity: .6;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .vegas-headline {
+      font-family: 'Shrikhand', cursive;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      color: #fff;
+      text-shadow: 0 0 20px var(--orange), 0 0 40px rgba(232, 81, 24, .4);
+    }
+
+    /* SERVICE CARD STYLING */
+    .service-menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .08);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      transition: transform .3s, background .3s;
+    }
+
+    .service-card:hover {
+      background: rgba(255, 255, 255, .06);
+      transform: translateY(-5px);
+    }
+
+    .sc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .sc-name {
+      font-family: 'Shrikhand', cursive;
+      font-size: 1.6rem;
+      color: #fff;
+      flex: 1;
+      padding-right: 20px;
+    }
+
+    .sc-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: var(--amber);
+    }
+
+    .sc-desc {
+      font-size: .95rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, .6);
+      margin-bottom: 25px;
+      flex-grow: 1;
+    }
+
+    .btn-book {
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: .1em;
+      padding: 12px;
+      text-align: center;
+      text-transform: uppercase;
+      transition: background .2s;
+    }
+
+    .btn-book:hover {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    /* CONTRAST CARD CTA (Consistency) */
+    .contrast-card {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fdfdfd;
+      padding: 60px 40px;
+      color: var(--ink);
+      text-align: center;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .contrast-card h2 {
+      font-family: 'Shrikhand', cursive;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .contrast-card p {
+      font-size: 1.1rem;
+      opacity: 0.8;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .contrast-card .btn-book {
+      display: inline-block;
+      width: auto;
+      padding: 15px 40px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--ink);
+      padding: 80px 48px 40px;
+      color: rgba(255, 255, 255, 0.4);
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .vegas-billboard {
+        width: calc(100% - 60px);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 40px 20px;
+      }
+
+      .service-menu {
+        grid-template-columns: 1fr;
+      }
+
+      .apt-hero {
+        padding: 60px 20px;
+      }
+
+      .services-container {
+        margin-top: -30px;
+      }
+    }
+
+
+    .footer-logo-row {
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 30px;
+    }
+
+    .footer-logo-img {
+      width: 100px;
+      opacity: .9;
+      margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+      font-family: 'Shrikhand', cursive;
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-brand {
+      display: block;
+      margin-bottom: 15px;
+      font-family: 'Shrikhand', cursive;
+      font-size: 2rem;
+      color: var(--amber);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .footer-socials a {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 1.4rem;
+      transition: color 0.2s;
+    }
+
+    .footer-socials a:hover {
+      color: var(--orange);
+    }
+
+    .footer-note {
+      margin-top: 10px;
+      font-size: .8rem;
+      opacity: 0.4;
+    }
+
+    /* MODAL FOR WIDGET */
+    #bookingModal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .9);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    #bookingModal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 800px;
+      max-height: 90vh;
+      background: var(--cream);
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, .5);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    @media(max-width: 768px) {
+      .vegas-billboard {
+        padding: 40px 20px;
+      }
+
+      .service-menu {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="barber-strip" role="presentation"></div>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">EliteCuts</a>
+  </nav>
+
+  <header class="apt-hero">
+    <h1 class="apt-title">Get on the Books</h1>
+    <p class="apt-sub">BY APPOINTMENT · CALL (470) 290-5379</p>
+  </header>
+
+  <main class="services-container">
+    <div class="vegas-billboard">
+      <div class="vegas-lights-wrap" id="vegasLights"></div>
+
+      <div class="vegas-header">
+        <span class="vegas-eyebrow">— SELECT YOUR EXPERIENCE —</span>
+        <h2 class="vegas-headline">The Service Menu</h2>
+      </div>
+
+      <div class="service-menu">
+        <!-- 1 -->
+        <article class="service-card">
+          <div class="sc-header">
+            <h3 class="sc-name">In-between Haircut</h3>
+            <span class="sc-price">$20</span>
+          </div>
+          <p class="sc-desc">Designed for returning clients who like to keep things sharper between full cuts. Hits the
+            sides and back with lined edges and a hot towel neck shave.</p>
+          <a href="#" class="btn-book" onclick="openBooking()">Book Selection</a>
+        </article>
+
+        <!-- 2 -->
+        <article class="service-card">
+          <div class="sc-header">
+            <h3 class="sc-name">Beard Shaping</h3>
+            <span class="sc-price">$20</span>
+          </div>
+          <p class="sc-desc">Freehand shaping and clipper-over-comb precision. Finished with a straight razor on cheeks
+            and shavers on the neck.</p>
+          <a href="#" class="btn-book" onclick="openBooking()">Book Selection</a>
+        </article>
+
+        <!-- 3 -->
+        <article class="service-card">
+          <div class="sc-header">
+            <h3 class="sc-name">Kids Cut</h3>
+            <span class="sc-price">$25</span>
+          </div>
+          <p class="sc-desc">For legends 10 and under. *Skin Fade / Modern Mullets / Mohawks are a $5 add-on.</p>
+          <a href="#" class="btn-book" onclick="openBooking()">Book Selection</a>
+        </article>
+
+        <!-- 4 -->
+        <article class="service-card">
+          <div class="sc-header">
+            <h3 class="sc-name">Short Haircut</h3>
+            <span class="sc-price">$30</span>
+          </div>
+          <p class="sc-desc">Tailored style using clippers (0.5 to 8) and shears. Includes a relaxing hot towel neck
+            shave transition.</p>
+          <a href="#" class="btn-book" onclick="openBooking()">Book Selection</a>
+        </article>
+
+        <!-- 5 -->
+        <article class="service-card">
+          <div class="sc-header">
+            <h3 class="sc-name">Skin / Bald Fade</h3>
+            <span class="sc-price">$40</span>
+          </div>
+          <p class="sc-desc">Smooth, no-guard cut trimmed to the skin or fully shaved bald. Includes hot towel neck
+            shave.</p>
+          <a href="#" class="btn-book" onclick="openBooking()">Book Selection</a>
+        </article>
+
+        <!-- 6 -->
+        <article class="service-card">
+          <div class="sc-header">
+            <h3 class="sc-name">Medium / Long Cut</h3>
+            <span class="sc-price">$40</span>
+          </div>
+          <p class="sc-desc">Ideal for medium length flow, low taper fades, or long hair styles. Includes hot towel neck
+            shave.</p>
+          <a href="#" class="btn-book" onclick="openBooking()">Book Selection</a>
+        </article>
+
+        <!-- 7 -->
+        <article class="service-card">
+          <div class="sc-header">
+            <h3 class="sc-name">Full Head Shave</h3>
+            <span class="sc-price">$45</span>
+          </div>
+          <p class="sc-desc">Full head straight razor shave with hot towels. Scalp left completely smooth and polished.
+          </p>
+          <a href="#" class="btn-book" onclick="openBooking()">Book Selection</a>
+        </article>
+
+        <!-- 8 -->
+        <article class="service-card">
+          <div class="sc-header">
+            <h3 class="sc-name">Hot Towel Shave</h3>
+            <span class="sc-price">$45</span>
+          </div>
+          <p class="sc-desc">Facial straight razor shave. Precise beard trimming or full removal with luxury towels.</p>
+          <a href="#" class="btn-book" onclick="openBooking()">Book Selection</a>
+        </article>
+
+        <!-- 9 -->
+        <article class="service-card">
+          <div class="sc-header">
+            <h3 class="sc-name">Simple Beard Trim</h3>
+            <span class="sc-price">$10</span>
+          </div>
+          <p class="sc-desc">Simple beard trim (10 minutes). Perfect for a quick cleanup.</p>
+          <a href="#" class="btn-book" onclick="openBooking()">Book Selection</a>
+        </article>
+
+        <!-- 10 -->
+        <article class="service-card">
+          <div class="sc-header">
+            <h3 class="sc-name">Premium Beard Trim</h3>
+            <span class="sc-price">$20</span>
+          </div>
+          <p class="sc-desc">For fuller beards requiring expert attention. Shaping, clipper-over-comb, and grooming (20
+            minutes).</p>
+          <a href="#" class="btn-book" onclick="openBooking()">Book Selection</a>
+        </article>
+
+        <!-- 11 -->
+        <article class="service-card">
+          <div class="sc-header">
+            <h3 class="sc-name">Buzz Cut</h3>
+            <span class="sc-price">$20</span>
+          </div>
+          <p class="sc-desc">One or two guard lengths all around. Clean, uniformed finish with hot towel neck shave. (No
+            fade)</p>
+          <a href="#" class="btn-book" onclick="openBooking()">Book Selection</a>
+        </article>
+      </div>
+
+      <!-- CONSISTENT CONTRAST CTA -->
+      <div class="contrast-card rev" style="margin-top: 60px;">
+        <h2>Ready for a Change?</h2>
+        <p>Experience the finest barbering in Gainesville. Classic techniques merged with a modern private studio vibe.
+        </p>
+        <div
+          style="margin-bottom:20px; font-family:'Bebas Neue',sans-serif; color:var(--orange); letter-spacing:1px; font-size:1.2rem;">
+          MILITARY / POLICE / FIRE DISCOUNT AVAILABLE
+        </div>
+        <a href="#" class="btn-book" onclick="openBooking()">Select Your Time Slot</a>
+      </div>
+    </div>
+  </main>
+
+  <div id="bookingModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeBooking()">[ CLOSE X ]</span>
+      <div style="padding:60px 30px;text-align:center;color:var(--cream);font-family:'Bebas Neue',sans-serif;">
+        <h2 style="font-size:2rem;letter-spacing:2px;color:var(--orange);margin-bottom:20px;">BOOK BY PHONE</h2>
+        <p style="font-size:1.2rem;letter-spacing:1px;margin-bottom:30px;">Call or text to schedule your appointment</p>
+        <a href="tel:4702905379" style="display:inline-block;padding:18px 40px;background:var(--orange);color:var(--cream);text-decoration:none;font-size:1.4rem;letter-spacing:2px;border-radius:4px;">(470) 290-5379</a>
+        <p style="margin-top:30px;font-size:0.95rem;opacity:0.7;font-family:'Bitter',serif;">1706 M.L.K. Jr Blvd, Gainesville, GA 30501</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-logo-row">
+      <p class="footer-tagline">Look Sharp. Cut Elite.</p>
+    </div>
+    <span class="footer-brand">EliteCuts</span>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/elitecutsstudio" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>© 2026 Elite Cuts Studio · Gainesville, GA</p>
+    <p class="footer-note">1706 M.L.K. JR BLVD · (470) 290-5379 · BY APPOINTMENT</p>
+  </footer>
+
+  <script>
+    /* VEGAS LIGHTS */
+    function initVegasLights() {
+      const board = document.querySelector('.vegas-billboard');
+      const wrap = document.getElementById('vegasLights');
+      const STEP = 22; const R = 6;
+      function buildBulbs() {
+        wrap.innerHTML = '';
+        const W = board.offsetWidth + 52; const H = board.offsetHeight + 52;
+        wrap.style.cssText = `position:absolute;inset:-26px;width:${W}px;height:${H}px;`;
+        const bulbs = []; let idx = 0;
+        function add(x, y) {
+          const b = document.createElement('div');
+          b.className = 'vegas-bulb';
+          b.style.cssText = `left:${x - R}px;top:${y - R}px;width:${R * 2}px;height:${R * 2}px;`;
+          wrap.appendChild(b); bulbs.push({ el: b, i: idx++ });
+        }
+        const cols = Math.floor(W / STEP); const rows = Math.floor(H / STEP);
+        for (let i = 0; i <= cols; i++) add(i * STEP, R);
+        for (let i = 1; i <= rows; i++) add(W - R, i * STEP);
+        for (let i = cols - 1; i >= 0; i--) add(i * STEP, H - R);
+        for (let i = rows - 1; i > 0; i--) add(R, i * STEP);
+        let frame = 0;
+        setInterval(() => {
+          frame++;
+          bulbs.forEach(b => {
+            b.el.className = ((b.i + frame) % 4 < 2) ? 'vegas-bulb' : 'vegas-bulb dim';
+          });
+        }, 800);
+      }
+      buildBulbs();
+      window.addEventListener('resize', buildBulbs);
+    }
+    initVegasLights();
+
+    /* BOOKING MODAL */
+    function openBooking() {
+      document.getElementById('bookingModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeBooking() {
+      document.getElementById('bookingModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
+</body>
+
+</html>

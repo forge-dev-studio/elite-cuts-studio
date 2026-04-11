@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Elite Cuts Studio</title>
+  <meta name="description"
+    content="Contact Elite Cuts Studio in Gainesville, Georgia. Call, message, or stop by M.L.K. Jr Blvd for bookings, services, or questions.">
+  <link rel="icon" href="assets/clipper.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="barber-pole-left" aria-hidden="true">
+    <div class="pole-stripe"></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Elite Cuts Studio home">
+        <span class="brand-text">EliteCuts</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav"
+        title="Toggle navigation menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav id="siteNav" class="site-nav" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#gallery" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <a href="appointments.html" class="nav-cta">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="page-hero-section">
+      <div class="container">
+        <div class="page-hero-content" data-animate="fade-up">
+          <div class="hero-badge">
+            <span class="badge-icon">&#9993;</span>
+            <span>Get in Touch</span>
+          </div>
+          <h1>Let&rsquo;s <em class="gold-italic">Connect.</em></h1>
+          <p class="lead">Reach out anytime. Whether it&rsquo;s about booking, services, or just saying hello, Elite Cuts Studio is ready to help you look your sharpest.</p>
+          <div class="page-hero-actions">
+            <a href="tel:14702905379" class="btn btn-primary btn-lg">Call the Studio</a>
+            <a href="appointments.html" class="btn btn-outline btn-lg">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form + Info -->
+    <section class="contact-form-section">
+      <div class="container contact-layout">
+        <div data-animate="fade-right">
+          <div class="section-label section-label-left">
+            <span class="label-text">Send a Message</span>
+            <span class="label-line"></span>
+          </div>
+          <form id="contactForm" autocomplete="on">
+            <div class="form-row-2col">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required autocomplete="given-name"
+                  placeholder="Your first name">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required autocomplete="family-name"
+                  placeholder="Your last name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone (Optional)</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(470) 000-0000">
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" required placeholder="Tell us what you need..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-full">Send Message</button>
+          </form>
+        </div>
+
+        <div data-animate="fade-left">
+          <div class="about-image-wrapper contact-hero-image">
+            <img src="assets/Photo_3.webp" alt="Close-up of a classic haircut in progress" loading="lazy">
+          </div>
+          <div class="info-card contact-location-card">
+            <div class="info-card-label">Studio Location</div>
+            <h3>Elite Cuts Studio</h3>
+            <p>1706 M.L.K. Jr Blvd<br>Gainesville, GA 30501</p>
+            <a href="https://www.google.com/maps/dir//1706+M.L.K.+Jr+Blvd,+Gainesville,+GA+30501"
+              target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm contact-directions-btn">Get
+              Directions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Cards -->
+    <section class="contact-info-section">
+      <div class="container info-cards-grid">
+        <article class="info-card" data-animate="fade-up" data-delay="0">
+          <div class="info-card-label">Direct Contact</div>
+          <h3>Elite Cuts Studio</h3>
+          <p><a href="tel:14702905379">(470) 290-5379</a></p>
+          <p class="contact-social-links">
+            <a href="https://www.instagram.com/elitecutsstudio" target="_blank"
+              rel="noopener noreferrer">Instagram</a>
+          </p>
+        </article>
+        <article class="info-card" data-animate="fade-up" data-delay="100">
+          <div class="info-card-label">Studio Hours</div>
+          <h3>By Appointment</h3>
+          <p>Call or text to schedule</p>
+          <p><strong>(470) 290-5379</strong></p>
+          <p class="muted">Walk-ins welcome when available</p>
+        </article>
+        <article class="info-card" data-animate="fade-up" data-delay="200">
+          <div class="info-card-label">Ready to Book?</div>
+          <h3>Skip the Wait</h3>
+          <p>Reserve your chair today and walk right in at your appointment time.</p>
+          <a href="appointments.html" class="btn btn-primary contact-book-btn">Book an Appointment</a>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-text">EliteCuts</span>
+        <p>1706 M.L.K. Jr Blvd<br>Gainesville, GA 30501</p>
+        <p class="muted">Master barbering in downtown Gainesville</p>
+      </div>
+      <div class="footer-col">
+        <h4>Booking</h4>
+        <p>By appointment</p>
+        <p><strong>(470) 290-5379</strong></p>
+        <p>Walk-ins when available</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="tel:14702905379">(470) 290-5379</a>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/elitecutsstudio" target="_blank" rel="noopener noreferrer"
+            aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Elite Cuts Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+
+</html>
