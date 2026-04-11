@@ -7,7 +7,8 @@
   <title>Elite Cuts Studio | Gainesville, GA</title>
   <meta name="description"
     content="Classic haircuts, tapers, fades, hot towel and straight razor shaves in Gainesville, GA. Elite Cuts Studio on M.L.K. Jr Blvd. Book your appointment today.">
-  <link rel="icon" href="assets/clipper.svg">
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  <link rel="apple-touch-icon" href="assets/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -18,7 +19,7 @@
   <meta property="og:title" content="Elite Cuts Studio | Gainesville, GA">
   <meta property="og:description"
     content="Premium haircuts, fades, and hot towel shaves at Elite Cuts Studio in Gainesville, GA. Master barber experience on M.L.K. Jr Blvd. Book your sharpest cut today.">
-  <meta property="og:image" content="assets/cut-01.jpg">
+  <meta property="og:image" content="assets/logo.jpg">
   <meta property="og:url" content="https://forge-dev-studio.github.io/elite-cuts-studio/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -204,11 +205,36 @@
       font-family: 'Shrikhand', cursive;
       font-size: 1.5rem;
       color: var(--amber);
-      transition: color .2s;
+      transition: color .2s, transform .2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .nav-brand:hover {
-      color: #fff
+      color: #fff;
+      transform: scale(1.03);
+    }
+
+    .nav-logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--amber);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .5);
+    }
+
+    .nav-brand-text {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 3px;
+      font-size: 1rem;
+      color: var(--amber);
+      display: none;
+    }
+
+    @media (min-width: 720px) {
+      .nav-brand-text { display: block; }
     }
 
     .nav-links {
@@ -481,12 +507,16 @@
       color: #fff
     }
 
-    /* ── Right panel ── */
+    /* ── Right panel ── Logo showcase with orange halo ── */
     .hero-right {
-      background: var(--olive);
+      background: var(--cream);
       position: relative;
       overflow: hidden;
-      will-change: transform
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+      will-change: transform;
     }
 
     .hero-right::before {
@@ -495,29 +525,87 @@
       inset: 0;
       z-index: 1;
       pointer-events: none;
-      background-image: repeating-linear-gradient(-55deg, transparent 0, transparent 18px, rgba(0, 0, 0, .05) 18px, rgba(0, 0, 0, .05) 19px);
+      background-image: repeating-linear-gradient(-55deg, transparent 0, transparent 18px, rgba(26, 23, 16, .045) 18px, rgba(26, 23, 16, .045) 19px);
     }
 
     .hero-right::after {
       content: '';
       position: absolute;
-      bottom: -80px;
-      right: -80px;
-      width: 500px;
-      height: 500px;
-      background: var(--olive-dark);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 560px;
+      height: 560px;
+      background: var(--orange);
       border-radius: 50%;
       z-index: 0;
+      box-shadow: 0 0 0 14px rgba(232, 81, 24, .18), 0 20px 60px rgba(0, 0, 0, .25);
+    }
+
+    .hero-logo-wrap {
+      position: relative;
+      z-index: 2;
+      width: min(460px, 100%);
+      aspect-ratio: 1;
     }
 
     .hero-photo {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center;
+      object-position: center;
       position: relative;
       z-index: 2;
-      filter: sepia(10%) saturate(0.95) contrast(1.04)
+      border-radius: 50%;
+      box-shadow:
+        0 24px 80px rgba(0, 0, 0, .45),
+        0 0 0 10px var(--cream),
+        0 0 0 13px var(--ink),
+        0 0 0 18px var(--cream);
+      animation: heroLogoFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes heroLogoFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(-1deg); }
+    }
+
+    .hero-stamp {
+      position: absolute;
+      top: -14px;
+      right: -12px;
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--orange);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 3;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
+      line-height: 1.15;
+      transform: rotate(12deg);
+      box-shadow: 5px 6px 0 rgba(0, 0, 0, .35);
+      border: 3px dashed var(--orange);
+      padding: 12px 8px;
+    }
+
+    .hero-stamp span {
+      display: block;
+      font-size: .62rem;
+      color: var(--cream);
+    }
+
+    .hero-stamp strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--orange);
+      font-weight: 400;
+      margin: 2px 0;
     }
 
     /* ── Badge pill ── */
@@ -1675,54 +1763,332 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
+      gap: 60px 48px;
       position: relative;
       z-index: 1;
     }
 
+    .polaroid-cell {
+      position: relative;
+      width: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .polaroid-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 290px;
+      height: 290px;
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .22);
+    }
+
+    .polaroid-circle.c-orange { background: var(--orange); }
+    .polaroid-circle.c-olive  { background: var(--olive); }
+    .polaroid-circle.c-amber  { background: var(--amber); }
+    .polaroid-circle.c-harvest { background: var(--harvest); }
+    .polaroid-circle.c-sienna { background: var(--sienna); }
+    .polaroid-circle.c-gold   { background: var(--gold); }
+    .polaroid-circle.c-olive-mid { background: var(--olive-mid); }
+
     .polaroid {
       background: #faf6ee;
       padding: 10px 10px 44px;
-      box-shadow: 4px 6px 28px rgba(0, 0, 0, .4), 0 2px 4px rgba(0, 0, 0, .18),
+      box-shadow: 4px 6px 28px rgba(0, 0, 0, .45), 0 2px 4px rgba(0, 0, 0, .18),
         inset 0 0 0 1px rgba(0, 0, 0, .06);
       width: 206px;
+      position: relative;
+      z-index: 1;
       flex-shrink: 0;
       transition: transform .35s cubic-bezier(.25, .46, .45, .94), box-shadow .35s;
       cursor: pointer;
     }
 
-    .polaroid:nth-child(1) {
-      transform: rotate(-3.2deg) translateY(6px)
+    .polaroid.d1 { transform: rotate(-3.2deg) translateY(6px); }
+    .polaroid.d2 { transform: rotate(2.5deg)  translateY(-9px); }
+    .polaroid.d3 { transform: rotate(-1.8deg) translateY(11px); }
+    .polaroid.d4 { transform: rotate(3.4deg)  translateY(-5px); }
+    .polaroid.d5 { transform: rotate(-2.6deg) translateY(9px); }
+    .polaroid.d6 { transform: rotate(1.8deg)  translateY(-11px); }
+    .polaroid.d7 { transform: rotate(-2.2deg) translateY(7px); }
+
+    /* ═══════════════════════════════════════
+       SIGNATURE STYLES — BW + BIG COLORED CIRCLES
+    ═══════════════════════════════════════ */
+    .signature-sec {
+      background: var(--cream);
+      padding: 120px 48px 140px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .polaroid:nth-child(2) {
-      transform: rotate(2.5deg) translateY(-9px)
+    .signature-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 12% 22%, rgba(232, 81, 24, .07) 0, transparent 42%),
+        radial-gradient(circle at 88% 78%, rgba(122, 140, 63, .09) 0, transparent 42%);
     }
 
-    .polaroid:nth-child(3) {
-      transform: rotate(-1.8deg) translateY(11px)
+    .signature-grid {
+      max-width: 1240px;
+      margin: 90px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px 40px;
+      position: relative;
+      z-index: 1;
     }
 
-    .polaroid:nth-child(4) {
-      transform: rotate(3.4deg) translateY(-5px)
+    .sig-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 40px;
     }
 
-    .polaroid:nth-child(5) {
-      transform: rotate(-2.6deg) translateY(9px)
+    .sig-halo {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      z-index: 0;
+      box-shadow: 0 14px 46px rgba(0, 0, 0, .28);
     }
 
-    .polaroid:nth-child(6) {
-      transform: rotate(1.8deg) translateY(-11px)
+    .sig-halo.c-orange { background: var(--orange); }
+    .sig-halo.c-olive  { background: var(--olive); }
+    .sig-halo.c-amber  { background: var(--amber); }
+
+    .sig-frame {
+      position: relative;
+      z-index: 1;
+      width: 86%;
+      max-width: 280px;
+      padding: 14px 14px 60px;
+      background: #faf6ee;
+      box-shadow:
+        6px 10px 36px rgba(0, 0, 0, .38),
+        inset 0 0 0 1px rgba(0, 0, 0, .06);
+      border: 1px solid rgba(0, 0, 0, .08);
+      transition: transform .45s cubic-bezier(.25, .46, .45, .94);
     }
 
-    .polaroid:nth-child(7) {
-      transform: rotate(-2.2deg) translateY(7px)
+    .sig-card:nth-child(1) .sig-frame { transform: rotate(-2deg); }
+    .sig-card:nth-child(2) .sig-frame { transform: rotate(1.5deg) translateY(-8px); }
+    .sig-card:nth-child(3) .sig-frame { transform: rotate(-1.2deg) translateY(4px); }
+
+    .sig-card:hover .sig-frame {
+      transform: rotate(0deg) translateY(-12px) scale(1.04);
+    }
+
+    .sig-frame img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%) contrast(1.12) brightness(.96);
+      transition: filter .45s ease;
+    }
+
+    .sig-card:hover .sig-frame img {
+      filter: grayscale(0%) contrast(1.08);
+    }
+
+    .sig-cap {
+      position: absolute;
+      bottom: 22px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: 'Caveat', cursive;
+      color: var(--brown);
+      font-size: 1.25rem;
+      letter-spacing: .5px;
+    }
+
+    .sig-label {
+      margin-top: 28px;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 4px;
+      color: var(--ink);
+      font-size: .95rem;
+      position: relative;
+      z-index: 2;
+      padding: 6px 18px;
+      background: var(--cream);
+      border: 1px solid var(--ink);
+    }
+
+    @media (max-width: 900px) {
+      .signature-grid {
+        grid-template-columns: 1fr;
+        gap: 90px;
+      }
+      .sig-halo { width: 290px; height: 290px; }
+    }
+
+    /* ═══════════════════════════════════════
+       STOREFRONT PANEL (About supplement)
+    ═══════════════════════════════════════ */
+    .storefront-panel {
+      max-width: 1180px;
+      margin: 80px auto 0;
+      padding: 0 48px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .storefront-frame {
+      position: relative;
+      padding: 18px;
+      background: #faf6ee;
+      box-shadow: 10px 14px 40px rgba(0, 0, 0, .35),
+        inset 0 0 0 1px rgba(0, 0, 0, .08);
+      transform: rotate(-1.2deg);
+      transition: transform .4s ease;
+    }
+
+    .storefront-frame::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 260px;
+      height: 260px;
+      background: var(--orange);
+      border-radius: 50%;
+      z-index: -1;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .22);
+    }
+
+    .storefront-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -34px;
+      right: -34px;
+      width: 180px;
+      height: 180px;
+      background: var(--olive);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .storefront-frame:hover {
+      transform: rotate(0deg) scale(1.015);
+    }
+
+    .storefront-frame img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.03);
+    }
+
+    .storefront-copy .sf-eyebrow {
+      font-family: 'Caveat', cursive;
+      color: var(--orange);
+      font-size: 1.35rem;
+      letter-spacing: .5px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .storefront-copy h3 {
+      font-family: 'Shrikhand', cursive;
+      font-size: 2.6rem;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+
+    .storefront-copy p {
+      font-family: 'Bitter', Georgia, serif;
+      color: rgba(26, 23, 16, .8);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .storefront-copy .sf-addr {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 2px;
+      color: var(--ink);
+      font-size: .95rem;
+      padding: 18px 22px;
+      background: var(--cream-dark);
+      border-left: 4px solid var(--orange);
+    }
+
+    .storefront-copy .sf-addr strong {
+      color: var(--orange);
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 900px) {
+      .storefront-panel {
+        grid-template-columns: 1fr;
+        gap: 70px;
+      }
+      .storefront-frame::before {
+        width: 180px;
+        height: 180px;
+      }
+    }
+
+    /* ═══════════════════════════════════════
+       LOGO BADGE (Reusable)
+    ═══════════════════════════════════════ */
+    .logo-seal {
+      display: inline-block;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--ink);
+      padding: 6px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .5), 0 0 0 4px var(--cream), 0 0 0 6px var(--orange);
+    }
+
+    .logo-seal img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .footer-logo-seal {
+      display: block;
+      margin: 0 auto 18px;
     }
 
     .polaroid:hover {
-      transform: rotate(0deg) scale(1.09) translateY(-14px) !important;
+      transform: rotate(0deg) scale(1.12) translateY(-14px) !important;
       box-shadow: 8px 18px 52px rgba(0, 0, 0, .55);
       z-index: 10;
+    }
+
+    .polaroid:hover .polaroid-img {
+      filter: grayscale(0%) contrast(1.08) brightness(1);
     }
 
     .polaroid-img {
@@ -1730,7 +2096,8 @@
       aspect-ratio: 1;
       object-fit: cover;
       display: block;
-      filter: sepia(22%) saturate(0.85) contrast(1.06) brightness(0.96);
+      filter: grayscale(100%) contrast(1.12) brightness(.96);
+      transition: filter .45s ease;
     }
 
     .polaroid-cap {
@@ -2233,11 +2600,49 @@
       }
 
       .hero-right {
-        min-height: 420px
+        min-height: 460px;
+        padding: 36px 24px;
       }
 
-      .hero-badge {
-        display: none
+      .hero-right::after {
+        width: 380px;
+        height: 380px;
+      }
+
+      .hero-logo-wrap {
+        width: min(320px, 88%);
+      }
+
+      .hero-stamp {
+        width: 86px;
+        height: 86px;
+        top: -12px;
+        right: -6px;
+      }
+
+      .hero-stamp strong { font-size: .95rem; }
+      .hero-stamp span { font-size: .55rem; }
+
+      .signature-sec {
+        padding: 80px 24px 100px;
+      }
+
+      .signature-grid {
+        gap: 90px 20px;
+        margin-top: 60px;
+      }
+
+      .sig-halo {
+        width: 280px;
+        height: 280px;
+      }
+
+      .storefront-panel {
+        padding: 0 28px;
+      }
+
+      .storefront-copy h3 {
+        font-size: 2.1rem;
       }
 
       .about {
@@ -2429,7 +2834,10 @@
 
   <!-- NAV -->
   <nav class="site-nav" id="siteNav">
-    <a href="index.html" class="nav-brand">EliteCuts</a>
+    <a href="index.html" class="nav-brand" aria-label="Elite Cuts Studio home">
+      <img src="assets/logo.jpg" alt="Elite Cuts Studio" class="nav-logo-img">
+      <span class="nav-brand-text">Elite Cuts</span>
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -2467,15 +2875,15 @@
     </div>
 
     <div class="hero-right" id="heroRight">
-      <img class="hero-photo" id="heroPhoto"
-        src="assets/cut-01.jpg"
-        alt="Elite Cuts Studio - precision fade" loading="eager">
-    </div>
-
-    <div class="hero-badge" aria-hidden="true">
-      <div class="badge-pill">
-        <span class="badge-name">Elite Cuts</span>
-        <span class="badge-tag">studio</span>
+      <div class="hero-logo-wrap">
+        <img class="hero-photo" id="heroPhoto"
+          src="assets/logo.jpg"
+          alt="Elite Cuts Studio logo" loading="eager">
+        <div class="hero-stamp" aria-hidden="true">
+          <span>MASTER</span>
+          <strong>BARBERING</strong>
+          <span>GAINESVILLE GA</span>
+        </div>
       </div>
     </div>
 
@@ -2489,10 +2897,10 @@
       <span class="bl-line"></span>
     </div>
     <div class="strip-row" id="stripRow">
-      <div class="strip-item"><img src="assets/cut-02.jpg" alt="Precision fade" loading="lazy"></div>
-      <div class="strip-item"><img src="assets/cut-03.jpg" alt="Classic taper" loading="lazy"></div>
-      <div class="strip-item"><img src="assets/cut-04.jpg" alt="Sharp line up" loading="lazy"></div>
-      <div class="strip-item"><img src="assets/cut-05.jpg" alt="Clean cut" loading="lazy"></div>
+      <div class="strip-item"><img src="assets/cut-02.jpg" alt="Textured design cut" loading="lazy"></div>
+      <div class="strip-item"><img src="assets/cut-04.jpg" alt="Clean fade" loading="lazy"></div>
+      <div class="strip-item"><img src="assets/cut-07.jpg" alt="Tight fade" loading="lazy"></div>
+      <div class="strip-item"><img src="assets/cut-08.jpg" alt="Modern textured" loading="lazy"></div>
     </div>
     <!-- TV static canvas injected by JS -->
     <svg class="billboard-teeth" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 44" preserveAspectRatio="none"
@@ -2550,6 +2958,24 @@
         <div class="cred-stamp">LICENSED</div>
       </div>
 
+    </div>
+
+    <!-- Storefront showcase -->
+    <div class="storefront-panel rev">
+      <div class="storefront-frame">
+        <img src="assets/cut-06.jpg" alt="Elite Cuts Studio storefront on M.L.K. Jr Blvd, Gainesville GA">
+      </div>
+      <div class="storefront-copy">
+        <span class="sf-eyebrow">— Visit the Studio —</span>
+        <h3>Come See<br>The Chair</h3>
+        <p>Right off M.L.K. Jr Blvd in downtown Gainesville. Look for the barber pole, the green awning, and the Elite Cuts Studio sign out front. Park in front, walk in sharp, walk out sharper.</p>
+        <div class="sf-addr">
+          <strong>Elite Cuts Studio</strong>
+          <span>1706 M.L.K. Jr Blvd</span>
+          <span>Gainesville, GA 30501</span>
+          <span>(470) 290-5379</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2664,6 +3090,47 @@
     </div>
   </section>
 
+  <!-- ══════════════ SIGNATURE STYLES ══════════════ -->
+  <section class="signature-sec" id="signature">
+
+    <div class="vhdr vhdr-light rev">
+      <div class="vhdr-rule"><span class="vhdr-eye">— The Work —</span></div>
+      <h2 class="vhdr-h">Signature<br>Styles</h2>
+      <span class="vhdr-orn">✦ &nbsp; ✦ &nbsp; ✦</span>
+    </div>
+
+    <div class="signature-grid">
+      <div class="sig-card rev d1">
+        <div class="sig-halo c-orange"></div>
+        <div class="sig-frame">
+          <img src="assets/cut-04.jpg" alt="Clean precision fade" loading="lazy">
+          <span class="sig-cap">Precision fade ✦</span>
+        </div>
+        <span class="sig-label">PRECISION FADE</span>
+      </div>
+      <div class="sig-card rev d2">
+        <div class="sig-halo c-olive"></div>
+        <div class="sig-frame">
+          <img src="assets/cut-02.jpg" alt="Design cut with razor line" loading="lazy">
+          <span class="sig-cap">Razor design ✦</span>
+        </div>
+        <span class="sig-label">DESIGN CUT</span>
+      </div>
+      <div class="sig-card rev d3">
+        <div class="sig-halo c-amber"></div>
+        <div class="sig-frame">
+          <img src="assets/cut-05.jpg" alt="Classic side-part" loading="lazy">
+          <span class="sig-cap">Classic pomp ✦</span>
+        </div>
+        <span class="sig-label">CLASSIC POMP</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BARBER POLE -->
+  <div class="barber-strip" role="presentation"></div>
+
   <!-- ══════════════ GALLERY ══════════════ -->
   <section class="gallery" id="gallery">
 
@@ -2674,20 +3141,41 @@
     </div>
 
     <div class="polaroid-wrap">
-      <div class="polaroid rev d1"><img class="polaroid-img" src="assets/cut-01.jpg" alt="Precision fade"
-          loading="lazy"><span class="polaroid-cap">Precision ✦</span></div>
-      <div class="polaroid rev d2"><img class="polaroid-img" src="assets/cut-02.jpg" alt="Classic taper"
-          loading="lazy"><span class="polaroid-cap">Classic taper ✦</span></div>
-      <div class="polaroid rev d3"><img class="polaroid-img" src="assets/cut-03.jpg" alt="Beard shaping"
-          loading="lazy"><span class="polaroid-cap">Beard shape ✦</span></div>
-      <div class="polaroid rev d4"><img class="polaroid-img" src="assets/cut-04.jpg" alt="Skin fade"
-          loading="lazy"><span class="polaroid-cap">Skin fade ✦</span></div>
-      <div class="polaroid rev d5"><img class="polaroid-img" src="assets/cut-05.jpg" alt="Drop fade"
-          loading="lazy"><span class="polaroid-cap">Drop fade ✦</span></div>
-      <div class="polaroid rev d6"><img class="polaroid-img" src="assets/cut-06.jpg" alt="Sharp line up"
-          loading="lazy"><span class="polaroid-cap">Look sharp ✦</span></div>
-      <div class="polaroid rev d7"><img class="polaroid-img" src="assets/cut-07.jpg"
-          alt="Signature cut" loading="lazy"><span class="polaroid-cap">Elite cut ✦</span></div>
+      <div class="polaroid-cell rev">
+        <div class="polaroid-circle c-orange"></div>
+        <div class="polaroid d1"><img class="polaroid-img" src="assets/cut-01.jpg" alt="Precision fade"
+            loading="lazy"><span class="polaroid-cap">Precision ✦</span></div>
+      </div>
+      <div class="polaroid-cell rev">
+        <div class="polaroid-circle c-olive"></div>
+        <div class="polaroid d2"><img class="polaroid-img" src="assets/cut-02.jpg" alt="Textured design"
+            loading="lazy"><span class="polaroid-cap">Design cut ✦</span></div>
+      </div>
+      <div class="polaroid-cell rev">
+        <div class="polaroid-circle c-amber"></div>
+        <div class="polaroid d3"><img class="polaroid-img" src="assets/cut-04.jpg" alt="Skin fade"
+            loading="lazy"><span class="polaroid-cap">Skin fade ✦</span></div>
+      </div>
+      <div class="polaroid-cell rev">
+        <div class="polaroid-circle c-harvest"></div>
+        <div class="polaroid d4"><img class="polaroid-img" src="assets/cut-05.jpg" alt="Classic side part"
+            loading="lazy"><span class="polaroid-cap">Side part ✦</span></div>
+      </div>
+      <div class="polaroid-cell rev">
+        <div class="polaroid-circle c-olive-mid"></div>
+        <div class="polaroid d5"><img class="polaroid-img" src="assets/cut-07.jpg" alt="Tight fade"
+            loading="lazy"><span class="polaroid-cap">Tight fade ✦</span></div>
+      </div>
+      <div class="polaroid-cell rev">
+        <div class="polaroid-circle c-sienna"></div>
+        <div class="polaroid d6"><img class="polaroid-img" src="assets/cut-08.jpg" alt="Modern texture"
+            loading="lazy"><span class="polaroid-cap">Modern cut ✦</span></div>
+      </div>
+      <div class="polaroid-cell rev">
+        <div class="polaroid-circle c-gold"></div>
+        <div class="polaroid d7"><img class="polaroid-img" src="assets/cut-06.jpg"
+            alt="Elite Cuts Studio storefront" loading="lazy"><span class="polaroid-cap">The studio ✦</span></div>
+      </div>
     </div>
 
   </section>
@@ -2773,6 +3261,9 @@
   <!-- ══════════════ FOOTER ══════════════ -->
   <footer class="footer">
     <div class="footer-logo-row">
+      <div class="logo-seal footer-logo-seal">
+        <img src="assets/logo.jpg" alt="Elite Cuts Studio">
+      </div>
       <p class="footer-tagline-big">Look Sharp. Cut Elite.</p>
     </div>
     <div class="footer-grid">
