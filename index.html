@@ -51,23 +51,24 @@
    70s DESIGN TOKENS — burnt orange, avocado, harvest gold
 ═══════════════════════════════════════ */
     :root {
-      --orange: #e85118;
-      --orange-deep: #b83e12;
-      --olive: #7a8c3f;
-      --olive-dark: #546030;
-      --olive-mid: #8fa048;
-      --cream: #f0e8d0;
-      --cream-dark: #e6dcc0;
-      --cream-aged: #ddd3b2;
-      --ink: #1a1710;
-      --brown: #5c3d1e;
-      --sienna: #8b4513;
-      --amber: #c8780a;
-      --harvest: #a8620c;
-      --gold: #d4940e;
-      --white: #fff;
-      --red-pole: #b83228;
-      --blue-pole: #284e7a;
+      /* Primary: Black / Red / White / Blue - classic barber pole palette */
+      --orange: #c8323f;        /* primary red (was orange) */
+      --orange-deep: #8a1f28;   /* deep red */
+      --olive: #1e3a6f;         /* navy blue (was olive) */
+      --olive-dark: #0f2347;    /* deep navy */
+      --olive-mid: #2c5ba8;     /* bright blue */
+      --cream: #f5f3ee;         /* warm off-white paper */
+      --cream-dark: #e8e4da;
+      --cream-aged: #d8d4c8;
+      --ink: #0a0a0a;           /* near-black */
+      --brown: #1a1a1a;         /* near-black text */
+      --sienna: #6e1a22;        /* blood red */
+      --amber: #d64555;         /* bright red accent */
+      --harvest: #8a1f28;       /* deep red */
+      --gold: #e63946;          /* bright red highlight */
+      --white: #ffffff;
+      --red-pole: #c8323f;
+      --blue-pole: #1e3a6f;
     }
 
     *,
@@ -122,13 +123,13 @@
    BARBER POLE STRIP
 ═══════════════════════════════════════ */
     .barber-strip {
-      height: 14px;
+      height: 16px;
       flex-shrink: 0;
       background: repeating-linear-gradient(-45deg,
           var(--red-pole) 0, var(--red-pole) 11px,
-          #fff 11px, #fff 22px,
-          var(--amber) 22px, var(--amber) 33px,
-          #fff 33px, #fff 44px);
+          #ffffff 11px, #ffffff 22px,
+          var(--blue-pole) 22px, var(--blue-pole) 33px,
+          #ffffff 33px, #ffffff 44px);
       background-size: 62px 62px;
       animation: pole 3.4s linear infinite;
     }
@@ -539,7 +540,7 @@
       background: var(--orange);
       border-radius: 50%;
       z-index: 0;
-      box-shadow: 0 0 0 14px rgba(232, 81, 24, .18), 0 20px 60px rgba(0, 0, 0, .25);
+      box-shadow: 0 0 0 14px rgba(200, 50, 63, .18), 0 20px 60px rgba(0, 0, 0, .25);
     }
 
     .hero-logo-wrap {
@@ -736,7 +737,7 @@
     .billboard-label .bl-line {
       flex: 1;
       height: 1px;
-      background: rgba(200, 120, 10, .25)
+      background: rgba(200, 50, 63, .25)
     }
 
     /* ═══════════════════════════════════════
@@ -1126,9 +1127,9 @@
       max-width: 960px;
       margin: 0 auto;
       position: relative;
-      background: #060504;
-      border: 3px solid #1a140c;
-      box-shadow: 0 0 80px rgba(0, 0, 0, .95), inset 0 0 60px rgba(0, 0, 0, .6);
+      background: #050505;
+      border: 3px solid var(--orange);
+      box-shadow: 0 0 80px rgba(0, 0, 0, .95), inset 0 0 60px rgba(0, 0, 0, .6), 0 0 0 6px #050505;
     }
 
     /* Bulb border layer — sits outside the board */
@@ -1143,13 +1144,13 @@
       position: absolute;
       border-radius: 50%;
       background: var(--amber);
-      box-shadow: 0 0 6px var(--amber), 0 0 14px rgba(200, 120, 10, .55);
+      box-shadow: 0 0 6px var(--amber), 0 0 14px rgba(200, 50, 63, .55);
       transition: background .08s, box-shadow .08s;
     }
 
     .vegas-bulb.dim {
-      background: #2a1a04;
-      box-shadow: 0 0 2px rgba(200, 120, 10, .15);
+      background: #2a0810;
+      box-shadow: 0 0 2px rgba(200, 50, 63, .15);
     }
 
     /* Inner padded content */
@@ -1166,7 +1167,7 @@
       letter-spacing: .5em;
       color: var(--amber);
       margin-bottom: 12px;
-      text-shadow: 0 0 8px var(--amber), 0 0 22px rgba(200, 120, 10, .5);
+      text-shadow: 0 0 8px var(--amber), 0 0 22px rgba(200, 50, 63, .5);
     }
 
     /* "ELITE CUTS PRESENTS" */
@@ -1174,7 +1175,7 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1rem;
       letter-spacing: .45em;
-      color: rgba(200, 120, 10, .55);
+      color: rgba(200, 50, 63, .55);
       text-align: center;
       display: block;
       margin-bottom: 14px;
@@ -1192,7 +1193,7 @@
         0 0 16px #fff,
         0 0 32px var(--orange),
         0 0 64px var(--orange),
-        0 0 110px rgba(232, 81, 24, .45);
+        0 0 110px rgba(200, 50, 63, .45);
       animation: neon-flicker 7s steps(1) infinite;
       margin-bottom: 12px;
     }
@@ -1206,12 +1207,12 @@
       53%,
       63%,
       100% {
-        text-shadow: 0 0 7px #fff, 0 0 16px #fff, 0 0 32px var(--orange), 0 0 64px var(--orange), 0 0 110px rgba(232, 81, 24, .45);
+        text-shadow: 0 0 7px #fff, 0 0 16px #fff, 0 0 32px var(--orange), 0 0 64px var(--orange), 0 0 110px rgba(200, 50, 63, .45);
       }
 
       18%,
       52% {
-        text-shadow: 0 0 4px rgba(255, 255, 255, .25), 0 0 10px rgba(232, 81, 24, .2);
+        text-shadow: 0 0 4px rgba(255, 255, 255, .25), 0 0 10px rgba(200, 50, 63, .2);
       }
     }
 
@@ -1220,7 +1221,7 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1rem;
       letter-spacing: .32em;
-      color: rgba(200, 120, 10, .5);
+      color: rgba(200, 50, 63, .5);
       text-align: center;
       display: block;
       margin-bottom: 38px;
@@ -1230,7 +1231,7 @@
     .vegas-rule {
       border: none;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(200, 120, 10, .4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(200, 50, 63, .4), transparent);
       margin: 0 0 34px;
     }
 
@@ -1241,7 +1242,7 @@
     }
 
     .vegas-col-divider {
-      background: linear-gradient(180deg, transparent, rgba(200, 120, 10, .25), transparent);
+      background: linear-gradient(180deg, transparent, rgba(200, 50, 63, .25), transparent);
     }
 
     .vegas-col {
@@ -1264,9 +1265,9 @@
       text-align: center;
       padding-bottom: 18px;
       margin-bottom: 18px;
-      color: #e0faff;
-      text-shadow: 0 0 8px #00e5ff, 0 0 20px rgba(0, 229, 255, .45);
-      border-bottom: 1px solid rgba(0, 229, 255, .15);
+      color: #e0f0ff;
+      text-shadow: 0 0 8px var(--olive-mid), 0 0 20px rgba(44, 91, 168, .55);
+      border-bottom: 1px solid rgba(44, 91, 168, .25);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1300,11 +1301,11 @@
       justify-content: center;
       color: var(--amber);
       font-size: 1.05rem;
-      background: rgba(200, 120, 10, .1);
+      background: rgba(200, 50, 63, .1);
       border-radius: 50%;
-      border: 1px solid rgba(200, 120, 10, .2);
+      border: 1px solid rgba(200, 50, 63, .2);
       text-shadow: 0 0 6px var(--amber);
-      box-shadow: 0 0 8px rgba(200, 120, 10, .15);
+      box-shadow: 0 0 8px rgba(200, 50, 63, .15);
     }
 
     .vi-name {
@@ -1318,7 +1319,7 @@
     .vi-desc {
       font-family: 'Caveat', cursive;
       font-size: 1rem;
-      color: rgba(200, 120, 10, .45);
+      color: rgba(200, 50, 63, .45);
       white-space: nowrap;
     }
 
@@ -1326,7 +1327,7 @@
     .vegas-footer {
       margin-top: 34px;
       padding-top: 22px;
-      border-top: 1px solid rgba(200, 120, 10, .18);
+      border-top: 1px solid rgba(200, 50, 63, .18);
       text-align: center;
       font-family: 'Bebas Neue', sans-serif;
       letter-spacing: .25em;
@@ -1335,9 +1336,9 @@
 
     .vegas-open-sign {
       display: inline-block;
-      color: #ff2d78;
+      color: #ffffff;
       margin-right: 14px;
-      text-shadow: 0 0 7px #ff2d78, 0 0 22px rgba(255, 45, 120, .6);
+      text-shadow: 0 0 7px #ffffff, 0 0 22px rgba(255, 255, 255, .6);
       animation: open-pulse 2.2s ease-in-out infinite;
     }
 
@@ -1345,16 +1346,16 @@
 
       0%,
       100% {
-        text-shadow: 0 0 7px #ff2d78, 0 0 22px rgba(255, 45, 120, .6), 0 0 44px rgba(255, 45, 120, .25)
+        text-shadow: 0 0 7px #ffffff, 0 0 22px rgba(255, 255, 255, .6), 0 0 44px rgba(255, 255, 255, .25)
       }
 
       50% {
-        text-shadow: 0 0 3px rgba(255, 45, 120, .5), 0 0 8px rgba(255, 45, 120, .25)
+        text-shadow: 0 0 3px rgba(255, 255, 255, .5), 0 0 8px rgba(255, 255, 255, .25)
       }
     }
 
     .vegas-footer-text {
-      color: rgba(200, 120, 10, .42)
+      color: rgba(200, 50, 63, .42)
     }
 
     /* ═══════════════════════════════════════
@@ -1383,7 +1384,7 @@
       width: 700px;
       height: 700px;
       border-radius: 50%;
-      background: rgba(200, 120, 10, .05);
+      background: rgba(200, 50, 63, .05);
       top: -200px;
       right: -200px;
       pointer-events: none;
@@ -1444,15 +1445,17 @@
     .tv-cabinet {
       max-width: 900px;
       margin: 0 auto;
-      background: #3d2b1f;
-      /* dark wood base */
-      background-image: linear-gradient(90deg, #3d2b1f 0%, #4a3526 50%, #3d2b1f 100%);
+      background: #0f0f0f;
+      /* deep black cabinet */
+      background-image: linear-gradient(90deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
       padding: 30px;
       border-radius: 20px;
       box-shadow:
         0 40px 100px rgba(0, 0, 0, 0.8),
-        inset 0 0 40px rgba(0, 0, 0, 0.5);
-      border: 6px solid #2a1a12;
+        inset 0 0 40px rgba(0, 0, 0, 0.5),
+        0 0 0 2px var(--orange),
+        0 0 0 4px var(--ink);
+      border: 6px solid #050505;
       position: relative;
       display: grid;
       grid-template-columns: 1fr 160px;
@@ -1484,7 +1487,7 @@
       position: absolute;
       inset: 18px;
       border-radius: 8px;
-      box-shadow: 0 0 40px rgba(200, 120, 10, .18), 0 0 80px rgba(200, 120, 10, .08);
+      box-shadow: 0 0 40px rgba(200, 50, 63, .18), 0 0 80px rgba(200, 50, 63, .08);
       pointer-events: none;
       z-index: 0;
     }
@@ -1544,9 +1547,9 @@
       align-items: center;
       justify-content: space-around;
       padding: 20px 0;
-      background: #2a1a12;
+      background: #0a0a0a;
       border-radius: 10px;
-      border: 2px solid #1a110a;
+      border: 2px solid var(--orange);
     }
 
     .tv-dial {
@@ -1554,7 +1557,7 @@
       height: 70px;
       background: #1a1a1a;
       border-radius: 50%;
-      border: 4px solid #333;
+      border: 4px solid var(--orange);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
       position: relative;
       cursor: pointer;
@@ -1567,14 +1570,14 @@
       left: 50%;
       width: 4px;
       height: 15px;
-      background: #888;
+      background: var(--white);
       transform: translateX(-50%);
     }
 
     .tv-dial-label {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 0.8rem;
-      color: #887;
+      color: rgba(255, 255, 255, .65);
       margin-top: 5px;
       letter-spacing: 0.1em;
     }
@@ -1582,7 +1585,7 @@
     .tv-speaker {
       width: 80%;
       height: 100px;
-      background: repeating-linear-gradient(0deg, #111, #111 2px, #1a110a 2px, #1a110a 4px);
+      background: repeating-linear-gradient(0deg, #0a0a0a, #0a0a0a 2px, #1a1a1a 2px, #1a1a1a 4px);
       margin-top: 20px;
       border-radius: 4px;
       opacity: 0.6;
@@ -1591,10 +1594,10 @@
     .tv-power-light {
       width: 10px;
       height: 10px;
-      background: #c00;
+      background: var(--orange);
       border-radius: 50%;
       margin-top: 20px;
-      box-shadow: 0 0 10px #f00;
+      box-shadow: 0 0 10px var(--orange);
       animation: power-pulse 2s infinite alternate;
       cursor: pointer;
     }
@@ -1602,12 +1605,12 @@
     @keyframes power-pulse {
       from {
         opacity: 0.5;
-        box-shadow: 0 0 2px #f00;
+        box-shadow: 0 0 2px var(--orange);
       }
 
       to {
         opacity: 1;
-        box-shadow: 0 0 12px #f00;
+        box-shadow: 0 0 12px var(--orange);
       }
     }
 
@@ -1790,13 +1793,13 @@
       box-shadow: 0 8px 30px rgba(0, 0, 0, .22);
     }
 
-    .polaroid-circle.c-orange { background: var(--orange); }
-    .polaroid-circle.c-olive  { background: var(--olive); }
-    .polaroid-circle.c-amber  { background: var(--amber); }
-    .polaroid-circle.c-harvest { background: var(--harvest); }
-    .polaroid-circle.c-sienna { background: var(--sienna); }
-    .polaroid-circle.c-gold   { background: var(--gold); }
-    .polaroid-circle.c-olive-mid { background: var(--olive-mid); }
+    .polaroid-circle.c-orange    { background: #c8323f; }  /* classic red */
+    .polaroid-circle.c-olive     { background: #1e3a6f; }  /* navy blue */
+    .polaroid-circle.c-amber     { background: #0a0a0a; }  /* black */
+    .polaroid-circle.c-harvest   { background: #8a1f28; }  /* deep red */
+    .polaroid-circle.c-sienna    { background: #2c5ba8; }  /* bright blue */
+    .polaroid-circle.c-gold      { background: #e63946; }  /* bright red */
+    .polaroid-circle.c-olive-mid { background: #0f2347; }  /* deep navy */
 
     .polaroid {
       background: #faf6ee;
@@ -1835,7 +1838,7 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        radial-gradient(circle at 12% 22%, rgba(232, 81, 24, .07) 0, transparent 42%),
+        radial-gradient(circle at 12% 22%, rgba(200, 50, 63, .07) 0, transparent 42%),
         radial-gradient(circle at 88% 78%, rgba(122, 140, 63, .09) 0, transparent 42%);
     }
 
@@ -1869,9 +1872,9 @@
       box-shadow: 0 14px 46px rgba(0, 0, 0, .28);
     }
 
-    .sig-halo.c-orange { background: var(--orange); }
-    .sig-halo.c-olive  { background: var(--olive); }
-    .sig-halo.c-amber  { background: var(--amber); }
+    .sig-halo.c-orange { background: #c8323f; }  /* red */
+    .sig-halo.c-olive  { background: #1e3a6f; }  /* navy */
+    .sig-halo.c-amber  { background: #0a0a0a; }  /* black */
 
     .sig-frame {
       position: relative;
@@ -2905,7 +2908,7 @@
     <!-- TV static canvas injected by JS -->
     <svg class="billboard-teeth" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 44" preserveAspectRatio="none"
       aria-hidden="true">
-      <polygon fill="#1a1710"
+      <polygon fill="#0a0a0a"
         points="0,0 1200,0 1200,44 1150,22 1100,44 1050,22 1000,44 950,22 900,44 850,22 800,44 750,22 700,44 650,22 600,44 550,22 500,44 450,22 400,44 350,22 300,44 250,22 200,44 150,22 100,44 50,22 0,44" />
     </svg>
   </section>
@@ -2935,15 +2938,15 @@
 
       <div class="credentials-card rev right">
         <svg class="cred-seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="36" cy="36" r="33" stroke="#1a1710" stroke-width="2.5" />
-          <circle cx="36" cy="36" r="27" stroke="#1a1710" stroke-width="1.5" stroke-dasharray="3 3" />
-          <circle cx="36" cy="36" r="21" stroke="#1a1710" stroke-width="1.5" />
+          <circle cx="36" cy="36" r="33" stroke="#0a0a0a" stroke-width="2.5" />
+          <circle cx="36" cy="36" r="27" stroke="#0a0a0a" stroke-width="1.5" stroke-dasharray="3 3" />
+          <circle cx="36" cy="36" r="21" stroke="#0a0a0a" stroke-width="1.5" />
           <text x="36" y="32" text-anchor="middle" font-family="Shrikhand,cursive" font-size="9"
-            fill="#e85118">EC</text>
+            fill="#c8323f">EC</text>
           <text x="36" y="42" text-anchor="middle" font-family="Bebas Neue,sans-serif" font-size="5"
-            fill="rgba(26,23,16,0.5)" letter-spacing="1.5">STUDIO</text>
+            fill="rgba(10,10,10,0.5)" letter-spacing="1.5">STUDIO</text>
           <text x="36" y="61" text-anchor="middle" font-family="Bebas Neue,sans-serif" font-size="5.5"
-            fill="rgba(26,23,16,0.45)" letter-spacing="2">GAINESVILLE · GA</text>
+            fill="rgba(10,10,10,0.45)" letter-spacing="2">GAINESVILLE · GA</text>
         </svg>
         <p class="cred-title">MASTER BARBERING</p>
         <h3 class="cred-name">Elite Cuts Studio</h3>
