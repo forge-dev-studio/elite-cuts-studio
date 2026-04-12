@@ -38,11 +38,11 @@
         <span class="hamburger-line"></span>
       </button>
       <nav id="siteNav" class="site-nav" aria-label="Primary navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="index.html#services" class="nav-link">Services</a>
-        <a href="index.html#gallery" class="nav-link">Gallery</a>
-        <a href="contact.html" class="nav-link active">Contact</a>
-        <a href="appointments.html" class="nav-cta">Book Now</a>
+        <a href="index.html" class="nav-link" data-es="Inicio">Home</a>
+        <a href="index.html#services" class="nav-link" data-es="Servicios">Services</a>
+        <a href="index.html#gallery" class="nav-link" data-es="Galeria">Gallery</a>
+        <a href="contact.html" class="nav-link active" data-es="Contacto">Contact</a>
+        <a href="appointments.html" class="nav-cta" data-es="Reservar">Book Now</a>
       </nav>
     </div>
   </header>
@@ -55,13 +55,13 @@
         <div class="page-hero-content" data-animate="fade-up">
           <div class="hero-badge">
             <span class="badge-icon">&#9993;</span>
-            <span>Get in Touch</span>
+            <span data-es="Contactanos">Get in Touch</span>
           </div>
-          <h1>Let&rsquo;s <em class="gold-italic">Connect.</em></h1>
-          <p class="lead">Reach out anytime. Whether it&rsquo;s about booking, services, or just saying hello, Elite Cuts Studio is ready to help you look your sharpest.</p>
+          <h1 data-es="Hablemos<em class='gold-italic'>.</em>">Let&rsquo;s <em class="gold-italic">Connect.</em></h1>
+          <p class="lead" data-es="Escribenos cuando quieras. Ya sea para reservar, preguntar sobre servicios o simplemente saludar, Elite Cuts Studio esta listo para ayudarte a verte mejor.">Reach out anytime. Whether it&rsquo;s about booking, services, or just saying hello, Elite Cuts Studio is ready to help you look your sharpest.</p>
           <div class="page-hero-actions">
-            <a href="tel:14702905379" class="btn btn-primary btn-lg">Call the Studio</a>
-            <a href="appointments.html" class="btn btn-outline btn-lg">Book Now</a>
+            <a href="tel:14702905379" class="btn btn-primary btn-lg" data-es="Llama al Estudio">Call the Studio</a>
+            <a href="appointments.html" class="btn btn-outline btn-lg" data-es="Reservar">Book Now</a>
           </div>
         </div>
       </div>
@@ -72,35 +72,35 @@
       <div class="container contact-layout">
         <div data-animate="fade-right">
           <div class="section-label section-label-left">
-            <span class="label-text">Send a Message</span>
+            <span class="label-text" data-es="Envia un Mensaje">Send a Message</span>
             <span class="label-line"></span>
           </div>
           <form id="contactForm" autocomplete="on">
             <div class="form-row-2col">
               <div class="form-group">
-                <label for="firstName">First Name *</label>
+                <label for="firstName" data-es="Nombre *">First Name *</label>
                 <input type="text" id="firstName" name="firstName" required autocomplete="given-name"
                   placeholder="Your first name">
               </div>
               <div class="form-group">
-                <label for="lastName">Last Name *</label>
+                <label for="lastName" data-es="Apellido *">Last Name *</label>
                 <input type="text" id="lastName" name="lastName" required autocomplete="family-name"
                   placeholder="Your last name">
               </div>
             </div>
             <div class="form-group">
-              <label for="email">Email *</label>
+              <label for="email" data-es="Correo *">Email *</label>
               <input type="email" id="email" name="email" required autocomplete="email" placeholder="your@email.com">
             </div>
             <div class="form-group">
-              <label for="phone">Phone (Optional)</label>
+              <label for="phone" data-es="Telefono (Opcional)">Phone (Optional)</label>
               <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(470) 000-0000">
             </div>
             <div class="form-group">
-              <label for="message">Message *</label>
+              <label for="message" data-es="Mensaje *">Message *</label>
               <textarea id="message" name="message" required placeholder="Tell us what you need..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg btn-full">Send Message</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-full" data-es="Enviar Mensaje">Send Message</button>
           </form>
         </div>
 
@@ -109,11 +109,11 @@
             <img src="assets/cut-01.jpg" alt="Precision fade at Elite Cuts Studio" loading="lazy">
           </div>
           <div class="info-card contact-location-card">
-            <div class="info-card-label">Studio Location</div>
+            <div class="info-card-label" data-es="Ubicacion del Estudio">Studio Location</div>
             <h3>Elite Cuts Studio</h3>
             <p>1706 M.L.K. Jr Blvd<br>Gainesville, GA 30501</p>
             <a href="https://www.google.com/maps/dir//1706+M.L.K.+Jr+Blvd,+Gainesville,+GA+30501"
-              target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm contact-directions-btn">Get
+              target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm contact-directions-btn" data-es="Direcciones">Get
               Directions</a>
           </div>
         </div>
@@ -124,7 +124,7 @@
     <section class="contact-info-section">
       <div class="container info-cards-grid">
         <article class="info-card" data-animate="fade-up" data-delay="0">
-          <div class="info-card-label">Direct Contact</div>
+          <div class="info-card-label" data-es="Contacto Directo">Direct Contact</div>
           <h3>Elite Cuts Studio</h3>
           <p><a href="tel:14702905379">(470) 290-5379</a></p>
           <p class="contact-social-links">
@@ -133,17 +133,17 @@
           </p>
         </article>
         <article class="info-card" data-animate="fade-up" data-delay="100">
-          <div class="info-card-label">Studio Hours</div>
-          <h3>By Appointment</h3>
-          <p>Call or text to schedule</p>
+          <div class="info-card-label" data-es="Horario del Estudio">Studio Hours</div>
+          <h3 data-es="Con Cita">By Appointment</h3>
+          <p data-es="Llama o envia mensaje para agendar">Call or text to schedule</p>
           <p><strong>(470) 290-5379</strong></p>
-          <p class="muted">Walk-ins welcome when available</p>
+          <p class="muted" data-es="Sin cita cuando hay disponibilidad">Walk-ins welcome when available</p>
         </article>
         <article class="info-card" data-animate="fade-up" data-delay="200">
-          <div class="info-card-label">Ready to Book?</div>
-          <h3>Skip the Wait</h3>
-          <p>Reserve your chair today and walk right in at your appointment time.</p>
-          <a href="appointments.html" class="btn btn-primary contact-book-btn">Book an Appointment</a>
+          <div class="info-card-label" data-es="Listo Para Reservar?">Ready to Book?</div>
+          <h3 data-es="Saltate la Espera">Skip the Wait</h3>
+          <p data-es="Reserva tu silla hoy y llega directo a tu hora.">Reserve your chair today and walk right in at your appointment time.</p>
+          <a href="appointments.html" class="btn btn-primary contact-book-btn" data-es="Reserva una Cita">Book an Appointment</a>
         </article>
       </div>
     </section>
@@ -156,22 +156,22 @@
       <div class="footer-brand">
         <span class="brand-text">EliteCuts</span>
         <p>1706 M.L.K. Jr Blvd<br>Gainesville, GA 30501</p>
-        <p class="muted">Master barbering in downtown Gainesville</p>
+        <p class="muted" data-es="Barberia maestra en el centro de Gainesville">Master barbering in downtown Gainesville</p>
       </div>
       <div class="footer-col">
-        <h4>Booking</h4>
-        <p>By appointment</p>
+        <h4 data-es="Reservaciones">Booking</h4>
+        <p data-es="Con cita">By appointment</p>
         <p><strong>(470) 290-5379</strong></p>
-        <p>Walk-ins when available</p>
+        <p data-es="Sin cita cuando hay disponibilidad">Walk-ins when available</p>
       </div>
       <div class="footer-col">
-        <h4>Quick Links</h4>
-        <a href="index.html">Home</a>
-        <a href="appointments.html">Appointments</a>
-        <a href="contact.html">Contact</a>
+        <h4 data-es="Enlaces Rapidos">Quick Links</h4>
+        <a href="index.html" data-es="Inicio">Home</a>
+        <a href="appointments.html" data-es="Citas">Appointments</a>
+        <a href="contact.html" data-es="Contacto">Contact</a>
       </div>
       <div class="footer-col">
-        <h4>Connect</h4>
+        <h4 data-es="Conectar">Connect</h4>
         <a href="tel:14702905379">(470) 290-5379</a>
         <div class="footer-socials">
           <a href="https://www.instagram.com/elitecutsstudio" target="_blank" rel="noopener noreferrer"
@@ -191,6 +191,7 @@
   </footer>
 
   <script src="site.js"></script>
+  <script src="i18n.js"></script>
 </body>
 
 </html>
