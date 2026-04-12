@@ -1858,7 +1858,7 @@
     }
 
     .reels-grid {
-      max-width: 800px;
+      max-width: 900px;
       margin: 56px auto 0;
       display: flex;
       justify-content: center;
@@ -1866,33 +1866,71 @@
       flex-wrap: wrap;
     }
 
-    .reel-frame {
-      background: #1a1a1a;
-      border: 2px solid var(--orange);
+    .reel-card {
+      position: relative;
+      width: 280px;
+      aspect-ratio: 3/4;
       border-radius: 12px;
       overflow: hidden;
+      border: 3px solid var(--orange);
       box-shadow: 0 16px 50px rgba(0, 0, 0, .5), 0 0 0 6px rgba(200, 50, 63, .08);
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-
-    .reel-frame:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, .6), 0 0 0 6px rgba(200, 50, 63, .15);
-    }
-
-    .reel-frame iframe {
+      transition: transform .35s ease, box-shadow .35s ease;
       display: block;
-      border: none;
+      text-decoration: none;
+    }
+
+    .reel-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, .6), 0 0 0 6px rgba(200, 50, 63, .2);
+    }
+
+    .reel-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.85);
+      transition: filter .35s ease;
+    }
+
+    .reel-card:hover img {
+      filter: brightness(1);
+    }
+
+    .reel-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      opacity: .85;
+      transition: opacity .3s, transform .3s;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .5));
+    }
+
+    .reel-card:hover .reel-play {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.12);
+    }
+
+    .reel-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      background: linear-gradient(to top, rgba(0, 0, 0, .8), transparent);
+      color: #fff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: .9rem;
+      letter-spacing: .2em;
+      text-align: center;
     }
 
     @media (max-width: 640px) {
-      .reels-grid {
-        gap: 24px;
-      }
-      .reel-frame iframe {
-        width: 240px;
-        height: 428px;
-      }
+      .reels-grid { gap: 20px; }
+      .reel-card { width: 240px; }
     }
 
     /* ═══════════════════════════════════════
@@ -3163,20 +3201,16 @@
       <span class="vhdr-orn">✦ &nbsp; ✦ &nbsp; ✦</span>
     </div>
     <div class="reels-grid">
-      <div class="reel-frame rev">
-        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F877283478172449%2F&show_text=false&width=267&t=0"
-          title="Elite Cuts Studio - Barbering Reel 1"
-          width="267" height="476" scrolling="no" frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          allowfullscreen="true" loading="lazy"></iframe>
-      </div>
-      <div class="reel-frame rev">
-        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2F61585323092499%2Fvideos%2F880977524451130%2F&show_text=false&width=267&t=0"
-          title="Elite Cuts Studio - Barbering Reel 2"
-          width="267" height="476" scrolling="no" frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          allowfullscreen="true" loading="lazy"></iframe>
-      </div>
+      <a class="reel-card rev" href="https://www.facebook.com/reel/877283478172449/" target="_blank" rel="noopener">
+        <img src="assets/cut-02.jpg" width="1440" height="1080" alt="Razor design work at Elite Cuts Studio" loading="lazy">
+        <div class="reel-play"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#fff" stroke-width="2"/><polygon points="19,14 19,34 36,24" fill="#fff"/></svg></div>
+        <span class="reel-label" data-es="Ver Reel">Watch Reel</span>
+      </a>
+      <a class="reel-card rev" href="https://www.facebook.com/61585323092499/videos/880977524451130/" target="_blank" rel="noopener">
+        <img src="assets/cut-01.jpg" width="1536" height="2048" alt="Precision fade at Elite Cuts Studio" loading="lazy">
+        <div class="reel-play"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#fff" stroke-width="2"/><polygon points="19,14 19,34 36,24" fill="#fff"/></svg></div>
+        <span class="reel-label" data-es="Ver Reel">Watch Reel</span>
+      </a>
     </div>
   </section>
 
