@@ -657,7 +657,7 @@
 ═══════════════════════════════════════ */
     .billboard {
       position: relative;
-      background: var(--ink);
+      background: var(--orange);
       line-height: 0;
       overflow: visible;
       z-index: 2;
@@ -665,9 +665,12 @@
 
     .strip-row {
       display: flex;
+      justify-content: space-between;
+      gap: 0;
       width: 100%;
       height: 340px;
       overflow: hidden;
+      position: relative;
     }
 
     .strip-item {
@@ -719,7 +722,7 @@
       left: 0;
       right: 0;
       padding: 10px 24px;
-      background: linear-gradient(to bottom, rgba(26, 23, 16, .8), transparent);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, .55), transparent);
       display: flex;
       align-items: center;
       gap: 16px;
@@ -2671,12 +2674,10 @@
 
       .strip-row {
         height: 220px;
-        overflow-x: auto;
-        flex-wrap: nowrap
       }
 
       .strip-item {
-        flex: 0 0 140px
+        flex: 1 1 0;
       }
 
       .test-grid {
@@ -2771,11 +2772,11 @@
       }
 
       .strip-row {
-        height: 160px
+        height: 160px;
       }
 
       .strip-item {
-        flex: 0 0 110px
+        flex: 1 1 0;
       }
 
       .vegas-title {
