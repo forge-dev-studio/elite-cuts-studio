@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Bitter:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=Caveat:wght@600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -25,27 +25,22 @@
   </div>
 
   <!-- Navigation -->
-  <header class="site-header" id="siteHeader">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="Elite Cuts Studio home" style="display:flex;align-items:center;gap:10px;">
-        <img src="assets/logo.jpg" alt="Elite Cuts Studio" style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--orange);">
-        <span class="brand-text">EliteCuts</span>
-      </a>
-      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav"
-        title="Toggle navigation menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-      <nav id="siteNav" class="site-nav" aria-label="Primary navigation">
-        <a href="index.html" class="nav-link" data-es="Inicio">Home</a>
-        <a href="index.html#services" class="nav-link" data-es="Servicios">Services</a>
-        <a href="index.html#gallery" class="nav-link" data-es="Galeria">Gallery</a>
-        <a href="contact.html" class="nav-link active" data-es="Contacto">Contact</a>
-        <a href="appointments.html" class="nav-cta" data-es="Reservar">Book Now</a>
-      </nav>
-    </div>
-  </header>
+  <nav class="site-nav" id="siteNav">
+    <a href="index.html" class="nav-brand" aria-label="Elite Cuts Studio home">
+      <img src="assets/logo.jpg" alt="Elite Cuts Studio" class="nav-logo-img">
+      <span class="nav-brand-text">Elite Cuts</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" data-es="Inicio">Home</a></li>
+      <li><a href="index.html#services" data-es="Servicios">Services</a></li>
+      <li><a href="index.html#gallery" data-es="Galeria">Gallery</a></li>
+      <li><a href="contact.html" data-es="Contacto">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="appointments.html" class="nav-book" data-es="Reservar">Book Now</a>
+  </nav>
 
   <main>
 
@@ -106,7 +101,7 @@
 
         <div data-animate="fade-left">
           <div class="about-image-wrapper contact-hero-image">
-            <img src="assets/cut-01.jpg" alt="Precision fade at Elite Cuts Studio" loading="lazy">
+            <img src="assets/cut-01.jpg" alt="Precision fade at Elite Cuts Studio" width="600" height="800" loading="lazy">
           </div>
           <div class="info-card contact-location-card">
             <div class="info-card-label" data-es="Ubicacion del Estudio">Studio Location</div>
@@ -192,6 +187,25 @@
 
   <script src="site.js"></script>
   <script src="i18n.js"></script>
+  <script>
+(function() {
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  if (toggle && links) {
+    toggle.addEventListener('click', function() {
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !open);
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+})();
+</script>
 </body>
 
 </html>

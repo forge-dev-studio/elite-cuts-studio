@@ -19,7 +19,7 @@
   <meta property="og:title" content="Elite Cuts Studio | Gainesville, GA">
   <meta property="og:description"
     content="Premium haircuts, fades, and hot towel shaves at Elite Cuts Studio in Gainesville, GA. Master barber experience on M.L.K. Jr Blvd. Book your sharpest cut today.">
-  <meta property="og:image" content="assets/logo.jpg">
+  <meta property="og:image" content="https://forge-dev-studio.github.io/elite-cuts-studio/assets/logo.jpg">
   <meta property="og:url" content="https://forge-dev-studio.github.io/elite-cuts-studio/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
@@ -31,9 +31,14 @@
    sits at the blade tip (far right).
 ═══════════════════════════════════════ */
     html,
-    body,
-    * {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%23e85118' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23e85118'/%3E%3C/svg%3E") 16 16, crosshair;
+    body {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%23c8323f' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%23c8323f' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%23c8323f' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%23c8323f' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23c8323f'/%3E%3C/svg%3E") 16 16, crosshair;
+    }
+
+    /* Global keyboard focus */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 2px;
     }
 
     /* Keep pointer feel on interactive elements */
@@ -860,7 +865,7 @@
 ═══════════════════════════════════════ */
     .about {
       background: var(--olive);
-      padding: 104px 80px;
+      padding: 104px clamp(28px, 5vw, 80px);
       position: relative;
       overflow: hidden;
     }
@@ -1103,7 +1108,7 @@
 ═══════════════════════════════════════ */
     .services {
       background: var(--cream);
-      padding: 100px 48px;
+      padding: 100px clamp(20px, 4vw, 48px);
       position: relative;
       overflow: hidden;
     }
@@ -1741,7 +1746,7 @@
 ═══════════════════════════════════════ */
     .gallery {
       background: var(--ink);
-      padding: 104px 48px;
+      padding: 104px clamp(20px, 4vw, 48px);
       position: relative;
       overflow: hidden;
     }
@@ -2144,7 +2149,7 @@
 ═══════════════════════════════════════ */
     .testimonials {
       background: var(--cream);
-      padding: 104px 48px;
+      padding: 104px clamp(20px, 4vw, 48px);
       position: relative;
       overflow: hidden;
     }
@@ -2235,7 +2240,7 @@
 ═══════════════════════════════════════ */
     .cta {
       background: var(--olive);
-      padding: 120px 48px;
+      padding: 120px clamp(20px, 4vw, 48px);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -2388,7 +2393,7 @@
 ═══════════════════════════════════════ */
     .footer {
       background: var(--ink);
-      padding: 64px 80px 36px;
+      padding: 64px clamp(28px, 5vw, 80px) 36px;
       color: rgba(255, 255, 255, .58);
       position: relative;
       overflow: hidden;
@@ -2752,7 +2757,8 @@
       }
 
       .nav-book {
-        display: none
+        font-size: .75rem;
+        padding: 8px 18px;
       }
 
       .polaroid-wrap {
@@ -2902,7 +2908,7 @@
     <div class="hero-right" id="heroRight">
       <div class="hero-logo-wrap">
         <img class="hero-photo" id="heroPhoto"
-          src="assets/logo.jpg"
+          src="assets/logo.jpg" width="1100" height="1110"
           alt="Elite Cuts Studio logo" loading="eager">
         <div class="hero-stamp" aria-hidden="true">
           <span>MASTER</span>
@@ -2967,7 +2973,7 @@
     <!-- Storefront showcase -->
     <div class="storefront-panel rev">
       <div class="storefront-frame">
-        <img src="assets/cut-06.jpg" alt="Elite Cuts Studio storefront on M.L.K. Jr Blvd, Gainesville GA">
+        <img src="assets/cut-06.jpg" width="960" height="774" alt="Elite Cuts Studio storefront on M.L.K. Jr Blvd, Gainesville GA">
       </div>
       <div class="storefront-copy">
         <span class="sf-eyebrow" data-es="— Visita el Estudio —">— Visit the Studio —</span>
@@ -3076,7 +3082,7 @@
       <div class="sig-card rev d1">
         <div class="sig-halo c-orange"></div>
         <div class="sig-frame">
-          <img src="assets/cut-04.jpg" alt="Clean precision fade" loading="lazy">
+          <img src="assets/cut-04.jpg" width="1536" height="2048" alt="Clean precision fade" loading="lazy">
           <span class="sig-cap">Precision fade ✦</span>
         </div>
         <span class="sig-label" data-es="DESVANECIDO DE PRECISION">PRECISION FADE</span>
@@ -3084,7 +3090,7 @@
       <div class="sig-card rev d2">
         <div class="sig-halo c-olive"></div>
         <div class="sig-frame">
-          <img src="assets/cut-02.jpg" alt="Design cut with razor line" loading="lazy">
+          <img src="assets/cut-02.jpg" width="1440" height="1080" alt="Design cut with razor line" loading="lazy">
           <span class="sig-cap" data-es="Diseno con navaja ✦">Razor design ✦</span>
         </div>
         <span class="sig-label" data-es="CORTE DE DISENO">DESIGN CUT</span>
@@ -3092,7 +3098,7 @@
       <div class="sig-card rev d3">
         <div class="sig-halo c-amber"></div>
         <div class="sig-frame">
-          <img src="assets/cut-05.jpg" alt="Classic side-part" loading="lazy">
+          <img src="assets/cut-05.jpg" width="1536" height="2048" alt="Classic side-part" loading="lazy">
           <span class="sig-cap" data-es="Clasico pompadour ✦">Classic pomp ✦</span>
         </div>
         <span class="sig-label" data-es="POMPADOUR CLASICO">CLASSIC POMP</span>
@@ -3116,32 +3122,32 @@
     <div class="polaroid-wrap">
       <div class="polaroid-cell rev">
         <div class="polaroid-circle c-orange"></div>
-        <div class="polaroid d1"><img class="polaroid-img" src="assets/cut-01.jpg" alt="Precision fade"
+        <div class="polaroid d1"><img class="polaroid-img" src="assets/cut-01.jpg" width="1536" height="2048" alt="Precision fade"
             loading="lazy"><span class="polaroid-cap">Precision ✦</span></div>
       </div>
       <div class="polaroid-cell rev">
         <div class="polaroid-circle c-olive"></div>
-        <div class="polaroid d2"><img class="polaroid-img" src="assets/cut-02.jpg" alt="Textured design"
+        <div class="polaroid d2"><img class="polaroid-img" src="assets/cut-02.jpg" width="1440" height="1080" alt="Textured design"
             loading="lazy"><span class="polaroid-cap">Design cut ✦</span></div>
       </div>
       <div class="polaroid-cell rev">
         <div class="polaroid-circle c-amber"></div>
-        <div class="polaroid d3"><img class="polaroid-img" src="assets/cut-04.jpg" alt="Skin fade"
+        <div class="polaroid d3"><img class="polaroid-img" src="assets/cut-04.jpg" width="1536" height="2048" alt="Skin fade"
             loading="lazy"><span class="polaroid-cap">Skin fade ✦</span></div>
       </div>
       <div class="polaroid-cell rev">
         <div class="polaroid-circle c-harvest"></div>
-        <div class="polaroid d4"><img class="polaroid-img" src="assets/cut-05.jpg" alt="Classic side part"
+        <div class="polaroid d4"><img class="polaroid-img" src="assets/cut-05.jpg" width="1536" height="2048" alt="Classic side part"
             loading="lazy"><span class="polaroid-cap">Side part ✦</span></div>
       </div>
       <div class="polaroid-cell rev">
         <div class="polaroid-circle c-olive-mid"></div>
-        <div class="polaroid d5"><img class="polaroid-img" src="assets/cut-07.jpg" alt="Tight fade"
+        <div class="polaroid d5"><img class="polaroid-img" src="assets/cut-07.jpg" width="1536" height="2048" alt="Tight fade"
             loading="lazy"><span class="polaroid-cap">Tight fade ✦</span></div>
       </div>
       <div class="polaroid-cell rev">
         <div class="polaroid-circle c-sienna"></div>
-        <div class="polaroid d6"><img class="polaroid-img" src="assets/cut-08.jpg" alt="Modern texture"
+        <div class="polaroid d6"><img class="polaroid-img" src="assets/cut-08.jpg" width="1536" height="2048" alt="Modern texture"
             loading="lazy"><span class="polaroid-cap">Modern cut ✦</span></div>
       </div>
     </div>

@@ -367,16 +367,23 @@
       btn.textContent = "Sending...";
       btn.disabled = true;
 
+      var firstName = (document.getElementById("firstName") || {}).value || "";
+      var lastName = (document.getElementById("lastName") || {}).value || "";
+      var email = (document.getElementById("email") || {}).value || "";
+      var phone = (document.getElementById("phone") || {}).value || "";
+      var message = (document.getElementById("message") || {}).value || "";
+
+      var msg = 'New Contact from EliteCutsStudio.com\n---\nName: ' + firstName + ' ' + lastName + '\nEmail: ' + email + '\nPhone: ' + (phone || 'N/A') + '\nMessage: ' + message;
+      window.open('https://wa.me/14702905379?text=' + encodeURIComponent(msg), '_blank');
+
+      btn.textContent = "Message Sent!";
+      btn.style.background = "#27ae60";
+      contactForm.reset();
       setTimeout(function () {
-        btn.textContent = "Message Sent!";
-        btn.style.background = "#27ae60";
-        contactForm.reset();
-        setTimeout(function () {
-          btn.textContent = originalText;
-          btn.style.background = "";
-          btn.disabled = false;
-        }, 3000);
-      }, 1200);
+        btn.textContent = originalText;
+        btn.style.background = "";
+        btn.disabled = false;
+      }, 3000);
     });
   }
 
