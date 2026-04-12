@@ -378,16 +378,17 @@
       opacity: 0.4;
     }
 
-    /* MODAL FOR WIDGET */
+    /* BOOKING MODAL */
     #bookingModal {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, .9);
+      background: rgba(0, 0, 0, .92);
       z-index: 1000;
       display: none;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       padding: 20px;
+      overflow-y: auto;
     }
 
     #bookingModal.open {
@@ -396,11 +397,12 @@
 
     .modal-content {
       width: 100%;
-      max-width: 800px;
-      max-height: 90vh;
-      background: var(--cream);
+      max-width: 680px;
+      background: var(--ink);
+      border: 2px solid var(--orange);
       position: relative;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, .5);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, .5), 0 0 0 6px rgba(200, 50, 63, .1);
+      margin: 40px 0;
     }
 
     .modal-close {
@@ -413,13 +415,199 @@
       font-family: 'Bebas Neue', sans-serif;
     }
 
+    /* ── BOOKING FORM ── */
+    .booking-form {
+      padding: 48px 40px;
+      color: #fff;
+    }
+
+    .bf-title {
+      font-family: 'Shrikhand', cursive;
+      font-size: 2rem;
+      text-align: center;
+      color: #fff;
+      letter-spacing: .04em;
+      margin-bottom: 36px;
+      text-shadow: 2px 2px 0 rgba(0,0,0,.3);
+    }
+
+    .bf-section { margin-bottom: 24px; }
+    .bf-row { display: flex; gap: 16px; }
+    .bf-half { flex: 1; }
+
+    .bf-label {
+      display: block;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: .9rem;
+      letter-spacing: .2em;
+      color: var(--orange);
+      margin-bottom: 8px;
+    }
+
+    .booking-form input,
+    .booking-form select {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 4px;
+      color: #fff;
+      font-family: 'Bitter', Georgia, serif;
+      font-size: .95rem;
+      transition: border-color .2s;
+    }
+
+    .booking-form input:focus,
+    .booking-form select:focus {
+      outline: none;
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(200, 50, 63, .15);
+    }
+
+    .booking-form select option {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    /* Barber selector grid */
+    .barber-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .barber-card {
+      cursor: pointer;
+    }
+
+    .barber-card input { display: none; }
+
+    .bc-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 20px 10px;
+      background: rgba(255, 255, 255, .04);
+      border: 2px solid rgba(255, 255, 255, .1);
+      border-radius: 8px;
+      transition: border-color .2s, background .2s, transform .2s;
+    }
+
+    .barber-card input:checked + .bc-inner {
+      border-color: var(--orange);
+      background: rgba(200, 50, 63, .12);
+      transform: translateY(-3px);
+    }
+
+    .bc-inner:hover {
+      border-color: rgba(255, 255, 255, .3);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .bc-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Shrikhand', cursive;
+      font-size: 1.5rem;
+      color: #fff;
+      text-shadow: 1px 1px 0 rgba(0,0,0,.2);
+    }
+
+    .bc-name {
+      font-family: 'Shrikhand', cursive;
+      font-size: 1.05rem;
+      color: #fff;
+    }
+
+    .bc-role {
+      font-family: 'Caveat', cursive;
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .5);
+    }
+
+    /* Submit button */
+    .bf-submit {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: .15em;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      margin-top: 8px;
+      border-radius: 4px;
+    }
+
+    .bf-submit:hover {
+      background: var(--orange-deep);
+      transform: translateY(-2px);
+    }
+
+    .bf-note {
+      text-align: center;
+      font-size: .82rem;
+      color: rgba(255, 255, 255, .4);
+      margin-top: 14px;
+      font-family: 'Bitter', Georgia, serif;
+    }
+
+    /* Success state */
+    .bf-success {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .bf-check {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 20px;
+    }
+
+    .bf-success h3 {
+      font-family: 'Shrikhand', cursive;
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .bf-success p {
+      color: rgba(255, 255, 255, .6);
+      font-family: 'Bitter', Georgia, serif;
+    }
+
     @media(max-width: 768px) {
       .vegas-billboard {
         padding: 40px 20px;
       }
-
       .service-menu {
         grid-template-columns: 1fr;
+      }
+      .barber-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .bf-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      .booking-form {
+        padding: 32px 20px;
       }
     }
   </style>
@@ -584,15 +772,124 @@
     </div>
   </main>
 
+  <!-- ══════════════ BOOKING FORM ══════════════ -->
   <div id="bookingModal">
     <div class="modal-content">
       <span class="modal-close" onclick="closeBooking()">[ CLOSE X ]</span>
-      <div style="padding:60px 30px;text-align:center;color:var(--cream);font-family:'Bebas Neue',sans-serif;">
-        <h2 style="font-size:2rem;letter-spacing:2px;color:var(--orange);margin-bottom:20px;" data-es="RESERVA POR TELEFONO">BOOK BY PHONE</h2>
-        <p style="font-size:1.2rem;letter-spacing:1px;margin-bottom:30px;" data-es="Llama o envia un mensaje para agendar tu cita">Call or text to schedule your appointment</p>
-        <a href="tel:4702905379" style="display:inline-block;padding:18px 40px;background:var(--orange);color:var(--cream);text-decoration:none;font-size:1.4rem;letter-spacing:2px;border-radius:4px;">(470) 290-5379</a>
-        <p style="margin-top:30px;font-size:0.95rem;opacity:0.7;font-family:'Bitter',serif;">1706 M.L.K. Jr Blvd, Gainesville, GA 30501</p>
-      </div>
+      <form id="bookingForm" class="booking-form">
+        <h2 class="bf-title" data-es="RESERVA TU CITA">BOOK YOUR APPOINTMENT</h2>
+
+        <!-- Barber Selector -->
+        <div class="bf-section">
+          <label class="bf-label" data-es="Elige Tu Barbero">Choose Your Barber</label>
+          <div class="barber-grid" id="barberGrid">
+            <label class="barber-card">
+              <input type="radio" name="barber" value="Marcus" required>
+              <div class="bc-inner">
+                <div class="bc-avatar">M</div>
+                <span class="bc-name">Marcus</span>
+                <span class="bc-role" data-es="Barbero Principal">Lead Barber</span>
+              </div>
+            </label>
+            <label class="barber-card">
+              <input type="radio" name="barber" value="Julio">
+              <div class="bc-inner">
+                <div class="bc-avatar">J</div>
+                <span class="bc-name">Julio</span>
+                <span class="bc-role" data-es="Especialista en Degradados">Fade Specialist</span>
+              </div>
+            </label>
+            <label class="barber-card">
+              <input type="radio" name="barber" value="DeShawn">
+              <div class="bc-inner">
+                <div class="bc-avatar">D</div>
+                <span class="bc-name">DeShawn</span>
+                <span class="bc-role" data-es="Diseno y Estilo">Design &amp; Style</span>
+              </div>
+            </label>
+            <label class="barber-card">
+              <input type="radio" name="barber" value="Any">
+              <div class="bc-inner">
+                <div class="bc-avatar" style="font-size:.9rem;">EC</div>
+                <span class="bc-name" data-es="Cualquiera">Any Available</span>
+                <span class="bc-role" data-es="Proximo disponible">Next available</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Service -->
+        <div class="bf-section">
+          <label class="bf-label" for="bf-service" data-es="Servicio">Service</label>
+          <select id="bf-service" name="service" required>
+            <option value="" data-es="Selecciona un servicio...">Select a service...</option>
+            <option value="In-between Haircut ($20)">In-between Haircut - $20</option>
+            <option value="Beard Shaping ($20)">Beard Shaping - $20</option>
+            <option value="Kids Cut ($25)">Kids Cut - $25</option>
+            <option value="Short Haircut ($30)">Short Haircut - $30</option>
+            <option value="Skin / Bald Fade ($40)">Skin / Bald Fade - $40</option>
+            <option value="Medium / Long Cut ($40)">Medium / Long Cut - $40</option>
+            <option value="Full Head Shave ($45)">Full Head Shave - $45</option>
+            <option value="Hot Towel Shave ($45)">Hot Towel Shave - $45</option>
+            <option value="Simple Beard Trim ($10)">Simple Beard Trim - $10</option>
+            <option value="Premium Beard Trim ($20)">Premium Beard Trim - $20</option>
+            <option value="Buzz Cut ($20)">Buzz Cut - $20</option>
+          </select>
+        </div>
+
+        <!-- Date + Time -->
+        <div class="bf-row">
+          <div class="bf-section bf-half">
+            <label class="bf-label" for="bf-date" data-es="Fecha Preferida">Preferred Date</label>
+            <input type="date" id="bf-date" name="date" required>
+          </div>
+          <div class="bf-section bf-half">
+            <label class="bf-label" for="bf-time" data-es="Hora Preferida">Preferred Time</label>
+            <select id="bf-time" name="time" required>
+              <option value="" data-es="Selecciona hora...">Select time...</option>
+              <option>9:00 AM</option>
+              <option>9:30 AM</option>
+              <option>10:00 AM</option>
+              <option>10:30 AM</option>
+              <option>11:00 AM</option>
+              <option>11:30 AM</option>
+              <option>12:00 PM</option>
+              <option>12:30 PM</option>
+              <option>1:00 PM</option>
+              <option>1:30 PM</option>
+              <option>2:00 PM</option>
+              <option>2:30 PM</option>
+              <option>3:00 PM</option>
+              <option>3:30 PM</option>
+              <option>4:00 PM</option>
+              <option>4:30 PM</option>
+              <option>5:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="bf-row">
+          <div class="bf-section bf-half">
+            <label class="bf-label" for="bf-name" data-es="Tu Nombre">Your Name</label>
+            <input type="text" id="bf-name" name="name" required placeholder="John" autocomplete="given-name">
+          </div>
+          <div class="bf-section bf-half">
+            <label class="bf-label" for="bf-phone" data-es="Tu Telefono">Your Phone</label>
+            <input type="tel" id="bf-phone" name="phone" required placeholder="(470) 000-0000" autocomplete="tel">
+          </div>
+        </div>
+
+        <button type="submit" class="bf-submit" data-es="Confirmar Reservacion">Confirm Booking</button>
+        <p class="bf-note" data-es="Recibiras confirmacion por texto. Si necesitas cambiar tu cita, llama al (470) 290-5379.">You'll receive a text confirmation. To reschedule, call (470) 290-5379.</p>
+
+        <!-- Success state (hidden by default) -->
+        <div id="bf-success" class="bf-success" style="display:none;">
+          <div class="bf-check">&#10003;</div>
+          <h3 data-es="Solicitud Enviada">Request Sent!</h3>
+          <p data-es="Elite Cuts Studio confirmara tu cita por texto pronto.">Elite Cuts Studio will confirm your appointment via text shortly.</p>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -643,6 +940,13 @@
     }
     initVegasLights();
 
+    /* Set min date to today */
+    var dateInput = document.getElementById('bf-date');
+    if (dateInput) {
+      var today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+    }
+
     /* BOOKING MODAL */
     function openBooking() {
       document.getElementById('bookingModal').classList.add('open');
@@ -652,6 +956,42 @@
       document.getElementById('bookingModal').classList.remove('open');
       document.body.style.overflow = '';
     }
+
+    /* BOOKING FORM SUBMISSION */
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var fd = new FormData(this);
+      var barber = fd.get('barber') || 'Any';
+      var service = fd.get('service');
+      var date = fd.get('date');
+      var time = fd.get('time');
+      var name = fd.get('name');
+      var phone = fd.get('phone');
+
+      // Format WhatsApp message
+      var msg = 'New Booking Request\n'
+        + '---\n'
+        + 'Name: ' + name + '\n'
+        + 'Phone: ' + phone + '\n'
+        + 'Barber: ' + barber + '\n'
+        + 'Service: ' + service + '\n'
+        + 'Date: ' + date + '\n'
+        + 'Time: ' + time + '\n'
+        + '---\n'
+        + 'From: EliteCutsStudio.com';
+
+      // Send to WhatsApp (shop number)
+      var waUrl = 'https://wa.me/14702905379?text=' + encodeURIComponent(msg);
+
+      // Show success state
+      document.getElementById('bookingForm').querySelectorAll('.bf-section, .bf-row, .bf-submit, .bf-note, .bf-title').forEach(function(el) {
+        el.style.display = 'none';
+      });
+      document.getElementById('bf-success').style.display = 'block';
+
+      // Open WhatsApp in new tab
+      window.open(waUrl, '_blank');
+    });
   </script>
   <script src="i18n.js"></script>
 </body>
