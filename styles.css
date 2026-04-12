@@ -1,13 +1,13 @@
 /* ============================================================
-   ELITE CUTS STUDIO - RETRO BARBERSHOP THEME
-   Olive green + orange + cream
+   ELITE CUTS STUDIO - BARBERSHOP THEME
+   Black + Red + White + Blue
    ============================================================ */
 
 /* Retro crosshair cursor — site-wide */
 html,
 body,
 * {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%23e85118' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23e85118'/%3E%3C/svg%3E") 16 16, auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%23c8323f' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%23c8323f' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%23c8323f' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%23c8323f' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23c8323f'/%3E%3C/svg%3E") 16 16, auto;
 }
 
 a,
@@ -22,36 +22,36 @@ label {
 
 /* --- CUSTOM PROPERTIES --- */
 :root {
-  --orange: #ff6119;
-  --orange-deep: #d94d10;
-  --orange-light: #ff8247;
-  --olive: #98a25a;
-  --olive-dark: #62693a;
-  --olive-light: #b4bd75;
-  --cream: #f4efe3;
-  --cream-dark: #e8e0ce;
-  --cream-light: #faf7f0;
-  --ink: #221f1b;
-  --brown: #43362f;
-  --brown-light: #6b5a4e;
+  --orange: #c8323f;
+  --orange-deep: #8a1f28;
+  --orange-light: #e63946;
+  --olive: #1e3a6f;
+  --olive-dark: #0f2347;
+  --olive-light: #2c5ba8;
+  --cream: #f5f3ee;
+  --cream-dark: #e8e4da;
+  --cream-light: #faf8f4;
+  --ink: #0a0a0a;
+  --brown: #1a1a1a;
+  --brown-light: #333333;
   --white: #ffffff;
-  --red-barber: #c0392b;
-  --blue-barber: #2c5f8a;
+  --red-barber: #c8323f;
+  --blue-barber: #1e3a6f;
 
   /* Transparency helpers */
-  --ink-10: rgba(34, 31, 27, 0.1);
-  --ink-20: rgba(34, 31, 27, 0.2);
-  --ink-40: rgba(34, 31, 27, 0.4);
-  --ink-60: rgba(34, 31, 27, 0.6);
-  --ink-80: rgba(34, 31, 27, 0.8);
-  --orange-20: rgba(255, 97, 25, 0.2);
-  --orange-10: rgba(255, 97, 25, 0.1);
-  --olive-20: rgba(152, 162, 90, 0.2);
-  --olive-10: rgba(152, 162, 90, 0.1);
+  --ink-10: rgba(10, 10, 10, 0.1);
+  --ink-20: rgba(10, 10, 10, 0.2);
+  --ink-40: rgba(10, 10, 10, 0.4);
+  --ink-60: rgba(10, 10, 10, 0.6);
+  --ink-80: rgba(10, 10, 10, 0.8);
+  --orange-20: rgba(200, 50, 63, 0.2);
+  --orange-10: rgba(200, 50, 63, 0.1);
+  --olive-20: rgba(30, 58, 111, 0.2);
+  --olive-10: rgba(30, 58, 111, 0.1);
 
-  --shadow-soft: 0 4px 30px rgba(34, 31, 27, 0.12);
-  --shadow-card: 0 8px 40px rgba(34, 31, 27, 0.15);
-  --shadow-glow: 0 0 40px rgba(255, 97, 25, 0.12);
+  --shadow-soft: 0 4px 30px rgba(10, 10, 10, 0.12);
+  --shadow-card: 0 8px 40px rgba(10, 10, 10, 0.15);
+  --shadow-glow: 0 0 40px rgba(200, 50, 63, 0.12);
   --radius-xs: 8px;
   --radius-sm: 12px;
   --radius-md: 20px;
@@ -2021,7 +2021,7 @@ h4 {
 
 .gallery-strips-item-wrapper {
   overflow: visible !important;
-  background-color: #98a25a !important;
+  background-color: #1e3a6f !important;
   /* Olive green */
   border-radius: 4px;
   position: relative;
@@ -2048,7 +2048,7 @@ h4 {
 /* Hover effects */
 .gallery-strips-item:hover .gallery-strips-item-wrapper {
   transform: scale(0.9);
-  background-color: #62693a !important;
+  background-color: #0f2347 !important;
   /* Olive dark */
 }
 
@@ -2070,8 +2070,8 @@ h4 {
   font-family: 'Cooper Black', sans-serif !important;
   font-weight: 900 !important;
   font-style: italic !important;
-  color: #ff6119 !important;
-  text-shadow: -2px 2px 0 #98a25a !important;
+  color: #c8323f !important;
+  text-shadow: -2px 2px 0 #1e3a6f !important;
   letter-spacing: -0.02em !important;
 }
 
@@ -2136,7 +2136,7 @@ h4 {
 /* 1. Responsive Video Container */
 .video-sec {
   padding: 60px 0 !important;
-  background-color: #1c1a17 !important;
+  background-color: #0a0a0a !important;
   position: relative;
   overflow: hidden;
   width: 100vw !important;
@@ -2148,10 +2148,10 @@ h4 {
   width: 95vw !important;
   max-width: 1800px !important;
   margin: 0 auto !important;
-  border: 22px solid #ff6119;
+  border: 22px solid #c8323f;
   border-radius: 16px;
   box-shadow: 0 50px 150px rgba(0, 0, 0, 0.7),
-    0 0 0 14px #98a25a;
+    0 0 0 14px #1e3a6f;
   overflow: hidden;
   position: relative;
 }
@@ -2213,13 +2213,13 @@ h4 {
   justify-content: center;
   width: 50px;
   height: 50px;
-  color: #ff6119;
+  color: #c8323f;
   filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.2));
 }
 
 .price-dots {
   flex-grow: 1;
-  border-bottom: 3px dotted rgba(152, 162, 90, 0.3);
+  border-bottom: 3px dotted rgba(30, 58, 111, 0.3);
   margin: 0 15px;
   position: relative;
   top: -5px;
@@ -2228,7 +2228,7 @@ h4 {
 /* 4. Improved Cooper Black Header Shadow */
 .vhdr-h {
   font-family: 'Cooper Black', sans-serif !important;
-  text-shadow: -4px 4px 0px #ff6119, -8px 8px 0px rgba(152, 162, 90, 0.3) !important;
+  text-shadow: -4px 4px 0px #c8323f, -8px 8px 0px rgba(30, 58, 111, 0.3) !important;
   letter-spacing: -0.03em !important;
   line-height: 0.9 !important;
 }
@@ -2236,7 +2236,7 @@ h4 {
 /* 5. Rainbow Accent Stripe */
 .rainbow-strip {
   height: 14px;
-  background: linear-gradient(90deg, #ff6119 25%, #98a25a 25% 50%, #e6e2d3 50% 75%, #1c1a17 75%);
+  background: linear-gradient(90deg, #c8323f 25%, #1e3a6f 25% 50%, #f5f3ee 50% 75%, #0a0a0a 75%);
   width: 100%;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -2255,8 +2255,8 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 12px solid #1c1a17;
-  border-bottom: 12px solid #1c1a17;
+  border-top: 12px solid #0a0a0a;
+  border-bottom: 12px solid #0a0a0a;
 }
 
 .billboard-bg-logo {

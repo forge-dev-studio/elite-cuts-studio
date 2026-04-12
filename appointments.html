@@ -26,13 +26,13 @@
     crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
     :root {
-      --orange: #e85118;
-      --orange-deep: #b83e12;
-      --olive: #7a8c3f;
-      --olive-dark: #546030;
-      --cream: #f0e8d0;
-      --ink: #1a1710;
-      --amber: #c8780a;
+      --orange: #c8323f;
+      --orange-deep: #8a1f28;
+      --olive: #1e3a6f;
+      --olive-dark: #0f2347;
+      --cream: #f5f3ee;
+      --ink: #0a0a0a;
+      --amber: #d64555;
     }
 
     *,
@@ -53,7 +53,7 @@
       color: var(--ink);
       overflow-x: hidden;
       /* 🎯 RETRO CROSSHAIR CURSOR 🎯 */
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%23e85118' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23e85118'/%3E%3C/svg%3E") 16 16, auto;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%23c8323f' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%23c8323f' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%23c8323f' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%23c8323f' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23c8323f'/%3E%3C/svg%3E") 16 16, auto;
     }
 
     /* Keep crosshair on interactive elements */
@@ -76,7 +76,7 @@
     /* BARBER STRIP */
     .barber-strip {
       height: 14px;
-      background: repeating-linear-gradient(-45deg, #b83228 0, #b83228 11px, #fff 11px, #fff 22px, var(--amber) 22px, var(--amber) 33px, #fff 33px, #fff 44px);
+      background: repeating-linear-gradient(-45deg, var(--orange) 0, var(--orange) 11px, #fff 11px, #fff 22px, var(--olive) 22px, var(--olive) 33px, #fff 33px, #fff 44px);
       background-size: 62px 62px;
       animation: pole 3.4s linear infinite;
     }
@@ -150,8 +150,8 @@
     }
 
     .vegas-billboard {
-      background: #060504;
-      border: 3px solid #1a140c;
+      background: #050505;
+      border: 3px solid var(--orange);
       box-shadow: 0 40px 100px rgba(0, 0, 0, .6);
       padding: 60px 40px;
       position: relative;
@@ -173,7 +173,7 @@
     }
 
     .vegas-bulb.dim {
-      background: #2a1a04;
+      background: #2a0810;
       box-shadow: none;
     }
 
