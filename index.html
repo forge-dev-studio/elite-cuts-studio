@@ -3583,28 +3583,13 @@
 
 
       /* ══════════════════════════════════════
-         POLAROID STAGGER
+         POLAROID STAGGER (cell-level reveal is handled by .rev,
+         this just adds a subtle cascade delay to each polaroid)
       ══════════════════════════════════════ */
-      const pols = document.querySelectorAll('.polaroid');
-      const rots = [-3.2, 2.5, -1.8, 3.4, -2.6, 1.8, -2.2];
-      const ys = [6, -9, 11, -5, 9, -11, 7];
-      pols.forEach((p, i) => {
-        p.style.opacity = '0';
-        p.style.transform = `rotate(${rots[i % rots.length]}deg) translateY(${ys[i % ys.length] + 30}px)`;
-        p.style.transition = `opacity .65s ease ${i * .075}s, transform .65s ease ${i * .075}s, box-shadow .35s`;
+      const polCells = document.querySelectorAll('.polaroid-cell');
+      polCells.forEach((cell, i) => {
+        cell.style.transitionDelay = (i * 0.08) + 's';
       });
-      const polObs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (!e.isIntersecting) return;
-          const i = Array.from(pols).indexOf(e.target);
-          setTimeout(() => {
-            e.target.style.opacity = '1';
-            e.target.style.transform = `rotate(${rots[i % rots.length]}deg) translateY(${ys[i % ys.length]}px)`;
-          }, i * 75);
-          polObs.unobserve(e.target);
-        });
-      }, { threshold: .1 });
-      pols.forEach(p => polObs.observe(p));
 
 
       /* ══════════════════════════════════════
