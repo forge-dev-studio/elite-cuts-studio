@@ -1654,66 +1654,88 @@
 
     /* MODERN MINIMALIST CARD CTA (The White Box) */
     .contrast-cta-sec {
-      background: var(--ink);
-      padding: 120px 48px;
+      background: var(--orange);
+      padding: 0;
       text-align: center;
       position: relative;
-    }
-
-    .contrast-card {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #fdfdfd;
-      /* Off-white from image */
-      padding: 80px 40px;
-      color: var(--ink);
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.4);
-      position: relative;
       overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .contrast-card::before {
+    .contrast-cta-sec::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-      background-size: 14px 14px;
+      background-image:
+        repeating-linear-gradient(-55deg, transparent 0, transparent 18px, rgba(0, 0, 0, .04) 18px, rgba(0, 0, 0, .04) 19px);
       pointer-events: none;
+    }
+
+    .contrast-cta-sec::after {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .08);
+      pointer-events: none;
+    }
+
+    .contrast-card {
+      max-width: 100%;
+      margin: 0 auto;
+      background: transparent;
+      padding: 100px clamp(28px, 5vw, 80px);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      border: none;
+      box-shadow: none;
+    }
+
+    .contrast-card::before {
+      display: none;
     }
 
     .contrast-card h2 {
       font-family: 'Shrikhand', cursive;
-      font-size: 3rem;
+      font-size: clamp(2.6rem, 5vw, 4rem);
       margin-bottom: 20px;
-      color: var(--ink);
+      color: #fff;
+      text-shadow:
+        3px 3px 0 rgba(0, 0, 0, .25),
+        6px 6px 0 rgba(0, 0, 0, .1);
+      letter-spacing: .04em;
     }
 
     .contrast-card p {
-      font-size: 1.2rem;
-      max-width: 400px;
+      font-size: 1.15rem;
+      max-width: 520px;
       margin: 0 auto 40px;
-      opacity: 0.8;
-      line-height: 1.6;
+      color: rgba(255, 255, 255, .9);
+      line-height: 1.7;
     }
 
     .btn-contrast {
       display: inline-block;
-      padding: 20px 48px;
-      background: var(--orange);
+      padding: 20px 52px;
+      background: var(--ink);
       color: #fff;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.15em;
+      font-size: 1.3rem;
+      letter-spacing: 0.2em;
       text-decoration: none;
-      transition: all 0.3s;
-      border: 3px solid var(--orange);
+      transition: transform .3s, box-shadow .3s, background .3s;
+      border: 3px solid #fff;
+      box-shadow: 6px 6px 0 rgba(0, 0, 0, .2);
     }
 
     .btn-contrast:hover {
-      background: transparent;
-      color: var(--orange);
-      transform: translateY(-5px);
+      background: #fff;
+      color: var(--ink);
+      transform: translateY(-4px);
+      box-shadow: 8px 10px 0 rgba(0, 0, 0, .25);
     }
 
     @media (max-width: 768px) {
