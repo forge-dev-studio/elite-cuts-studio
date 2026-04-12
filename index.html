@@ -1848,6 +1848,54 @@
     .polaroid.d7 { transform: rotate(-2.2deg) translateY(7px); }
 
     /* ═══════════════════════════════════════
+       REELS SECTION
+    ═══════════════════════════════════════ */
+    .reels-sec {
+      background: var(--ink);
+      padding: 104px clamp(20px, 4vw, 48px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reels-grid {
+      max-width: 800px;
+      margin: 56px auto 0;
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+
+    .reel-frame {
+      background: #1a1a1a;
+      border: 2px solid var(--orange);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 50px rgba(0, 0, 0, .5), 0 0 0 6px rgba(200, 50, 63, .08);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .reel-frame:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .6), 0 0 0 6px rgba(200, 50, 63, .15);
+    }
+
+    .reel-frame iframe {
+      display: block;
+      border: none;
+    }
+
+    @media (max-width: 640px) {
+      .reels-grid {
+        gap: 24px;
+      }
+      .reel-frame iframe {
+        width: 240px;
+        height: 428px;
+      }
+    }
+
+    /* ═══════════════════════════════════════
        SIGNATURE STYLES — BW + BIG COLORED CIRCLES
     ═══════════════════════════════════════ */
     .signature-sec {
@@ -3105,6 +3153,31 @@
       </div>
     </div>
 
+  </section>
+
+  <!-- ══════════════ REELS ══════════════ -->
+  <section class="reels-sec">
+    <div class="vhdr vhdr-dark rev">
+      <div class="vhdr-rule"><span class="vhdr-eye" data-es="— En Accion —">— In Action —</span></div>
+      <h2 class="vhdr-h" data-es="Detras de<br>la Silla">Behind<br>the Chair</h2>
+      <span class="vhdr-orn">✦ &nbsp; ✦ &nbsp; ✦</span>
+    </div>
+    <div class="reels-grid">
+      <div class="reel-frame rev">
+        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F877283478172449%2F&show_text=false&width=267&t=0"
+          title="Elite Cuts Studio - Barbering Reel 1"
+          width="267" height="476" scrolling="no" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allowfullscreen="true" loading="lazy"></iframe>
+      </div>
+      <div class="reel-frame rev">
+        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2F61585323092499%2Fvideos%2F880977524451130%2F&show_text=false&width=267&t=0"
+          title="Elite Cuts Studio - Barbering Reel 2"
+          width="267" height="476" scrolling="no" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allowfullscreen="true" loading="lazy"></iframe>
+      </div>
+    </div>
   </section>
 
   <!-- BARBER POLE -->
