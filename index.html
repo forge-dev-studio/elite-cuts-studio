@@ -1732,7 +1732,7 @@
    GALLERY — polaroids
 ═══════════════════════════════════════ */
     .gallery {
-      background: var(--orange);
+      background: var(--ink);
       padding: 104px 48px;
       position: relative;
       overflow: hidden;
@@ -1743,11 +1743,11 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background-image: radial-gradient(circle, rgba(0, 0, 0, .09) 1.4px, transparent 1.4px);
+      background-image: radial-gradient(circle, rgba(255, 255, 255, .05) 1.4px, transparent 1.4px);
       background-size: 20px 20px;
     }
 
-    /* 70s big circle in gallery bg */
+    /* Red accent circle in gallery bg */
     .gallery::after {
       content: '';
       position: absolute;
@@ -1756,8 +1756,20 @@
       width: 500px;
       height: 500px;
       border-radius: 50%;
-      background: rgba(0, 0, 0, .08);
+      background: rgba(200, 50, 63, .08);
       pointer-events: none;
+    }
+
+    .gallery .vhdr-h {
+      color: var(--white);
+    }
+
+    .gallery .vhdr-eye {
+      color: var(--orange);
+    }
+
+    .gallery .vhdr-orn {
+      color: rgba(255, 255, 255, .3);
     }
 
     .polaroid-wrap {
@@ -3479,9 +3491,18 @@
         entries => entries.forEach(e => {
           if (e.isIntersecting) { e.target.classList.add('vis'); revObs.unobserve(e.target); }
         }),
-        { threshold: 0.1 }
+        { threshold: 0.08, rootMargin: '0px 0px -5% 0px' }
       );
       document.querySelectorAll('.rev').forEach(el => revObs.observe(el));
+
+      // Fallback: if the page is printed, crawled, or the user is already
+      // at the bottom on load, force-reveal every .rev element after 2s so
+      // content never stays invisible.
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.querySelectorAll('.rev:not(.vis)').forEach(el => el.classList.add('vis'));
+        }, 2000);
+      });
 
 
       /* ══════════════════════════════════════
