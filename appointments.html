@@ -974,7 +974,7 @@
       submitBtn.disabled = true;
 
       // 1. Send to GHL via Firebase function (creates contact + tags)
-      fetch('https://us-central1-forge-dev-studio.cloudfunctions.net/eliteCutsBooking', {
+      fetch('https://us-central1-studio-3250918761-4550d.cloudfunctions.net/eliteCutsBooking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: name, phone: phone, barber: barber, service: service, date: date, time: time, lang: lang })
