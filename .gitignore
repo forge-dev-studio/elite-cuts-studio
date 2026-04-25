@@ -5,3 +5,13 @@ node_modules/
 *.log
 .DS_Store
 Thumbs.db
+.env.*
+!.env.example
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+firebase-debug.log
+.firebase/
+*.cookies.json
+*-cookies.json

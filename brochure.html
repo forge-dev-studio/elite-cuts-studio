@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Elite Cuts Studio - Tri-Fold Brochure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Bitter:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --red:#c8323f;
+    --red-deep:#8a1f28;
+    --navy:#1e3a6f;
+    --navy-deep:#0f2347;
+    --cream:#f5f3ee;
+    --cream-aged:#d8d4c8;
+    --ink:#0a0a0a;
+    --gold:#d4a84b;
+  }
+  *{
+    box-sizing:border-box;margin:0;padding:0;
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+    color-adjust:exact !important;
+  }
+  html,body{
+    background:#2a2a2a;font-family:'Bitter',Georgia,serif;color:var(--ink);
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+
+  /* Each sheet = one side of the tri-fold on landscape letter */
+  .sheet{
+    width:11in;height:8.5in;
+    background:var(--cream);
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    margin:20px auto;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+    position:relative;
+    overflow:hidden;
+  }
+  .panel{
+    padding:.45in .35in;
+    position:relative;
+    border-right:1px dashed rgba(200,50,63,.25);
+    display:flex;flex-direction:column;
+  }
+  .panel:last-child{border-right:none}
+
+  /* Film grain + aged paper */
+  .sheet::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(138,31,40,.04), transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(30,58,111,.04), transparent 50%);
+    z-index:1;
+  }
+  .panel > *{position:relative;z-index:2}
+
+  /* Type scale */
+  .wordmark{font-family:'Shrikhand',cursive;color:var(--red);line-height:.95}
+  .display{font-family:'Bebas Neue',sans-serif;letter-spacing:.02em;line-height:1}
+  .script{font-family:'Caveat',cursive;color:var(--red-deep)}
+
+  /* ═══════════════ COVER PANEL ═══════════════ */
+  .cover{
+    background:
+      linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 45%, var(--red-deep) 55%, var(--red) 100%);
+    color:var(--cream);
+    padding:0;
+    justify-content:space-between;
+  }
+  .cover-inner{
+    padding:.5in .4in;
+    height:100%;
+    display:flex;flex-direction:column;justify-content:space-between;
+    align-items:center;text-align:center;
+    background-image:
+      repeating-linear-gradient(0deg,
+        transparent 0, transparent 18px,
+        rgba(255,255,255,.04) 18px, rgba(255,255,255,.04) 19px);
+  }
+  .cover .wordmark{
+    font-size:58px;color:var(--cream);
+    text-shadow:3px 3px 0 var(--red-deep);
+  }
+  .cover .tagline{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:26px;letter-spacing:.18em;
+    color:var(--gold);
+    margin-top:6px;
+  }
+  .cover .hero-badge{
+    width:2in;height:2in;border-radius:50%;
+    background:var(--cream);color:var(--navy-deep);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-family:'Bebas Neue',sans-serif;
+    border:4px solid var(--gold);
+    box-shadow:0 0 0 8px var(--red-deep), 0 12px 30px rgba(0,0,0,.4);
+  }
+  .cover .hero-badge .big{font-size:60px;line-height:.9;color:var(--red)}
+  .cover .hero-badge .small{font-size:14px;letter-spacing:.2em;margin-top:4px}
+  .cover-foot{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.25em;color:var(--cream)}
+  .cover-foot .addr{font-size:13px;letter-spacing:.1em;opacity:.85;margin-top:6px;font-family:'Bitter',serif;font-style:italic}
+
+  /* Barber pole stripe */
+  .pole{
+    position:absolute;top:0;bottom:0;width:18px;
+    background:repeating-linear-gradient(135deg,
+      var(--red) 0 14px,
+      var(--cream) 14px 22px,
+      var(--navy) 22px 36px,
+      var(--cream) 36px 44px);
+  }
+  .pole.left{left:0}
+  .pole.right{right:0}
+
+  /* ═══════════════ BACK PANEL ═══════════════ */
+  .back{background:var(--cream-aged);justify-content:space-between}
+  .back h3{
+    font-family:'Bebas Neue',sans-serif;font-size:28px;
+    color:var(--red-deep);letter-spacing:.08em;
+    border-bottom:3px double var(--navy);padding-bottom:6px;margin-bottom:10px;
+  }
+  .back p{font-size:13px;line-height:1.55;margin-bottom:8px}
+  .back .qr-block{text-align:center;background:var(--cream);padding:14px;border:2px solid var(--navy-deep)}
+  .back .qr-block canvas, .back .qr-block img{margin:0 auto 8px}
+  .back .qr-block .qr-label{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.12em;color:var(--navy-deep)}
+  .back .contact-line{display:flex;align-items:center;gap:8px;font-size:14px;margin:4px 0}
+  .back .contact-line b{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.08em;color:var(--red-deep);min-width:60px}
+  .hours-table{width:100%;font-size:13px;margin-top:4px}
+  .hours-table td{padding:2px 0}
+  .hours-table td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+
+  /* ═══════════════ FLAP / FIRST VISIT PANEL ═══════════════ */
+  .flap{
+    background:var(--red-deep);
+    color:var(--cream);
+    justify-content:center;
+    align-items:center;text-align:center;
+    background-image:
+      repeating-linear-gradient(45deg,
+        transparent 0, transparent 24px,
+        rgba(245,243,238,.05) 24px, rgba(245,243,238,.05) 26px);
+  }
+  .flap .kicker{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.28em;color:var(--gold);margin-bottom:10px}
+  .flap .headline{font-family:'Shrikhand',cursive;font-size:46px;line-height:1;color:var(--cream);margin-bottom:14px}
+  .flap .sub{font-family:'Bitter',serif;font-style:italic;font-size:15px;line-height:1.5;margin-bottom:18px;max-width:3in}
+  .flap .coupon{
+    border:3px dashed var(--gold);
+    padding:14px 18px;background:rgba(0,0,0,.15);
+    font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;
+  }
+  .flap .coupon .big{font-size:40px;color:var(--gold);line-height:1}
+  .flap .coupon .mid{font-size:16px;color:var(--cream);margin-top:4px}
+  .flap .coupon .fine{font-family:'Bitter',serif;font-style:italic;font-size:10px;opacity:.7;margin-top:8px;letter-spacing:0}
+  .flap .stamp{
+    margin-top:16px;
+    font-family:'Caveat',cursive;font-size:22px;color:var(--gold);
+    transform:rotate(-4deg);
+  }
+
+  /* ═══════════════ INSIDE - LEFT (EXPERIENCE) ═══════════════ */
+  .exp{background:var(--cream);padding-top:.4in}
+  .exp .eyebrow{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.28em;color:var(--red);margin-bottom:6px}
+  .exp .headline{font-family:'Shrikhand',cursive;font-size:38px;color:var(--navy-deep);line-height:1;margin-bottom:12px}
+  .exp p{font-size:13px;line-height:1.6;margin-bottom:10px}
+  .exp .steps{margin-top:8px;border-top:2px solid var(--navy);padding-top:10px}
+  .exp .step{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start}
+  .exp .step-num{
+    font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--cream);
+    background:var(--red);width:32px;height:32px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;border-radius:50%;
+  }
+  .exp .step-body b{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.08em;color:var(--navy-deep);display:block}
+  .exp .step-body span{font-size:12px;line-height:1.45;display:block;margin-top:2px}
+  .exp .quote{
+    margin-top:auto;
+    border-left:4px solid var(--red);
+    padding:10px 12px;background:var(--cream-aged);
+    font-family:'Bitter',serif;font-style:italic;font-size:12px;line-height:1.5;
+  }
+  .exp .quote .author{display:block;margin-top:6px;font-family:'Bebas Neue',sans-serif;font-style:normal;font-size:13px;letter-spacing:.1em;color:var(--red-deep)}
+
+  /* ═══════════════ INSIDE - MIDDLE (MENU) ═══════════════ */
+  .menu{
+    background:var(--navy-deep);color:var(--cream);
+    padding:.4in .3in;
+  }
+  .menu::before{
+    content:"";position:absolute;inset:.2in .15in;
+    border:2px solid var(--gold);
+    pointer-events:none;
+  }
+  .menu::after{
+    content:"";position:absolute;inset:.24in .19in;
+    border:1px solid rgba(212,168,75,.4);
+    pointer-events:none;
+  }
+  .menu .menu-header{text-align:center;margin-bottom:14px}
+  .menu .menu-header .ribbon{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.32em;color:var(--gold)}
+  .menu .menu-header .title{font-family:'Shrikhand',cursive;font-size:38px;color:var(--cream);line-height:1}
+  .menu .menu-header .rule{width:70%;margin:6px auto 0;height:2px;background:var(--gold)}
+
+  .menu-section{margin-bottom:12px}
+  .menu-section .cat{
+    font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.2em;color:var(--gold);
+    text-align:center;margin-bottom:6px;
+    position:relative;
+  }
+  .menu-section .cat::before,
+  .menu-section .cat::after{
+    content:"✦";color:var(--gold);opacity:.6;margin:0 6px;font-size:10px;
+  }
+  .menu-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    font-family:'Bitter',serif;font-size:12.5px;line-height:1.5;
+    border-bottom:1px dotted rgba(245,243,238,.25);
+    padding:3px 0;
+  }
+  .menu-row .name{font-weight:700}
+  .menu-row .desc{font-style:italic;opacity:.7;font-size:10.5px;margin-left:6px;font-weight:400}
+  .menu-row .price{
+    font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--gold);
+    letter-spacing:.05em;flex-shrink:0;margin-left:8px;
+  }
+  .menu-row.signature{background:rgba(212,168,75,.08);padding:5px 6px;border-radius:2px;margin:2px 0}
+  .menu-row.signature .name{color:var(--gold)}
+  .menu-row.signature .price{font-size:20px}
+
+  .menu-foot{text-align:center;margin-top:10px;font-family:'Bebas Neue',sans-serif;font-size:10.5px;letter-spacing:.18em;color:rgba(245,243,238,.7)}
+
+  /* ═══════════════ INSIDE - RIGHT (BOOK NOW + REFERRAL) ═══════════════ */
+  .book{background:var(--cream);justify-content:space-between}
+  .book .headline{font-family:'Shrikhand',cursive;font-size:36px;color:var(--red);line-height:1;margin-bottom:8px}
+  .book .sub{font-family:'Bitter',serif;font-style:italic;font-size:13px;margin-bottom:14px;color:var(--navy-deep)}
+  .book .qr-wrap{
+    text-align:center;background:var(--navy-deep);
+    padding:14px;color:var(--cream);
+    border:2px solid var(--gold);
+  }
+  .book .qr-wrap .qr-top{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.28em;color:var(--gold);margin-bottom:8px}
+  .book .qr-wrap canvas, .book .qr-wrap img{margin:0 auto;background:var(--cream);padding:8px}
+  .book .qr-wrap .qr-bottom{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:.1em;margin-top:8px;color:var(--cream)}
+  .book .phone-block{
+    text-align:center;padding:10px 0;
+    border-top:2px solid var(--navy);border-bottom:2px solid var(--navy);
+    margin:12px 0;
+  }
+  .book .phone-block .lbl{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.3em;color:var(--red)}
+  .book .phone-block .num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--navy-deep);letter-spacing:.04em;margin-top:2px}
+  .book .phone-block .walk{font-family:'Bitter',serif;font-style:italic;font-size:11px;margin-top:4px}
+
+  .referral{
+    background:var(--red);color:var(--cream);
+    padding:12px;text-align:center;
+    border:2px dashed var(--cream-aged);
+  }
+  .referral .kicker{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:.28em;color:var(--gold);margin-bottom:4px}
+  .referral .headline-r{font-family:'Shrikhand',cursive;font-size:24px;line-height:1;margin-bottom:6px}
+  .referral p{font-size:12px;line-height:1.45}
+  .referral .amounts{
+    display:flex;justify-content:space-around;margin-top:8px;padding-top:8px;border-top:1px solid rgba(245,243,238,.3);
+  }
+  .referral .amounts b{display:block;font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--gold)}
+  .referral .amounts span{font-size:10px;letter-spacing:.15em;text-transform:uppercase;opacity:.9}
+
+  /* Print */
+  @page{size:letter landscape;margin:0}
+  @media print{
+    html,body{background:#fff}
+    .sheet{margin:0;box-shadow:none;page-break-after:always}
+    .sheet:last-child{page-break-after:auto}
+    .no-print{display:none}
+  }
+
+  .controls{
+    position:fixed;top:10px;right:10px;z-index:999;
+    background:var(--navy-deep);color:var(--cream);padding:10px 14px;
+    font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;
+    border:2px solid var(--gold);cursor:pointer;
+  }
+  .controls:hover{background:var(--red-deep)}
+
+  .label-strip{
+    text-align:center;padding:8px;background:#1a1a1a;color:#888;
+    font-family:'Bebas Neue',sans-serif;letter-spacing:.2em;font-size:12px;
+    margin:10px auto 0;width:11in;
+  }
+</style>
+</head>
+<body>
+
+<button class="controls no-print" onclick="window.print()">Print / Save as PDF</button>
+
+<!-- ═══════════════ OUTSIDE (what you see folded: right = cover) ═══════════════ -->
+<div class="label-strip no-print">OUTSIDE - fold left panel in first, then right panel over it. Cover = right panel.</div>
+<div class="sheet">
+
+  <!-- LEFT panel (outside) = BACK of brochure when folded -->
+  <div class="panel back">
+    <div class="pole left"></div>
+    <div style="padding-left:18px">
+      <h3>Find Us</h3>
+      <div class="contact-line"><b>Where</b><span>1706 M.L.K. Jr Blvd<br>Gainesville, GA 30501</span></div>
+      <div class="contact-line"><b>Call</b><span>(470) 290-5379</span></div>
+      <div class="contact-line"><b>Text</b><span>Walk-in status &amp; booking</span></div>
+
+      <h3 style="margin-top:16px">Hours</h3>
+      <table class="hours-table">
+        <tr><td>Tue - Fri</td><td>9a - 7p</td></tr>
+        <tr><td>Saturday</td><td>8a - 6p</td></tr>
+        <tr><td>Sunday</td><td>10a - 4p</td></tr>
+        <tr><td>Monday</td><td style="color:var(--red-deep)">Closed</td></tr>
+      </table>
+
+      <div class="qr-block" style="margin-top:14px">
+        <div id="qr-back"></div>
+        <div class="qr-label">Scan to leave a review</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIDDLE panel (outside) = inside flap, first visit offer -->
+  <div class="panel flap">
+    <div class="kicker">First Visit</div>
+    <div class="headline">Welcome<br>to the Chair</div>
+    <div class="sub">Bring this brochure on your first visit and Marcus will finish your cut with a hot towel - on the house.</div>
+    <div class="coupon">
+      <div class="big">FREE</div>
+      <div class="mid">Hot Towel Finish</div>
+      <div class="fine">First visit only. Present brochure. One per guest.</div>
+    </div>
+    <div class="stamp">- Thomas, your barber</div>
+  </div>
+
+  <!-- RIGHT panel (outside) = COVER -->
+  <div class="panel cover">
+    <div class="pole right"></div>
+    <div class="cover-inner">
+      <div>
+        <div class="wordmark">Elite<br>Cuts</div>
+        <div class="tagline">Studio</div>
+      </div>
+      <div class="hero-badge">
+        <div class="big">EST.</div>
+        <div class="big" style="font-size:36px">GA</div>
+        <div class="small">MASTER BARBERS</div>
+      </div>
+      <div>
+        <div class="cover-foot">GAINESVILLE'S<br>SHARPEST CUT</div>
+        <div class="addr">1706 M.L.K. Jr Blvd, Gainesville GA</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════ INSIDE (what opens when they unfold) ═══════════════ -->
+<div class="label-strip no-print">INSIDE - The experience, the menu, the booking</div>
+<div class="sheet">
+
+  <!-- LEFT panel (inside) = EXPERIENCE -->
+  <div class="panel exp">
+    <div class="eyebrow">The Elite Experience</div>
+    <div class="headline">More Than<br>a Haircut</div>
+    <p>Walk in, sit down, and leave looking like the sharpest version of yourself. Every service is finished the old-school way - clean lines, hot towels, and no rushing.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body"><b>Consult</b><span>Tell us what you want. We'll tell you what'll look right on you.</span></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body"><b>The Cut</b><span>Clippers, shears, straight razor. Every line detailed by hand.</span></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body"><b>Finish</b><span>Hot towel, cleanup, and a look in the mirror you can be proud of.</span></div>
+      </div>
+    </div>
+    <div class="quote">
+      "Best fade I've had in Gainesville. Thomas treats every cut like it's going on a magazine cover."
+      <span class="author">- Marcus J., regular since day one</span>
+    </div>
+  </div>
+
+  <!-- MIDDLE panel (inside) = THE MENU -->
+  <div class="panel menu">
+    <div class="menu-header">
+      <div class="ribbon">THE MENU</div>
+      <div class="title">Services</div>
+      <div class="rule"></div>
+    </div>
+
+    <div class="menu-section">
+      <div class="cat">Signature Experience</div>
+      <div class="menu-row signature">
+        <span><span class="name">The Full Service</span><span class="desc">cut + beard + hot towel</span></span>
+        <span class="price">$55</span>
+      </div>
+      <div class="menu-row signature">
+        <span><span class="name">Master Cut &amp; Razor</span><span class="desc">cut + straight razor</span></span>
+        <span class="price">$50</span>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="cat">Hair</div>
+      <div class="menu-row"><span><span class="name">Signature Haircut</span></span><span class="price">$30</span></div>
+      <div class="menu-row"><span><span class="name">Haircut + Beard</span></span><span class="price">$40</span></div>
+      <div class="menu-row"><span><span class="name">In-Between Trim</span><span class="desc">returning clients</span></span><span class="price">$20</span></div>
+      <div class="menu-row"><span><span class="name">Kids' Cut</span><span class="desc">12 &amp; under</span></span><span class="price">$20</span></div>
+    </div>
+
+    <div class="menu-section">
+      <div class="cat">Beard &amp; Face</div>
+      <div class="menu-row"><span><span class="name">Beard Trim</span></span><span class="price">$15</span></div>
+      <div class="menu-row"><span><span class="name">Hot Towel Shave</span><span class="desc">old-school luxury</span></span><span class="price">$25</span></div>
+      <div class="menu-row"><span><span class="name">Eyebrow Shape</span></span><span class="price">$10</span></div>
+    </div>
+
+    <div class="menu-section">
+      <div class="cat">Detail Work</div>
+      <div class="menu-row"><span><span class="name">Shape-Up / Line-Up</span></span><span class="price">$15</span></div>
+      <div class="menu-row"><span><span class="name">Custom Designs</span><span class="desc">hair art, logos</span></span><span class="price">$15+</span></div>
+      <div class="menu-row"><span><span class="name">Premium Beard Detail</span><span class="desc">add to any service</span></span><span class="price">+$10</span></div>
+    </div>
+
+    <div class="menu-foot">WALK-INS WELCOME  ·  APPOINTMENTS CUT FIRST</div>
+  </div>
+
+  <!-- RIGHT panel (inside) = BOOK NOW -->
+  <div class="panel book">
+    <div class="pole right"></div>
+    <div style="padding-right:18px;height:100%;display:flex;flex-direction:column;justify-content:space-between">
+      <div>
+        <div class="headline">Book<br>Your Seat</div>
+        <div class="sub">Skip the wait. Scan and pick your time.</div>
+      </div>
+
+      <div class="qr-wrap">
+        <div class="qr-top">SCAN TO BOOK</div>
+        <div id="qr-book"></div>
+        <div class="qr-bottom">elitecuts.studio</div>
+      </div>
+
+      <div class="phone-block">
+        <div class="lbl">OR CALL / TEXT</div>
+        <div class="num">(470) 290-5379</div>
+        <div class="walk">Walk-ins welcome all day</div>
+      </div>
+
+      <div class="referral">
+        <div class="kicker">BRING A FRIEND</div>
+        <div class="headline-r">You Both Win</div>
+        <p>Refer a buddy. Next time you're in the chair together, you each get $10 off your cut.</p>
+        <div class="amounts">
+          <div><b>-$10</b><span>You</span></div>
+          <div><b>-$10</b><span>Friend</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Booking QR
+  new QRCode(document.getElementById("qr-book"), {
+    text: "https://forge-dev-studio.github.io/elite-cuts-studio/appointments.html",
+    width: 150, height: 150,
+    colorDark: "#0f2347",
+    colorLight: "#f5f3ee",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+  // Review QR
+  new QRCode(document.getElementById("qr-back"), {
+    text: "https://search.google.com/local/writereview?placeid=ChIJf4u3jQj39YgRSV1THm3ZCHY",
+    width: 120, height: 120,
+    colorDark: "#0f2347",
+    colorLight: "#f5f3ee",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+</script>
+
+</body>
+</html>
