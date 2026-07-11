@@ -418,8 +418,8 @@
       font-family: 'Bebas Neue', sans-serif;
     }
 
-    /* ── BOOKING FORM ── */
-    .booking-form {
+    /* ── BOOKSY BARBER PICKER ── */
+    .booking-picker {
       padding: 48px 40px;
       color: #fff;
     }
@@ -430,82 +430,62 @@
       text-align: center;
       color: #fff;
       letter-spacing: .04em;
-      margin-bottom: 36px;
+      margin-bottom: 14px;
       text-shadow: 2px 2px 0 rgba(0,0,0,.3);
     }
 
-    .bf-section { margin-bottom: 24px; }
-    .bf-row { display: flex; gap: 16px; }
-    .bf-half { flex: 1; }
-
-    .bf-label {
-      display: block;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: .9rem;
-      letter-spacing: .2em;
-      color: var(--orange);
-      margin-bottom: 8px;
-    }
-
-    .booking-form input,
-    .booking-form select {
-      width: 100%;
-      padding: 14px 16px;
-      background: rgba(255, 255, 255, .08);
-      border: 1px solid rgba(255, 255, 255, .15);
-      border-radius: 4px;
-      color: #fff;
-      font-family: 'Bitter', Georgia, serif;
+    .picker-intro {
+      max-width: 560px;
+      margin: 0 auto 30px;
+      color: rgba(255, 255, 255, .78);
       font-size: .95rem;
-      transition: border-color .2s;
+      line-height: 1.65;
+      text-align: center;
     }
 
-    .booking-form input:focus,
-    .booking-form select:focus {
-      outline: none;
-      border-color: var(--orange);
-      box-shadow: 0 0 0 3px rgba(200, 50, 63, .15);
-    }
-
-    .booking-form select option {
-      background: #1a1a1a;
-      color: #fff;
-    }
-
-    /* Barber selector grid */
-    .barber-grid {
+    .picker-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
 
     .barber-card {
+      display: block;
+      color: inherit;
+      text-decoration: none;
       cursor: pointer;
     }
-
-    .barber-card input { display: none; }
 
     .bc-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       padding: 20px 10px;
+      min-height: 178px;
       background: rgba(255, 255, 255, .04);
       border: 2px solid rgba(255, 255, 255, .1);
       border-radius: 8px;
-      transition: border-color .2s, background .2s, transform .2s;
+      text-align: center;
+      transition: border-color .2s, background .2s, transform .2s, box-shadow .2s;
     }
 
-    .barber-card input:checked + .bc-inner {
+    a.barber-card:hover .bc-inner {
       border-color: var(--orange);
       background: rgba(200, 50, 63, .12);
       transform: translateY(-3px);
     }
 
-    .bc-inner:hover {
-      border-color: rgba(255, 255, 255, .3);
-      background: rgba(255, 255, 255, .06);
+    a.barber-card:focus-visible {
+      outline: 3px solid var(--cream);
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+
+    a.barber-card:focus-visible .bc-inner {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px var(--olive);
     }
 
     .bc-avatar {
@@ -530,69 +510,35 @@
 
     .bc-role {
       font-family: 'Caveat', cursive;
-      font-size: .85rem;
-      color: rgba(255, 255, 255, .5);
+      font-size: .95rem;
+      color: rgba(255, 255, 255, .75);
     }
 
-    /* Submit button */
-    .bf-submit {
-      display: block;
-      width: 100%;
-      padding: 18px;
-      background: var(--orange);
-      color: #fff;
-      border: none;
+    .barber-card[aria-disabled="true"] {
+      cursor: not-allowed;
+    }
+
+    .barber-card[aria-disabled="true"] .bc-inner {
+      background: rgba(255, 255, 255, .025);
+      border-color: rgba(255, 255, 255, .12);
+    }
+
+    .barber-card[aria-disabled="true"] .bc-avatar {
+      background: var(--olive);
+      color: var(--cream);
+    }
+
+    .coming-soon-label {
+      display: inline-block;
+      padding: 4px 9px;
+      margin-top: 2px;
+      background: var(--cream);
+      color: var(--ink);
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: .15em;
-      cursor: pointer;
-      transition: background .2s, transform .2s;
-      margin-top: 8px;
-      border-radius: 4px;
-    }
-
-    .bf-submit:hover {
-      background: var(--orange-deep);
-      transform: translateY(-2px);
-    }
-
-    .bf-note {
-      text-align: center;
-      font-size: .82rem;
-      color: rgba(255, 255, 255, .4);
-      margin-top: 14px;
-      font-family: 'Bitter', Georgia, serif;
-    }
-
-    /* Success state */
-    .bf-success {
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .bf-check {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: var(--orange);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      margin: 0 auto 20px;
-    }
-
-    .bf-success h3 {
-      font-family: 'Shrikhand', cursive;
-      font-size: 1.8rem;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-
-    .bf-success p {
-      color: rgba(255, 255, 255, .6);
-      font-family: 'Bitter', Georgia, serif;
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border-radius: 2px;
     }
 
     @media(max-width: 768px) {
@@ -602,15 +548,17 @@
       .service-menu {
         grid-template-columns: 1fr;
       }
-      .barber-grid {
+      .picker-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .bf-row {
-        flex-direction: column;
-        gap: 0;
-      }
-      .booking-form {
+      .booking-picker {
         padding: 32px 20px;
+      }
+    }
+
+    @media(max-width: 420px) {
+      .picker-grid {
+        grid-template-columns: 1fr;
       }
     }
     a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
@@ -786,124 +734,58 @@
     </div>
   </main>
 
-  <!-- ══════════════ BOOKING FORM ══════════════ -->
+  <!-- ══════════════ BOOKSY BARBER PICKER ══════════════ -->
   <div id="bookingModal">
     <div class="modal-content">
       <span class="modal-close" onclick="closeBooking()">[ CLOSE X ]</span>
-      <form id="bookingForm" class="booking-form">
-        <h2 class="bf-title" data-es="RESERVA TU CITA">BOOK YOUR APPOINTMENT</h2>
-
-        <!-- Barber Selector -->
-        <div class="bf-section">
-          <label class="bf-label" data-es="Elige Tu Barbero">Choose Your Barber</label>
-          <div class="barber-grid" id="barberGrid">
-            <label class="barber-card">
-              <input type="radio" name="barber" value="Marcus" required>
-              <div class="bc-inner">
-                <div class="bc-avatar">M</div>
-                <span class="bc-name">Marcus</span>
-                <span class="bc-role" data-es="Barbero Principal">Lead Barber</span>
-              </div>
-            </label>
-            <label class="barber-card">
-              <input type="radio" name="barber" value="Julio">
-              <div class="bc-inner">
-                <div class="bc-avatar">J</div>
-                <span class="bc-name">Julio</span>
-                <span class="bc-role" data-es="Especialista en Degradados">Fade Specialist</span>
-              </div>
-            </label>
-            <label class="barber-card">
-              <input type="radio" name="barber" value="DeShawn">
-              <div class="bc-inner">
-                <div class="bc-avatar">D</div>
-                <span class="bc-name">DeShawn</span>
-                <span class="bc-role" data-es="Diseno y Estilo">Design &amp; Style</span>
-              </div>
-            </label>
-            <label class="barber-card">
-              <input type="radio" name="barber" value="Any">
-              <div class="bc-inner">
-                <div class="bc-avatar" style="font-size:.9rem;">EC</div>
-                <span class="bc-name" data-es="Cualquiera">Any Available</span>
-                <span class="bc-role" data-es="Proximo disponible">Next available</span>
-              </div>
-            </label>
+      <div class="booking-picker">
+        <h2 class="bf-title" data-es="Elige Tu Barbero">Choose Your Barber</h2>
+        <p class="picker-intro"
+          data-es="Cada barbero reserva por su propio horario en Booksy. Elige a quién quieres y te llevaremos directo a su calendario.">Each barber books through their own Booksy schedule. Pick who you want and you'll be taken straight to their live calendar.</p>
+        <div class="picker-grid">
+          <a class="barber-card" href="https://booksy.com/en-us/dl/show-business/1810396" target="_blank"
+            rel="noopener">
+            <div class="bc-inner">
+              <div class="bc-avatar">G</div>
+              <span class="bc-name">Gabriel</span>
+              <span class="bc-role" data-es="Barbero Maestro">Master Barber</span>
+            </div>
+          </a>
+          <a class="barber-card" href="https://booksy.com/en-us/dl/show-business/1810475" target="_blank"
+            rel="noopener">
+            <div class="bc-inner">
+              <div class="bc-avatar">O</div>
+              <span class="bc-name">Oswaldo</span>
+              <span class="bc-role" data-es="Barbero Maestro">Master Barber</span>
+            </div>
+          </a>
+          <a class="barber-card" href="https://elitecutz80.booksy.com" target="_blank" rel="noopener">
+            <div class="bc-inner">
+              <div class="bc-avatar">T</div>
+              <span class="bc-name">Thomas</span>
+              <span class="bc-role" data-es="Dueño · Barbero Maestro">Owner · Master Barber</span>
+            </div>
+          </a>
+          <!-- TODO: add Miguel's Booksy URL when live -->
+          <div class="barber-card" aria-disabled="true">
+            <div class="bc-inner">
+              <div class="bc-avatar">M</div>
+              <span class="bc-name">Miguel</span>
+              <span class="bc-role" data-es="Muy pronto">Booking soon</span>
+              <span class="coming-soon-label" data-es="Muy pronto">Booking soon</span>
+            </div>
           </div>
+          <a class="barber-card"
+            href="https://booksy.com/en-us/dl/show-business/1813863?utm_medium=c2c_referral" target="_blank"
+            rel="noopener">
+            <div class="bc-inner">
+              <div class="bc-avatar" style="font-size:.9rem;">EC</div>
+              <span class="bc-name">Any</span>
+              <span class="bc-role" data-es="Próximo disponible">Next available</span>
+            </div>
+          </a>
         </div>
-
-        <!-- Service -->
-        <div class="bf-section">
-          <label class="bf-label" for="bf-service" data-es="Servicio">Service</label>
-          <select id="bf-service" name="service" required>
-            <option value="" data-es="Selecciona un servicio...">Select a service...</option>
-            <option value="In-between Haircut ($20)">In-between Haircut - $20</option>
-            <option value="Beard Shaping ($20)">Beard Shaping - $20</option>
-            <option value="Kids Cut ($25)">Kids Cut - $25</option>
-            <option value="Short Haircut ($30)">Short Haircut - $30</option>
-            <option value="Skin / Bald Fade ($40)">Skin / Bald Fade - $40</option>
-            <option value="Medium / Long Cut ($40)">Medium / Long Cut - $40</option>
-            <option value="Full Head Shave ($45)">Full Head Shave - $45</option>
-            <option value="Hot Towel Shave ($45)">Hot Towel Shave - $45</option>
-            <option value="Simple Beard Trim ($10)">Simple Beard Trim - $10</option>
-            <option value="Premium Beard Trim ($20)">Premium Beard Trim - $20</option>
-            <option value="Buzz Cut ($20)">Buzz Cut - $20</option>
-          </select>
-        </div>
-
-        <!-- Date + Time -->
-        <div class="bf-row">
-          <div class="bf-section bf-half">
-            <label class="bf-label" for="bf-date" data-es="Fecha Preferida">Preferred Date</label>
-            <input type="date" id="bf-date" name="date" required>
-          </div>
-          <div class="bf-section bf-half">
-            <label class="bf-label" for="bf-time" data-es="Hora Preferida">Preferred Time</label>
-            <select id="bf-time" name="time" required>
-              <option value="" data-es="Selecciona hora...">Select time...</option>
-              <option>9:00 AM</option>
-              <option>9:30 AM</option>
-              <option>10:00 AM</option>
-              <option>10:30 AM</option>
-              <option>11:00 AM</option>
-              <option>11:30 AM</option>
-              <option>12:00 PM</option>
-              <option>12:30 PM</option>
-              <option>1:00 PM</option>
-              <option>1:30 PM</option>
-              <option>2:00 PM</option>
-              <option>2:30 PM</option>
-              <option>3:00 PM</option>
-              <option>3:30 PM</option>
-              <option>4:00 PM</option>
-              <option>4:30 PM</option>
-              <option>5:00 PM</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Contact Info -->
-        <div class="bf-row">
-          <div class="bf-section bf-half">
-            <label class="bf-label" for="bf-name" data-es="Tu Nombre">Your Name</label>
-            <input type="text" id="bf-name" name="name" required placeholder="John" autocomplete="given-name">
-          </div>
-          <div class="bf-section bf-half">
-            <label class="bf-label" for="bf-phone" data-es="Tu Telefono">Your Phone</label>
-            <input type="tel" id="bf-phone" name="phone" required placeholder="(470) 000-0000" autocomplete="tel">
-          </div>
-        </div>
-
-        <button type="submit" class="bf-submit" data-es="Confirmar Reservacion">Confirm Booking</button>
-        <p class="bf-note" data-es="Recibiras confirmacion por texto. Si necesitas cambiar tu cita, llama al (470) 290-5379.">You'll receive a text confirmation. To reschedule, call (470) 290-5379.</p>
-
-        <!-- Success state (hidden by default) -->
-        <div id="bf-success" class="bf-success" style="display:none;">
-          <div class="bf-check">&#10003;</div>
-          <h3 data-es="Solicitud Enviada">Request Sent!</h3>
-          <p data-es="Elite Cuts Studio confirmara tu cita por texto pronto.">Elite Cuts Studio will confirm your appointment via text shortly.</p>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 
@@ -973,13 +855,6 @@
     }
     initVegasLights();
 
-    /* Set min date to today */
-    var dateInput = document.getElementById('bf-date');
-    if (dateInput) {
-      var today = new Date().toISOString().split('T')[0];
-      dateInput.setAttribute('min', today);
-    }
-
     /* BOOKING MODAL */
     function openBooking() {
       document.getElementById('bookingModal').classList.add('open');
@@ -990,51 +865,6 @@
       document.body.style.overflow = '';
     }
 
-    /* BOOKING FORM SUBMISSION -> GHL + WhatsApp */
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var fd = new FormData(this);
-      var barber = fd.get('barber') || 'Any';
-      var service = fd.get('service');
-      var date = fd.get('date');
-      var time = fd.get('time');
-      var name = fd.get('name');
-      var phone = fd.get('phone');
-      var lang = localStorage.getItem('ecs-lang') || 'en';
-
-      var submitBtn = document.querySelector('.bf-submit');
-      submitBtn.textContent = lang === 'es' ? 'ENVIANDO...' : 'SENDING...';
-      submitBtn.disabled = true;
-
-      // 1. Send to GHL via Firebase function (creates contact + tags)
-      fetch('https://us-central1-studio-3250918761-4550d.cloudfunctions.net/eliteCutsBooking', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, phone: phone, barber: barber, service: service, date: date, time: time, lang: lang })
-      }).catch(function() { /* fail silently, WhatsApp is the backup */ });
-
-      // 2. Format WhatsApp message
-      var msg = 'New Booking Request\n'
-        + '---\n'
-        + 'Name: ' + name + '\n'
-        + 'Phone: ' + phone + '\n'
-        + 'Barber: ' + barber + '\n'
-        + 'Service: ' + service + '\n'
-        + 'Date: ' + date + '\n'
-        + 'Time: ' + time + '\n'
-        + '---\n'
-        + 'From: EliteCutsStudio.com';
-      var waUrl = 'https://wa.me/14702905379?text=' + encodeURIComponent(msg);
-
-      // 3. Show success state
-      document.getElementById('bookingForm').querySelectorAll('.bf-section, .bf-row, .bf-submit, .bf-note, .bf-title').forEach(function(el) {
-        el.style.display = 'none';
-      });
-      document.getElementById('bf-success').style.display = 'block';
-
-      // 4. Open WhatsApp
-      window.open(waUrl, '_blank');
-    });
   </script>
   <script src="i18n.js"></script>
 </body>
