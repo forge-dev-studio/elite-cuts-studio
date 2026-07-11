@@ -25,6 +25,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="styles.css">
   <style>
     /* ═══════════════════════════════════════
    VINTAGE CROSSHAIR CURSOR
@@ -2980,13 +2981,14 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#about" data-es="Nosotros">About</a></li>
       <li><a href="#services" data-es="Servicios">Services</a></li>
+      <li><a href="#barbers" data-es="Barberos">Barbers</a></li>
       <li><a href="#gallery" data-es="Galeria">Gallery</a></li>
       <li><a href="contact.html" data-es="Contacto">Contact</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-    <a href="appointments.html" class="nav-book" data-es="Reservar">Book Now</a>
+    <a href="#barbers" class="nav-book" data-es="Reservar">Book Now</a>
   </nav>
 
   <!-- ══════════════ HERO ══════════════ -->
@@ -3002,7 +3004,7 @@
       <p class="hero-ornament" data-es="✦ &nbsp; CORTES CLASICOS · AFEITADO CON TOALLA CALIENTE · BARBERIA MAESTRA &nbsp; ✦">✦ &nbsp; CLASSIC CUTS · HOT TOWEL SHAVES · MASTER BARBERING &nbsp; ✦</p>
       <p class="hero-sub" data-es="<em>Elite Cuts Studio trae barberia premium a Gainesville, GA. Cortes clasicos, afeitados con toalla caliente y una experiencia que vale la pena repetir.</em>"><em>Elite Cuts Studio brings premium barbering to Gainesville, GA. Classic cuts, hot towel shaves, and an experience worth coming back for.</em></p>
       <div class="hero-actions">
-        <a href="appointments.html" class="btn-ink" data-es="Reserva Tu Corte">
+        <a href="#barbers" class="btn-ink" data-es="Reserva Tu Corte">
           Book Your Cut
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -3100,6 +3102,104 @@
   <!-- BARBER POLE -->
   <div class="barber-strip" role="presentation"></div>
 
+  <!-- ══════════════ MEET THE BARBERS ══════════════ -->
+  <section class="barbers" id="barbers">
+    <div class="vhdr rev">
+      <div class="vhdr-rule"><span class="vhdr-eye" data-es="— Te Esperamos —">— The Chair Awaits —</span></div>
+      <h2 class="vhdr-h" data-es="Conoce a<br>los Barberos">Meet the<br>Barbers</h2>
+      <span class="vhdr-orn">✦ &nbsp; ✦ &nbsp; ✦</span>
+    </div>
+
+    <p class="barbers-sub rev" data-es="Reserva directamente con tu barbero. Elige tu barbero y aparta tu cita en segundos.">Book directly with your barber. Each chair has its own online schedule — pick your barber and lock your time in seconds.</p>
+
+    <div class="barber-grid">
+      <article class="barber-card rev" data-delay="0">
+        <div class="barber-avatar" aria-hidden="true">
+          <svg class="cred-seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="36" cy="36" r="33" stroke="currentColor" stroke-width="2.5" />
+            <circle cx="36" cy="36" r="27" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
+            <circle cx="36" cy="36" r="21" stroke="currentColor" stroke-width="1.5" />
+            <text x="36" y="43" text-anchor="middle" font-family="Shrikhand,cursive" font-size="22" fill="currentColor">G</text>
+          </svg>
+        </div>
+        <h3 class="barber-name">Gabriel</h3>
+        <p class="barber-role" data-es="Barbero Maestro">Master Barber</p>
+        <p class="barber-services" data-es="Cortes · Degradados — desde $40">Cuts · Fades · Beards — from $40</p>
+        <a class="btn-ink barber-book" href="https://booksy.com/en-us/dl/show-business/1810396" target="_blank" rel="noopener" data-es="Reservar con Gabriel">
+          Book Gabriel
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </a>
+      </article>
+
+      <article class="barber-card rev" data-delay="100">
+        <div class="barber-avatar" aria-hidden="true">
+          <svg class="cred-seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="36" cy="36" r="33" stroke="currentColor" stroke-width="2.5" />
+            <circle cx="36" cy="36" r="27" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
+            <circle cx="36" cy="36" r="21" stroke="currentColor" stroke-width="1.5" />
+            <text x="36" y="43" text-anchor="middle" font-family="Shrikhand,cursive" font-size="22" fill="currentColor">O</text>
+          </svg>
+        </div>
+        <h3 class="barber-name">Oswaldo</h3>
+        <p class="barber-role" data-es="Barbero Maestro">Master Barber</p>
+        <p class="barber-services" data-es="Cortes · Diseños — desde $36">Cuts · Designs · Beard work — from $36</p>
+        <a class="btn-ink barber-book" href="https://booksy.com/en-us/dl/show-business/1810475" target="_blank" rel="noopener" data-es="Reservar con Oswaldo">
+          Book Oswaldo
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </a>
+      </article>
+
+      <article class="barber-card rev" data-delay="200">
+        <div class="barber-avatar" aria-hidden="true">
+          <svg class="cred-seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="36" cy="36" r="33" stroke="currentColor" stroke-width="2.5" />
+            <circle cx="36" cy="36" r="27" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
+            <circle cx="36" cy="36" r="21" stroke="currentColor" stroke-width="1.5" />
+            <text x="36" y="43" text-anchor="middle" font-family="Shrikhand,cursive" font-size="22" fill="currentColor">T</text>
+          </svg>
+        </div>
+        <h3 class="barber-name">Thomas</h3>
+        <p class="barber-role" data-es="Dueño · Barbero Maestro">Owner · Master Barber</p>
+        <p class="barber-services" data-es="Cortes exclusivos · Afeitados">Signature cuts · Hot towel shaves</p>
+        <a class="btn-ink barber-book" href="https://elitecutz80.booksy.com" target="_blank" rel="noopener" data-es="Reservar con Thomas">
+          Book Thomas
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </a>
+      </article>
+
+      <article class="barber-card barber-card--soon rev" data-delay="300">
+        <div class="barber-avatar" aria-hidden="true">
+          <svg class="cred-seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="36" cy="36" r="33" stroke="currentColor" stroke-width="2.5" />
+            <circle cx="36" cy="36" r="27" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
+            <circle cx="36" cy="36" r="21" stroke="currentColor" stroke-width="1.5" />
+            <text x="36" y="43" text-anchor="middle" font-family="Shrikhand,cursive" font-size="22" fill="currentColor">M</text>
+          </svg>
+        </div>
+        <h3 class="barber-name">Miguel</h3>
+        <p class="barber-role" data-es="Barbero">Barber</p>
+        <p class="barber-services" data-es="Reservas muy pronto">Booking coming soon</p>
+        <!-- TODO: add Miguel's Booksy URL when live -->
+        <span class="barber-book barber-book--disabled" aria-disabled="true" data-es="Muy Pronto">Booking Soon</span>
+      </article>
+
+      <article class="barber-card barber-card--any rev" data-delay="400">
+        <div class="barber-any-copy">
+          <span class="barber-any-eye" aria-hidden="true">✦ NEXT AVAILABLE ✦</span>
+          <h3 class="barber-name" data-es="¿Sin preferencia?">No preference?</h3>
+          <p class="barber-services" data-es="Reserva con el próximo barbero disponible en Elite Cuts.">Book with the next available barber at Elite Cuts.</p>
+        </div>
+        <a class="btn-ink barber-book" href="https://booksy.com/en-us/dl/show-business/1813863?utm_medium=c2c_referral" target="_blank" rel="noopener" data-es="Reserva en Elite Cuts">
+          Book at Elite Cuts
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- BARBER POLE -->
+  <div class="barber-strip" role="presentation"></div>
+
   <!-- ══════════════ SERVICES ══════════════ -->
   <section class="services" id="services">
 
@@ -3173,7 +3273,7 @@
     <div class="contrast-card rev">
       <h2 data-es="El Estandar Elite">The Elite Standard</h2>
       <p data-es="Eleva tu estilo con un corte que habla por ti. El estudio premier de Gainesville para el caballero exigente.">Elevate your style with a haircut that speaks volumes. Gainesville's premier studio for the discerning gentleman.</p>
-      <a href="appointments.html" class="btn-contrast" data-es="Reserva Tu Sesion">Book Your Session</a>
+      <a href="#barbers" class="btn-contrast" data-es="Reserva Tu Sesion">Book Your Session</a>
     </div>
   </section>
 
@@ -3340,7 +3440,7 @@
       <span class="cta-eyebrow" data-es="Listo para verte mejor?">Ready to look your best?</span>
       <span class="cta-heading" data-es="Haz Tu<br>Reservacion.">Get on<br>the Books.</span>
       <p class="cta-sub" data-es="Agenda tu proximo desvanecido, degradado, corte con tijera o arreglo de barba en Elite Cuts Studio hoy. Sin esperas.">Schedule your next fade, taper, sheer cut, or beard trim with Elite Cuts Studio today. No waiting around.</p>
-      <a href="appointments.html" class="btn-white" data-es="Reserva Tu Cita">
+      <a href="https://booksy.com/en-us/dl/show-business/1813863?utm_medium=c2c_referral" class="btn-white" target="_blank" rel="noopener" data-es="Reserva Tu Cita">
         Book Your Appointment
         <svg width="17" height="17" viewBox="0 0 18 18" fill="none">
           <path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
