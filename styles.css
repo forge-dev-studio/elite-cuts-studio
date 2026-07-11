@@ -2633,6 +2633,520 @@ h4 {
 }
 
 /* ============================================================
+   ART-DIRECTOR POLISH PASS B — MID / LOWER HOME SECTIONS
+   Scoped overrides for the later inline home-page styles.
+   ============================================================ */
+
+/* Signature styles: paper depth, restrained motion, true caption tag */
+body .signature-sec .sig-card {
+  isolation: isolate;
+  perspective: 900px;
+}
+
+body .signature-sec .sig-halo {
+  transition:
+    transform 520ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 520ms cubic-bezier(.22, 1, .36, 1),
+    filter 520ms cubic-bezier(.22, 1, .36, 1);
+}
+
+body .signature-sec .sig-frame {
+  transform-origin: 50% 78%;
+  transition:
+    transform 520ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 520ms cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
+}
+
+body .signature-sec .sig-card:hover .sig-frame {
+  transform: rotate(0deg) translateY(-10px) scale(1.025);
+  box-shadow:
+    8px 18px 46px rgba(10, 10, 10, .3),
+    0 0 0 7px rgba(200, 50, 63, .07),
+    inset 0 0 0 1px rgba(10, 10, 10, .05);
+}
+
+body .signature-sec .sig-card:hover .sig-halo {
+  transform: translateX(-50%) translateY(6px) scale(1.025);
+  filter: saturate(1.05);
+  box-shadow: 0 20px 54px rgba(10, 10, 10, .3);
+}
+
+body .signature-sec .sig-frame img {
+  transform: scale(1);
+  transform-origin: 50% 45%;
+  transition:
+    transform 900ms cubic-bezier(.22, 1, .36, 1),
+    filter 520ms ease;
+}
+
+body .signature-sec .sig-card:hover .sig-frame img {
+  transform: scale(1.035);
+  filter: grayscale(0%) contrast(1.06) saturate(1.02);
+}
+
+body .signature-sec .sig-label {
+  margin-top: 25px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-size: .82rem;
+  line-height: 1.2;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+body .signature-sec .sig-label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  margin: 0 10px 3px 0;
+  background: var(--orange);
+}
+
+/* Reels: cinematic scrim and a confident reveal hierarchy */
+body .reels-sec .reel-card {
+  isolation: isolate;
+  border-radius: 8px;
+  transition:
+    transform 480ms cubic-bezier(.22, 1, .36, 1),
+    border-color 300ms ease,
+    box-shadow 480ms cubic-bezier(.22, 1, .36, 1);
+}
+
+body .reels-sec .reel-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(10, 10, 10, .94) 0%, rgba(10, 10, 10, .25) 40%, transparent 68%),
+    linear-gradient(135deg, rgba(30, 58, 111, .12), rgba(200, 50, 63, .08));
+  transition: opacity 420ms ease;
+}
+
+body .reels-sec .reel-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  border-color: var(--cream);
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, .64),
+    0 0 0 6px rgba(200, 50, 63, .18);
+}
+
+body .reels-sec .reel-card:hover::after {
+  opacity: .86;
+}
+
+body .reels-sec .reel-card img {
+  transform: scale(1);
+  filter: grayscale(.18) brightness(.72) contrast(1.08);
+  transition:
+    transform 900ms cubic-bezier(.22, 1, .36, 1),
+    filter 480ms ease;
+}
+
+body .reels-sec .reel-card:hover img {
+  transform: scale(1.075);
+  filter: grayscale(0) brightness(.88) contrast(1.04);
+}
+
+body .reels-sec .reel-play {
+  z-index: 2;
+  opacity: .9;
+  transition:
+    opacity 280ms ease,
+    transform 420ms cubic-bezier(.22, 1, .36, 1),
+    filter 280ms ease;
+}
+
+body .reels-sec .reel-card:hover .reel-play {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+  filter: drop-shadow(0 7px 18px rgba(0, 0, 0, .65));
+  animation: reelPlayPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes reelPlayPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1.08); }
+  50% { transform: translate(-50%, -50%) scale(1.15); }
+}
+
+body .reels-sec .reel-label {
+  z-index: 2;
+  padding: 24px 18px 19px;
+  background: transparent;
+  font-size: .94rem;
+  opacity: .78;
+  transform: translateY(7px);
+  transition:
+    opacity 360ms ease,
+    transform 420ms cubic-bezier(.22, 1, .36, 1),
+    letter-spacing 420ms ease;
+}
+
+body .reels-sec .reel-card:hover .reel-label {
+  opacity: 1;
+  transform: translateY(0);
+  letter-spacing: .25em;
+}
+
+/* Gallery: balanced print spacing and gentler polaroid handling */
+body .gallery .polaroid-wrap {
+  gap: 64px 44px;
+}
+
+body .gallery .polaroid-cell {
+  min-height: 258px;
+}
+
+body .gallery .polaroid-circle {
+  transition:
+    transform 520ms cubic-bezier(.22, 1, .36, 1),
+    filter 520ms ease,
+    box-shadow 520ms ease;
+}
+
+body .gallery .polaroid {
+  cursor: default;
+  transform-origin: 50% 72%;
+  transition:
+    transform 520ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 520ms cubic-bezier(.22, 1, .36, 1);
+}
+
+body .gallery .polaroid:hover {
+  transform: rotate(0deg) scale(1.045) translateY(-9px) !important;
+  box-shadow:
+    8px 18px 44px rgba(0, 0, 0, .5),
+    0 0 0 6px rgba(245, 243, 238, .08);
+}
+
+body .gallery .polaroid-cell:hover .polaroid-circle {
+  transform: translate(-50%, -50%) scale(1.035) rotate(2deg);
+  filter: saturate(1.08);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, .3);
+}
+
+body .gallery .polaroid-img {
+  transform: scale(1);
+  transition:
+    transform 850ms cubic-bezier(.22, 1, .36, 1),
+    filter 480ms ease;
+}
+
+body .gallery .polaroid:hover .polaroid-img {
+  transform: scale(1.045);
+  filter: grayscale(0%) contrast(1.06) brightness(1);
+}
+
+body .gallery .polaroid-cap {
+  opacity: .76;
+  transition:
+    color 280ms ease,
+    opacity 280ms ease,
+    transform 360ms cubic-bezier(.22, 1, .36, 1);
+}
+
+body .gallery .polaroid:hover .polaroid-cap {
+  color: var(--orange-deep);
+  opacity: 1;
+  transform: translateY(2px) scale(1.04);
+}
+
+/* Testimonials: substantial paper cards with editorial attribution */
+body .testimonials .test-grid {
+  gap: 30px;
+  align-items: stretch;
+}
+
+body .testimonials .test-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 38px 32px 30px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, .7), transparent 46%),
+    var(--cream-light);
+  border: 1px solid rgba(10, 10, 10, .12);
+  border-top: 4px solid var(--orange);
+  border-bottom: 1px solid rgba(10, 10, 10, .12);
+  box-shadow:
+    0 12px 30px rgba(10, 10, 10, .09),
+    5px 5px 0 var(--cream-dark);
+  transition:
+    transform 420ms cubic-bezier(.22, 1, .36, 1),
+    border-color 320ms ease,
+    box-shadow 420ms cubic-bezier(.22, 1, .36, 1);
+}
+
+body .testimonials .test-card:nth-child(even) {
+  border-top-color: var(--olive);
+}
+
+body .testimonials .test-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(10, 10, 10, .17);
+  border-top-color: var(--orange);
+  box-shadow:
+    0 20px 42px rgba(10, 10, 10, .14),
+    5px 7px 0 var(--cream-dark);
+}
+
+body .testimonials .test-card:nth-child(even):hover {
+  border-top-color: var(--olive);
+}
+
+body .testimonials .qmark {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  margin: 0;
+  color: var(--orange);
+  font-size: 5.4rem;
+  opacity: .1;
+}
+
+body .testimonials .test-text {
+  position: relative;
+  z-index: 1;
+  padding-top: 12px;
+  font-size: 1rem;
+  line-height: 1.78;
+}
+
+body .testimonials .test-stars {
+  margin-top: auto;
+  padding-top: 24px;
+  color: var(--orange-deep);
+}
+
+body .testimonials .test-attr {
+  margin-top: 12px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(10, 10, 10, .12);
+  color: var(--olive-dark);
+  font-family: var(--font-heading);
+  font-size: .78rem;
+  line-height: 1.2;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+/* Closing CTA and footer: stronger finish, cleaner typographic rhythm */
+body .cta .cta-inner {
+  max-width: 920px;
+  margin-inline: auto;
+}
+
+body .cta .cta-sub {
+  max-width: 540px;
+}
+
+body .cta .btn-white {
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  transition:
+    transform var(--transition-fast),
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+body .cta .btn-white::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--ink);
+  transform: translateX(-102%);
+  transition: transform 360ms cubic-bezier(.22, 1, .36, 1);
+}
+
+body .cta .btn-white:hover {
+  animation: none;
+  transform: translateY(-4px);
+  color: var(--white);
+  border-color: var(--ink);
+  box-shadow: 8px 12px 0 rgba(10, 10, 10, .28), 0 15px 30px rgba(10, 10, 10, .18);
+}
+
+body .cta .btn-white:hover::before {
+  transform: translateX(0);
+}
+
+body .cta .btn-white:active {
+  transform: translateY(-1px) scale(.985);
+  box-shadow: 4px 5px 0 rgba(10, 10, 10, .28);
+}
+
+body .cta .btn-white > * ,
+body .cta .btn-white {
+  isolation: isolate;
+}
+
+body .cta .btn-white svg {
+  position: relative;
+  z-index: 1;
+  transition: transform var(--transition-fast);
+}
+
+body .cta .btn-white:hover svg {
+  transform: translateX(4px);
+}
+
+body .cta .cta-hours {
+  box-shadow: 0 12px 30px rgba(10, 10, 10, .12);
+}
+
+body .footer .footer-logo-row {
+  padding-bottom: 34px;
+  margin-bottom: 36px;
+}
+
+body .footer .footer-tagline-big {
+  margin-top: 2px;
+  color: rgba(255, 255, 255, .32);
+  line-height: 1.15;
+}
+
+body .footer .footer-grid {
+  gap: clamp(30px, 4vw, 54px);
+  padding-bottom: 36px;
+}
+
+body .footer .footer-brand-text {
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+body .footer .fcol-label {
+  margin-bottom: 14px;
+  color: var(--orange-light);
+}
+
+body .footer .flist {
+  gap: 8px;
+  line-height: 1.55;
+}
+
+body .footer .flist a {
+  display: inline-block;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  transition:
+    color var(--transition-fast),
+    text-decoration-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+body .footer .flist a:hover {
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-color: var(--orange);
+  transform: translateX(3px);
+}
+
+body .footer .flist .acc:hover {
+  color: var(--orange-light);
+  opacity: 1;
+}
+
+body .footer .social-chip {
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+body .footer .social-chip:hover {
+  box-shadow: 0 8px 20px rgba(200, 50, 63, .24);
+}
+
+body .footer .footer-bottom {
+  padding-top: 20px;
+  letter-spacing: .08em;
+}
+
+@media (max-width: 640px) {
+  body .gallery .polaroid-wrap {
+    gap: 28px 18px;
+  }
+
+  body .gallery .polaroid-cell {
+    width: 158px;
+    min-height: 205px;
+  }
+
+  body .gallery .polaroid-circle {
+    width: 205px;
+    height: 205px;
+  }
+
+  body .testimonials .test-card {
+    padding: 34px 26px 28px;
+  }
+
+  body .cta .btn-white {
+    width: min(100%, 330px);
+    justify-content: center;
+    padding-inline: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .signature-sec .sig-halo,
+  body .signature-sec .sig-frame,
+  body .signature-sec .sig-frame img,
+  body .reels-sec .reel-card,
+  body .reels-sec .reel-card::after,
+  body .reels-sec .reel-card img,
+  body .reels-sec .reel-play,
+  body .reels-sec .reel-label,
+  body .gallery .polaroid,
+  body .gallery .polaroid-circle,
+  body .gallery .polaroid-img,
+  body .gallery .polaroid-cap,
+  body .testimonials .test-card,
+  body .cta .btn-white,
+  body .cta .btn-white::before,
+  body .cta .btn-white svg,
+  body .footer .flist a,
+  body .footer .social-chip {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body .signature-sec .sig-card:hover .sig-frame,
+  body .signature-sec .sig-card:hover .sig-halo,
+  body .signature-sec .sig-card:hover .sig-frame img,
+  body .reels-sec .reel-card:hover,
+  body .reels-sec .reel-card:hover img,
+  body .reels-sec .reel-card:hover .reel-play,
+  body .reels-sec .reel-card:hover .reel-label,
+  body .gallery .polaroid:hover,
+  body .gallery .polaroid-cell:hover .polaroid-circle,
+  body .gallery .polaroid:hover .polaroid-img,
+  body .gallery .polaroid:hover .polaroid-cap,
+  body .testimonials .test-card:hover,
+  body .cta .btn-white:hover,
+  body .cta .btn-white:hover::before,
+  body .cta .btn-white:hover svg,
+  body .footer .flist a:hover,
+  body .footer .social-chip:hover {
+    transform: none !important;
+  }
+}
+
+/* ============================================================
    ART-DIRECTOR POLISH PASS A
    Global system, hero, and barber refinements
    ============================================================ */
