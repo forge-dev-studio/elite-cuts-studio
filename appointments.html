@@ -98,16 +98,18 @@
     .nav-links { display:flex; align-items:center; gap:28px; list-style:none; }
     .nav-links a { font-family:'Bebas Neue',sans-serif; font-size:.85rem; letter-spacing:.2em; color:rgba(255,255,255,.55); text-decoration:none; transition:color .2s; }
     .nav-links a:hover { color:#fff; }
-    .nav-toggle { display:none; background:none; border:none; padding:6px; cursor:pointer; }
+    .nav-toggle { display:none; flex-direction:column; align-items:center; justify-content:center; min-width:44px; min-height:44px; background:none; border:none; padding:4px; cursor:pointer; }
     .nav-toggle span { display:block; width:22px; height:2px; background:#fff; margin:5px 0; transition:transform .3s, opacity .3s; }
-    .nav-book { font-family:'Bebas Neue',sans-serif; font-size:.85rem; letter-spacing:.2em; padding:9px 26px; background:var(--orange); color:#fff; text-decoration:none; transition:background .2s; }
+    .nav-book { display:inline-flex; align-items:center; justify-content:center; min-height:44px; font-family:'Bebas Neue',sans-serif; font-size:.85rem; letter-spacing:.2em; padding:9px 26px; background:var(--orange); color:#fff; text-decoration:none; transition:background .2s; }
     .nav-book:hover { background:var(--orange-deep); }
     @media(max-width:640px) {
       .site-nav { padding:0 20px; }
-      .nav-links { display:none; position:absolute; top:66px; left:0; right:0; background:var(--ink); flex-direction:column; padding:20px; gap:16px; border-top:1px solid rgba(255,255,255,.1); }
+      .nav-links { display:none; position:absolute; top:66px; left:0; right:0; background:var(--ink); flex-direction:column; align-items:stretch; padding:12px 20px; gap:0; border-top:1px solid rgba(255,255,255,.1); }
       .nav-links.open { display:flex; }
-      .nav-toggle { display:block; margin-left:auto; order:2; }
-      .nav-book { order:3; }
+      .nav-links li { width:100%; }
+      .nav-links a { display:flex; align-items:center; min-height:44px; padding:12px 0; }
+      .nav-toggle { display:flex; margin-left:auto; order:2; }
+      .nav-book { min-height:44px; order:3; }
       .nav-brand-text { display:none; }
     }
 
@@ -370,6 +372,11 @@
     }
 
     .footer-socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
       color: rgba(255, 255, 255, 0.4);
       font-size: 1.4rem;
       transition: color 0.2s;
@@ -767,7 +774,7 @@
             <div class="bc-inner">
               <div class="bc-avatar">T</div>
               <span class="bc-name">Thomas</span>
-              <span class="bc-role" data-es="Dueño · Barbero Maestro">Owner · Master Barber</span>
+              <span class="bc-role" data-es="Barbero Maestro">Master Barber</span>
             </div>
           </a>
           <!-- TODO: add Miguel's Booksy URL when live -->
@@ -775,7 +782,7 @@
             <div class="bc-inner">
               <div class="bc-avatar">M</div>
               <span class="bc-name">Miguel</span>
-              <span class="bc-role" data-es="Muy pronto">Booking soon</span>
+              <span class="bc-role" data-es="Dueño · Barbero Maestro">Owner · Master Barber</span>
               <span class="coming-soon-label" data-es="Muy pronto">Booking soon</span>
             </div>
           </div>

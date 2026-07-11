@@ -394,6 +394,10 @@ h4 {
 .nav-toggle {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   gap: 5px;
   padding: 10px;
   z-index: 10;
@@ -1287,9 +1291,21 @@ h4 {
   margin-bottom: 1rem;
 }
 
-.footer-col p,
-.footer-col a {
+.footer-col p {
   display: block;
+  font-size: 0.88rem;
+  color: rgba(244, 239, 227, 0.5);
+  line-height: 1.7;
+  transition: color var(--transition-fast);
+}
+
+.footer-col a {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 0;
   font-size: 0.88rem;
   color: rgba(244, 239, 227, 0.5);
   line-height: 1.7;
@@ -1301,7 +1317,7 @@ h4 {
 }
 
 .footer-col a+a {
-  margin-top: 0.3rem;
+  margin-top: 0;
 }
 
 .footer-socials {
@@ -1311,8 +1327,8 @@ h4 {
 }
 
 .footer-socials a {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
