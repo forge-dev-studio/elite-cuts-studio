@@ -2858,8 +2858,19 @@
         line-height: 1.72;
       }
 
+      /* Mobile top bar: keep a horizontal row (override shared styles.css off-canvas/column rules) */
       .site-nav {
-        padding: 0 20px
+        padding: 0 20px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        width: auto;
+        height: 66px;
       }
 
       .nav-links {
@@ -2876,7 +2887,11 @@
         border-bottom: 2px solid var(--orange);
       }
 
-      .nav-links.open {
+      /* Open the dropdown regardless of which toggle class is applied (site.js uses is-open on nav) */
+      .nav-links.open,
+      .nav-links.is-open,
+      .site-nav.is-open .nav-links,
+      .site-nav.open .nav-links {
         display: flex
       }
 
@@ -2890,12 +2905,15 @@
       }
 
       .nav-toggle {
-        display: flex
+        display: flex;
+        margin-left: auto;
+        order: 2;
       }
 
       .nav-book {
         font-size: .75rem;
         padding: 8px 18px;
+        order: 3;
       }
 
       .polaroid-wrap {
