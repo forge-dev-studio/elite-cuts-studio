@@ -2631,3 +2631,467 @@ h4 {
     transform: none;
   }
 }
+
+/* ============================================================
+   ART-DIRECTOR POLISH PASS A
+   Global system, hero, and barber refinements
+   ============================================================ */
+
+/* Tighter, more consistent display typography */
+body .vhdr-h {
+  font-size: clamp(3rem, 5.2vw, 4.8rem);
+  line-height: .88 !important;
+  letter-spacing: -.045em !important;
+  text-wrap: balance;
+}
+
+body .hero-line1,
+body .hero-line2 {
+  letter-spacing: -.04em;
+  text-wrap: balance;
+}
+
+body .hero-line1 {
+  font-size: clamp(4.8rem, 9.5vw, 9rem);
+  line-height: .84;
+}
+
+body .hero-line2 {
+  font-size: clamp(3.9rem, 8vw, 7.6rem);
+  line-height: .86;
+  letter-spacing: -.055em;
+}
+
+body .hero-dot {
+  display: inline-block;
+  color: var(--white);
+  text-shadow: 0 0 22px rgba(255, 255, 255, .34);
+  transform-origin: 50% 72%;
+  animation: heroDotPulse 3.8s cubic-bezier(.22, 1, .36, 1) infinite;
+}
+
+@keyframes heroDotPulse {
+  0%, 70%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  82% {
+    transform: scale(1.14);
+    opacity: .84;
+  }
+}
+
+/* Unified, tactile action treatment */
+.hero .btn-ink,
+.contrast-cta-sec .btn-contrast,
+.site-nav .nav-book,
+.barber-card .barber-book:not(.barber-book--disabled) {
+  transform: translateY(0);
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
+  will-change: transform;
+}
+
+.hero .btn-ink:hover,
+.contrast-cta-sec .btn-contrast:hover,
+.site-nav .nav-book:hover,
+.barber-card .barber-book:not(.barber-book--disabled):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(10, 10, 10, .28), var(--shadow-glow);
+}
+
+.hero .btn-ink:active,
+.contrast-cta-sec .btn-contrast:active,
+.site-nav .nav-book:active,
+.barber-card .barber-book:not(.barber-book--disabled):active {
+  transform: translateY(0) scale(.985);
+  box-shadow: 0 3px 8px rgba(10, 10, 10, .28);
+  transition-duration: 80ms;
+}
+
+.barber-book--disabled {
+  transition: none;
+}
+
+/* Premium print depth on dark sections */
+.reels-sec > *,
+.cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+body .vegas-billboard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .14;
+  background:
+    radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, .68) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.76' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.3'/%3E%3C/svg%3E");
+  background-size: auto, 180px 180px;
+  mix-blend-mode: soft-light;
+}
+
+body .reels-sec::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .2;
+  background:
+    radial-gradient(ellipse at center, transparent 36%, rgba(0, 0, 0, .72) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.34'/%3E%3C/svg%3E");
+  background-size: auto, 180px 180px;
+  mix-blend-mode: soft-light;
+}
+
+body .cta::after {
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background:
+    radial-gradient(circle at 88% 112%, rgba(0, 0, 0, .14) 0 25%, transparent 25.2%),
+    radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, .2) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.24'/%3E%3C/svg%3E");
+  background-size: auto, auto, 180px 180px;
+  opacity: .62;
+  mix-blend-mode: soft-light;
+}
+
+/* Refined reveal cadence */
+body .rev {
+  transform: translateY(34px);
+  transition-property: opacity, transform;
+  transition-duration: 640ms;
+  transition-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+
+body .rev.left {
+  transform: translateX(-38px);
+}
+
+body .rev.right {
+  transform: translateX(38px);
+}
+
+body .rev.scale {
+  transform: scale(.94);
+}
+
+body .rev.vis {
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+body [data-animate] {
+  transition-duration: 640ms;
+  transition-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Hero badge: restrained barber-pole orbit and slow studio-light sheen */
+.hero-logo-wrap::before,
+.hero-logo-wrap::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.hero-logo-wrap::before {
+  inset: -28px;
+  z-index: 1;
+  background: conic-gradient(
+    from 8deg,
+    var(--red-pole) 0 9deg,
+    var(--cream) 9deg 18deg,
+    var(--blue-pole) 18deg 27deg,
+    var(--cream) 27deg 36deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #000 calc(100% - 6px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #000 calc(100% - 6px));
+  opacity: .72;
+  animation: heroPoleOrbit 24s linear infinite;
+}
+
+.hero-logo-wrap::after {
+  inset: 2%;
+  z-index: 2;
+  background: linear-gradient(112deg, transparent 34%, rgba(255, 255, 255, .28) 47%, transparent 59%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: translateX(-35%) rotate(-8deg);
+  animation: heroBadgeSheen 7.5s cubic-bezier(.22, 1, .36, 1) infinite;
+}
+
+@keyframes heroPoleOrbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes heroBadgeSheen {
+  0%, 58%, 100% {
+    opacity: 0;
+    transform: translateX(-38%) rotate(-8deg);
+  }
+
+  68% {
+    opacity: .28;
+  }
+
+  82% {
+    opacity: 0;
+    transform: translateX(38%) rotate(-8deg);
+  }
+}
+
+body .hero-actions {
+  width: fit-content;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, .24);
+}
+
+/* Barber cards: compact rhythm, crafted seals, and alternating accent reveal */
+.barber-card {
+  --barber-accent: var(--orange);
+  min-height: 398px;
+  padding: 28px 22px 22px;
+  border-top: 4px solid var(--cream-dark);
+  box-shadow: 0 10px 34px rgba(10, 10, 10, .13);
+  transition:
+    transform 440ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 440ms cubic-bezier(.22, 1, .36, 1),
+    border-color 440ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.barber-card:nth-child(even) {
+  --barber-accent: var(--olive);
+  border-top-color: var(--cream-dark);
+}
+
+.barber-card::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  z-index: 2;
+  background: var(--barber-accent);
+  box-shadow: 0 3px 14px color-mix(in srgb, var(--barber-accent) 24%, transparent);
+  transform: scaleX(.34);
+  transform-origin: 50% 50%;
+  transition: transform 440ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.barber-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--ink-10);
+  box-shadow: 0 22px 52px rgba(10, 10, 10, .19), var(--shadow-glow);
+}
+
+.barber-card:hover::before {
+  transform: scaleX(1);
+}
+
+.barber-avatar {
+  width: 112px;
+  height: 112px;
+  margin-bottom: 18px;
+  box-shadow:
+    6px 6px 0 var(--olive),
+    inset 0 0 0 5px rgba(255, 255, 255, .58),
+    inset 0 10px 18px rgba(10, 10, 10, .1);
+}
+
+.barber-card:nth-child(even) .barber-avatar {
+  box-shadow:
+    6px 6px 0 var(--orange),
+    inset 0 0 0 5px rgba(255, 255, 255, .58),
+    inset 0 10px 18px rgba(10, 10, 10, .1);
+}
+
+.barber-card:hover .barber-avatar {
+  transform: translateY(-2px) rotate(-2deg) scale(1.035);
+  box-shadow:
+    3px 4px 0 var(--olive),
+    0 0 0 6px var(--orange-10),
+    0 12px 24px rgba(10, 10, 10, .14),
+    inset 0 0 0 5px rgba(255, 255, 255, .72),
+    inset 0 10px 18px rgba(10, 10, 10, .08);
+}
+
+.barber-card:nth-child(even):hover .barber-avatar {
+  box-shadow:
+    3px 4px 0 var(--orange),
+    0 0 0 6px var(--olive-10),
+    0 12px 24px rgba(10, 10, 10, .14),
+    inset 0 0 0 5px rgba(255, 255, 255, .72),
+    inset 0 10px 18px rgba(10, 10, 10, .08);
+}
+
+.barber-avatar .cred-seal {
+  width: 86px;
+  height: 86px;
+}
+
+.barber-name {
+  margin-bottom: 6px;
+  font-size: clamp(1.65rem, 2vw, 2.05rem);
+  line-height: 1;
+  letter-spacing: -.025em;
+}
+
+.barber-role {
+  min-height: 2.4em;
+  margin-bottom: 8px;
+}
+
+.barber-services {
+  min-height: 2.8em;
+  margin-bottom: 15px;
+  line-height: 1.45;
+}
+
+.barber-book {
+  margin-top: 0;
+  padding: 12px 17px;
+}
+
+.barber-card--any {
+  --barber-accent: var(--orange);
+  min-height: 0;
+  padding: 34px 42px;
+  background:
+    radial-gradient(circle at 92% 20%, rgba(44, 91, 168, .24), transparent 34%),
+    var(--olive-dark);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-top: 4px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 18px 46px rgba(15, 35, 71, .3);
+}
+
+.barber-card--any .barber-services {
+  min-height: 0;
+  margin-bottom: 0;
+}
+
+.barber-card--any:hover {
+  border-color: rgba(255, 255, 255, .2);
+  box-shadow: 0 24px 58px rgba(15, 35, 71, .38), var(--shadow-glow);
+}
+
+@media (max-width: 640px) {
+  body .vhdr-h {
+    font-size: clamp(2.65rem, 14vw, 3.65rem);
+  }
+
+  body .hero-left {
+    padding: 48px 24px 56px;
+  }
+
+  body .hero-line1 {
+    font-size: clamp(3.55rem, 18vw, 5rem);
+  }
+
+  body .hero-line2 {
+    font-size: clamp(3.1rem, 15.5vw, 4.4rem);
+  }
+
+  body .hero-actions {
+    width: 100%;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .hero .btn-ink {
+    justify-content: center;
+    width: 100%;
+  }
+
+  body .hero-tel {
+    padding: 5px 0;
+    text-align: center;
+  }
+
+  body .hero-right {
+    min-height: 410px;
+  }
+
+  .hero-logo-wrap::before {
+    inset: -18px;
+  }
+
+  .barber-card {
+    min-height: 0;
+    padding: 28px 22px 22px;
+  }
+
+  .barber-services {
+    min-height: 0;
+  }
+
+  .barber-card--any {
+    padding: 30px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body .rev,
+  body .rev.left,
+  body .rev.right,
+  body .rev.scale,
+  body [data-animate] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+
+  .hero-dot,
+  .hero-logo-wrap::before,
+  .hero-logo-wrap::after,
+  .hero-photo,
+  .barber-strip,
+  .cta::before,
+  .btn-white,
+  .vegas-title,
+  .vegas-open-sign,
+  .tv-power-light,
+  .tape-track {
+    animation: none !important;
+  }
+
+  #heroPhoto {
+    transform: none !important;
+  }
+
+  .hero .btn-ink,
+  .contrast-cta-sec .btn-contrast,
+  .site-nav .nav-book,
+  .barber-card,
+  .barber-avatar,
+  .barber-card::before,
+  .barber-card .barber-book {
+    transition: none;
+  }
+
+  .hero .btn-ink:hover,
+  .contrast-cta-sec .btn-contrast:hover,
+  .site-nav .nav-book:hover,
+  .barber-card:hover,
+  .barber-card:hover .barber-avatar,
+  .barber-card .barber-book:hover {
+    transform: none;
+  }
+}
