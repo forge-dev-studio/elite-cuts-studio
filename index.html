@@ -2830,6 +2830,21 @@
     }
 
     @media(max-width:640px) {
+      /* Narrow-phone About: comfortable gutters + keep long words inside them */
+      .about {
+        padding: 64px 22px;
+      }
+
+      .about-body,
+      .about-pull {
+        overflow-wrap: break-word;
+      }
+
+      .about-body {
+        font-size: 1.02rem;
+        line-height: 1.72;
+      }
+
       .site-nav {
         padding: 0 20px
       }
