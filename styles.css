@@ -3788,17 +3788,48 @@ body .hero-actions {
 
 .barber-services {
   min-height: 2.8em;
-  margin-bottom: 15px;
-  color: rgba(15, 35, 71, .84);
+  margin-bottom: 17px;
+  color: rgba(15, 35, 71, .9);
   font-family: 'Bitter', Georgia, serif;
-  font-size: .92rem;
+  font-size: .96rem;
+  font-variant-caps: all-small-caps;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: .075em;
+  word-spacing: .1em;
+  text-wrap: balance;
+}
+
+.barber-price {
+  display: inline-flex;
+  align-self: center;
+  align-items: baseline;
+  justify-content: center;
+  min-width: 104px;
+  max-width: 100%;
+  margin: -2px auto 20px;
+  padding: 7px 15px 5px;
+  color: var(--olive-dark);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .88), var(--orange-10));
+  border: 1px solid rgba(200, 50, 63, .48);
+  border-right-width: 3px;
+  border-left-width: 3px;
+  border-radius: 4px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .92),
+    0 3px 0 rgba(200, 50, 63, .12);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.08rem;
   font-weight: 400;
-  line-height: 1.62;
-  letter-spacing: .005em;
+  line-height: 1;
+  letter-spacing: .15em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .barber-book {
-  margin-top: 0;
+  margin-top: auto;
   padding: 12px 17px;
 }
 
@@ -3907,8 +3938,12 @@ body .hero-actions {
 .barber-owner-note {
   color: rgba(15, 35, 71, .9);
   font-size: 1.04rem;
+  font-variant-caps: normal;
+  font-weight: 400;
   font-style: italic;
   line-height: 1.68;
+  letter-spacing: .005em;
+  word-spacing: normal;
 }
 
 .barber-card--owner .barber-book--disabled {
@@ -3942,6 +3977,10 @@ body .hero-actions {
   min-height: 0;
   margin-bottom: 0;
   color: rgba(255, 255, 255, .88);
+  font-variant-caps: normal;
+  font-weight: 400;
+  letter-spacing: .005em;
+  word-spacing: normal;
 }
 
 .barber-any-eye {
