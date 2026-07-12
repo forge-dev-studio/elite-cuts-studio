@@ -1976,6 +1976,51 @@
       text-align: center;
     }
 
+    /* Autoplaying (muted, looping) reel videos */
+    .reel-card video.reel-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.9);
+      transition: filter .35s ease;
+    }
+
+    .reel-card:hover video.reel-video {
+      filter: brightness(1.03);
+    }
+
+    /* muted-sound badge (indicates click for full reel with sound) */
+    .reel-sound {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .55);
+      border: 1.5px solid rgba(255, 255, 255, .55);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      transition: background .3s, transform .3s;
+    }
+
+    .reel-sound svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .reel-card:hover .reel-sound {
+      background: var(--orange);
+      transform: scale(1.08);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reel-card:hover { transform: none; }
+    }
+
     @media (max-width: 640px) {
       .reels-grid { gap: 20px; }
       .reel-card { width: 240px; }
@@ -3883,15 +3928,19 @@
       <span class="vhdr-orn">✦ &nbsp; ✦ &nbsp; ✦</span>
     </div>
     <div class="reels-grid">
-      <a class="reel-card rev" href="https://www.facebook.com/reel/877283478172449/" target="_blank" rel="noopener">
-        <img src="assets/cut-02.jpg" width="1440" height="1080" alt="Razor design work at Elite Cuts Studio" loading="lazy">
-        <div class="reel-play"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#fff" stroke-width="2"/><polygon points="19,14 19,34 36,24" fill="#fff"/></svg></div>
-        <span class="reel-label" data-es="Ver Reel">Watch Reel</span>
+      <a class="reel-card reel-card--video rev" href="https://www.facebook.com/reel/877283478172449/" target="_blank" rel="noopener" aria-label="Watch this reel with sound on Facebook">
+        <video class="reel-video" autoplay muted loop playsinline preload="metadata" poster="assets/cut-02.jpg" aria-hidden="true">
+          <source src="assets/reel-1.mp4" type="video/mp4">
+        </video>
+        <span class="reel-sound" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="#fff"/><path d="M17 9l4 6M21 9l-4 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <span class="reel-label" data-es="Ver con sonido">Watch with sound</span>
       </a>
-      <a class="reel-card rev" href="https://www.facebook.com/61585323092499/videos/880977524451130/" target="_blank" rel="noopener">
-        <img src="assets/cut-01.jpg" width="1536" height="2048" alt="Precision fade at Elite Cuts Studio" loading="lazy">
-        <div class="reel-play"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#fff" stroke-width="2"/><polygon points="19,14 19,34 36,24" fill="#fff"/></svg></div>
-        <span class="reel-label" data-es="Ver Reel">Watch Reel</span>
+      <a class="reel-card reel-card--video rev" href="https://www.facebook.com/61585323092499/videos/880977524451130/" target="_blank" rel="noopener" aria-label="Watch this reel with sound on Facebook">
+        <video class="reel-video" autoplay muted loop playsinline preload="metadata" poster="assets/cut-01.jpg" aria-hidden="true">
+          <source src="assets/reel-2.mp4" type="video/mp4">
+        </video>
+        <span class="reel-sound" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="#fff"/><path d="M17 9l4 6M21 9l-4 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <span class="reel-label" data-es="Ver con sonido">Watch with sound</span>
       </a>
     </div>
   </section>
@@ -4354,6 +4403,14 @@
           lastY = window.scrollY;
           tape.style.animationDuration = Math.max(10, 26 - delta * 0.6) + 's';
         }, { passive: true });
+      }
+
+      // Respect reduced-motion: pause autoplaying reel videos (poster frame stays)
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('video.reel-video').forEach(v => {
+          v.removeAttribute('autoplay');
+          try { v.pause(); } catch (e) {}
+        });
       }
 
     })();
