@@ -342,7 +342,7 @@ h4 {
 .nav-link {
   position: relative;
   padding: 0.6rem 1rem;
-  font-size: 0.88rem;
+  font-size: 0.968rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -383,7 +383,7 @@ h4 {
   background: var(--orange);
   color: var(--white);
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 0.977rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
@@ -440,7 +440,7 @@ h4 {
   gap: 0.5rem;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.99rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   border-radius: 999px;
@@ -502,7 +502,7 @@ h4 {
 
 .btn-lg {
   padding: 1rem 2.2rem;
-  font-size: 0.95rem;
+  font-size: 1.045rem;
 }
 
 /* ============================================================
@@ -525,7 +525,7 @@ h4 {
 
 .label-text {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 0.99rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--olive);
@@ -618,7 +618,7 @@ h4 {
 }
 
 .badge-label {
-  font-size: 0.72rem;
+  font-size: 0.828rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   line-height: 1.3;
@@ -723,7 +723,7 @@ h4 {
 
 .service-card p {
   color: var(--brown-light);
-  font-size: 0.92rem;
+  font-size: 1.012rem;
   line-height: 1.7;
 }
 
@@ -757,7 +757,7 @@ h4 {
 .cta-eyebrow {
   display: block;
   font-family: var(--font-heading);
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
@@ -1010,7 +1010,7 @@ h4 {
   background: var(--orange);
   color: var(--white);
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: 0.828rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1018,7 +1018,7 @@ h4 {
 }
 
 .media-card-overlay p {
-  font-size: 0.88rem;
+  font-size: 0.968rem;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
 }
@@ -1074,7 +1074,7 @@ h4 {
 }
 
 .testimonial-card>p {
-  font-size: 0.95rem;
+  font-size: 1.045rem;
   color: rgba(244, 239, 227, 0.7);
   line-height: 1.8;
   font-style: italic;
@@ -1099,18 +1099,18 @@ h4 {
   justify-content: center;
   font-weight: 800;
   color: var(--white);
-  font-size: 0.9rem;
+  font-size: 0.99rem;
   flex-shrink: 0;
 }
 
 .testimonial-card footer strong {
   display: block;
-  font-size: 0.88rem;
+  font-size: 0.968rem;
   color: var(--cream);
 }
 
 .testimonial-card footer span {
-  font-size: 0.78rem;
+  font-size: 0.897rem;
   color: rgba(244, 239, 227, 0.5);
 }
 
@@ -1278,13 +1278,13 @@ h4 {
 }
 
 .footer-brand p {
-  font-size: 0.88rem;
+  font-size: 0.968rem;
   color: rgba(244, 239, 227, 0.5);
   line-height: 1.7;
 }
 
 .footer-brand .muted {
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   color: rgba(244, 239, 227, 0.3);
 }
 
@@ -1299,7 +1299,7 @@ h4 {
 
 .footer-col p {
   display: block;
-  font-size: 0.88rem;
+  font-size: 0.968rem;
   color: rgba(244, 239, 227, 0.5);
   line-height: 1.7;
   transition: color var(--transition-fast);
@@ -1312,7 +1312,7 @@ h4 {
   min-width: 44px;
   min-height: 44px;
   padding: 10px 0;
-  font-size: 0.88rem;
+  font-size: 0.968rem;
   color: rgba(244, 239, 227, 0.5);
   line-height: 1.7;
   transition: color var(--transition-fast);
@@ -1366,7 +1366,7 @@ h4 {
 }
 
 .footer-bottom p {
-  font-size: 0.78rem;
+  font-size: 0.897rem;
   color: rgba(244, 239, 227, 0.3);
 }
 
@@ -1461,7 +1461,7 @@ h4 {
 
 .form-group label {
   display: block;
-  font-size: 0.82rem;
+  font-size: 0.943rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -1478,7 +1478,7 @@ h4 {
   border-radius: var(--radius-xs);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1.045rem;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -1518,7 +1518,7 @@ h4 {
 
 .info-card-label {
   font-family: var(--font-heading);
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--olive);
@@ -1535,7 +1535,7 @@ h4 {
 
 .info-card p {
   color: var(--brown-light);
-  font-size: 0.9rem;
+  font-size: 0.99rem;
 }
 
 .info-card a {
@@ -1616,7 +1616,7 @@ h4 {
 
 .calendar-weekdays span {
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.862rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1636,7 +1636,7 @@ h4 {
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-xs);
-  font-size: 0.88rem;
+  font-size: 0.968rem;
   font-weight: 500;
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -1680,7 +1680,7 @@ h4 {
 }
 
 .selected-date {
-  font-size: 0.9rem;
+  font-size: 0.99rem;
   color: var(--brown-light);
 }
 
@@ -1702,7 +1702,7 @@ h4 {
   background: var(--cream-light);
   border: 1px solid var(--ink-10);
   border-radius: var(--radius-xs);
-  font-size: 0.82rem;
+  font-size: 0.943rem;
   font-weight: 600;
   color: var(--brown);
   cursor: pointer;
@@ -1889,7 +1889,7 @@ h4 {
 
 .btn-sm {
   padding: 0.6rem 1.2rem;
-  font-size: 0.8rem;
+  font-size: 0.92rem;
 }
 
 .section-label-left {
@@ -1949,7 +1949,7 @@ h4 {
 
 .service-select-label {
   display: block;
-  font-size: 0.82rem;
+  font-size: 0.943rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -1968,7 +1968,7 @@ h4 {
   background: var(--white);
   border: 1px solid var(--ink-10);
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.977rem;
   font-weight: 600;
   color: var(--brown);
   cursor: pointer;
@@ -2017,7 +2017,7 @@ h4 {
 
 .booking-summary h4 {
   font-family: var(--font-heading);
-  font-size: 0.9rem;
+  font-size: 0.99rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--olive-dark);
@@ -2026,14 +2026,14 @@ h4 {
 
 .booking-summary p {
   color: var(--brown-light);
-  font-size: 0.9rem;
+  font-size: 0.99rem;
 }
 
 .time-slots-placeholder {
   grid-column: 1 / -1;
   text-align: center;
   color: var(--brown-light);
-  font-size: 0.85rem;
+  font-size: 0.977rem;
   padding: 1rem;
 }
 
@@ -2509,7 +2509,7 @@ h4 {
   margin: 0 0 10px;
   color: var(--olive-dark);
   font-family: var(--font-heading);
-  font-size: .92rem;
+  font-size: 1.012rem;
   letter-spacing: .12em;
   line-height: 1.25;
   text-transform: uppercase;
@@ -2519,7 +2519,7 @@ h4 {
   margin: 0 0 24px;
   color: var(--brown-light);
   font-family: var(--font-body);
-  font-size: .9rem;
+  font-size: 0.99rem;
   line-height: 1.55;
 }
 
@@ -2539,7 +2539,7 @@ h4 {
   background: var(--cream-dark);
   color: var(--ink-60);
   font-family: var(--font-heading);
-  font-size: .9rem;
+  font-size: 0.99rem;
   letter-spacing: .12em;
   text-transform: uppercase;
   cursor: not-allowed !important;
@@ -2585,7 +2585,7 @@ h4 {
   margin-bottom: 9px;
   color: var(--orange-light);
   font-family: var(--font-heading);
-  font-size: .78rem;
+  font-size: 0.897rem;
   letter-spacing: .2em;
 }
 
@@ -2974,7 +2974,7 @@ body .signature-sec .sig-label {
   background: transparent;
   color: var(--ink);
   font-family: var(--font-heading);
-  font-size: .82rem;
+  font-size: 0.943rem;
   line-height: 1.2;
   letter-spacing: .3em;
   text-transform: uppercase;
@@ -3062,7 +3062,7 @@ body .reels-sec .reel-label {
   z-index: 2;
   padding: 24px 18px 19px;
   background: transparent;
-  font-size: .94rem;
+  font-size: 1.034rem;
   opacity: .78;
   transform: translateY(7px);
   transition:
@@ -3169,7 +3169,7 @@ body .testimonials .test-card {
 }
 
 body .testimonials .test-card:nth-child(even) {
-  border-top-color: var(--olive);
+  border-top-color: var(--orange-deep);
 }
 
 body .testimonials .test-card:hover {
@@ -3184,7 +3184,7 @@ body .testimonials .test-card:hover {
 }
 
 body .testimonials .test-card:nth-child(even):hover {
-  border-top-color: var(--olive);
+  border-top-color: var(--orange-deep);
 }
 
 body .testimonials .qmark {
@@ -3217,7 +3217,7 @@ body .testimonials .test-attr {
   border-top: 1px solid rgba(10, 10, 10, .12);
   color: var(--olive-dark);
   font-family: var(--font-heading);
-  font-size: .78rem;
+  font-size: 0.897rem;
   line-height: 1.2;
   letter-spacing: .22em;
   text-transform: uppercase;
@@ -3771,7 +3771,7 @@ body .hero-actions {
   margin-bottom: 11px;
   color: var(--olive-dark);
   font-family: var(--font-heading);
-  font-size: .94rem;
+  font-size: 1.034rem;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: .16em;
@@ -3903,7 +3903,7 @@ body .hero-actions {
   border-radius: 3px;
   box-shadow: 3px 3px 0 rgba(200, 162, 74, .2);
   font-family: var(--font-heading);
-  font-size: .78rem;
+  font-size: 0.897rem;
   font-weight: 400;
   letter-spacing: .16em;
   line-height: 1;
@@ -3984,7 +3984,7 @@ body .hero-actions {
 }
 
 .barber-any-eye {
-  font-size: .8rem;
+  font-size: 0.92rem;
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: .16em;

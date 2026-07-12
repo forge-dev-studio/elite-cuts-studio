@@ -85,6 +85,7 @@
       --amber: #d9b45c;         /* bright red accent */
       --harvest: #8a6a24;       /* deep red */
       --gold: #e6c76a;          /* bright red highlight */
+      --gold-ink: #6e5417;      /* deep bronze — gold used as TEXT on light bg (WCAG AA) */
       --white: #ffffff;
       --red-pole: #c8a24a;
       --blue-pole: #1c1c1c;
@@ -180,7 +181,7 @@
 
     .tape-track span {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .9rem;
+      font-size: 0.99rem;
       letter-spacing: .26em;
       color: var(--amber);
       padding-right: 3rem;
@@ -285,7 +286,7 @@
 
     .nav-links a {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .85rem;
+      font-size: 0.977rem;
       letter-spacing: .2em;
       color: rgba(255, 255, 255, .55);
       transition: color .2s;
@@ -303,7 +304,7 @@
       background: var(--orange);
       color: #fff;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .85rem;
+      font-size: 0.977rem;
       letter-spacing: .14em;
       padding: 9px 26px;
       border-radius: 2px;
@@ -436,7 +437,7 @@
         grid-column: 3;
         grid-row: 1;
         justify-self: end;
-        font-size: .72rem;
+        font-size: 0.828rem;
         padding: 8px 12px;
         min-height: 44px;
         white-space: nowrap;
@@ -477,7 +478,7 @@
 
     /* ── Left panel ── */
     .hero-left {
-      background: var(--orange);
+      background: radial-gradient(circle at 28% 22%, #1b1915 0%, #0b0b0b 68%);
       padding: 64px 56px 80px 72px;
       display: flex;
       flex-direction: column;
@@ -508,14 +509,14 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background-image: radial-gradient(circle, rgba(0, 0, 0, .12) 1.4px, transparent 1.4px);
+      background-image: radial-gradient(circle, rgba(200, 162, 74, .09) 1.4px, transparent 1.4px);
       background-size: 22px 22px;
     }
 
     .hero-frame {
       position: absolute;
       inset: 14px;
-      border: 2px solid rgba(255, 255, 255, .2);
+      border: 2px solid rgba(200, 162, 74, .22);
       pointer-events: none;
       z-index: 3
     }
@@ -524,14 +525,14 @@
     .hero-frame::after {
       content: '✦';
       position: absolute;
-      font-size: .7rem;
-      color: rgba(255, 255, 255, .45);
+      font-size: 0.854rem;
+      color: rgba(200, 162, 74, .7);
       width: 22px;
       height: 22px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--orange);
+      background: #0b0b0b;
     }
 
     .hero-frame::before {
@@ -546,7 +547,7 @@
 
     .hero-locale {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .8rem;
+      font-size: 0.92rem;
       letter-spacing: .34em;
       color: rgba(255, 255, 255, .65);
       margin-bottom: 20px;
@@ -585,8 +586,8 @@
       font-family: 'Shrikhand', cursive;
       font-size: clamp(4rem, 8.5vw, 8rem);
       line-height: .9;
-      color: var(--ink);
-      text-shadow: 3px 3px 0 rgba(0, 0, 0, .15);
+      color: var(--orange);
+      text-shadow: 3px 3px 0 rgba(0, 0, 0, .45), 2px 2px 0 rgba(160, 130, 50, .4);
     }
 
     .hero-dot {
@@ -597,7 +598,7 @@
       margin: 22px 0;
       color: rgba(255, 255, 255, .65);
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .82rem;
+      font-size: 0.943rem;
       letter-spacing: .3em;
       position: relative;
       z-index: 4;
@@ -628,22 +629,22 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--ink);
-      color: #fff;
+      background: var(--orange);
+      color: var(--ink);
       padding: 15px 36px;
-      border: 2px solid var(--ink);
+      border: 2px solid var(--orange);
       border-radius: 2px;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .95rem;
+      font-size: 1.045rem;
       letter-spacing: .1em;
-      box-shadow: 5px 5px 0 rgba(0, 0, 0, .28);
+      box-shadow: 5px 5px 0 rgba(0, 0, 0, .45);
       transition: background .2s, color .2s, box-shadow .2s;
     }
 
     .btn-ink:hover {
       background: transparent;
-      color: var(--ink);
-      box-shadow: 2px 2px 0 rgba(0, 0, 0, .2)
+      color: var(--orange);
+      box-shadow: 2px 2px 0 rgba(200, 162, 74, .35)
     }
 
     .btn-ink svg {
@@ -771,7 +772,7 @@
 
     .hero-stamp span {
       display: block;
-      font-size: .62rem;
+      font-size: 0.8rem;
       color: var(--cream);
     }
 
@@ -823,7 +824,7 @@
     .badge-tag::before,
     .badge-tag::after {
       content: '✦';
-      font-size: .55rem
+      font-size: 0.671rem
     }
 
     /* ═══════════════════════════════════════
@@ -906,7 +907,7 @@
 
     .billboard-label span {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .85rem;
+      font-size: 0.977rem;
       letter-spacing: .3em;
       color: var(--amber);
     }
@@ -925,7 +926,7 @@
       padding: 16px 0;
       text-align: center;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .76rem;
+      font-size: 0.874rem;
       letter-spacing: .32em;
       color: rgba(26, 23, 16, .38);
       overflow: hidden;
@@ -990,7 +991,7 @@
 
     .vhdr-orn {
       display: block;
-      font-size: .74rem;
+      font-size: 0.851rem;
       letter-spacing: .4em;
       margin-top: 12px
     }
@@ -1018,7 +1019,7 @@
     }
 
     .vhdr-light .vhdr-eye {
-      color: var(--orange)
+      color: var(--gold-ink)
     }
 
     .vhdr-light .vhdr-h {
@@ -1155,7 +1156,7 @@
     }
 
     .fact-val {
-      font-size: .8rem;
+      font-size: 0.92rem;
       color: rgba(255, 255, 255, .48);
       font-family: 'Bebas Neue', sans-serif;
       letter-spacing: .1em
@@ -1193,7 +1194,7 @@
       background: var(--cream-aged);
       padding: 0 16px;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .76rem;
+      font-size: 0.874rem;
       letter-spacing: .3em;
       color: var(--orange);
       white-space: nowrap;
@@ -1207,7 +1208,7 @@
 
     .cred-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .72rem;
+      font-size: 0.828rem;
       letter-spacing: .3em;
       color: rgba(26, 23, 16, .45);
       margin-bottom: 4px
@@ -1224,9 +1225,9 @@
 
     .cred-sub {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .82rem;
+      font-size: 0.943rem;
       letter-spacing: .22em;
-      color: var(--orange);
+      color: var(--gold-ink);
       border-top: 1px solid rgba(26, 23, 16, .15);
       border-bottom: 1px solid rgba(26, 23, 16, .15);
       padding: 8px 0;
@@ -1253,7 +1254,7 @@
 
     .cred-list .ci {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .7rem;
+      font-size: 0.854rem;
       letter-spacing: .18em;
       color: var(--orange);
       min-width: 28px
@@ -1457,7 +1458,7 @@
     }
 
     .vegas-col-head i {
-      font-size: .9rem;
+      font-size: 0.99rem;
       opacity: .7
     }
 
@@ -1758,7 +1759,7 @@
 
     .tv-dial-label {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.92rem;
       color: rgba(255, 255, 255, .65);
       margin-top: 5px;
       letter-spacing: 0.1em;
@@ -1956,7 +1957,7 @@
       .craft-label {
         gap: 8px;
         padding: 36px 12px 13px;
-        font-size: .84rem;
+        font-size: 0.966rem;
         letter-spacing: .14em;
       }
 
@@ -2166,12 +2167,12 @@
     }
 
     .polaroid-circle.c-orange    { background: #c8a24a; }  /* classic red */
-    .polaroid-circle.c-olive     { background: #1c1c1c; }  /* navy blue */
-    .polaroid-circle.c-amber     { background: #0a0a0a; }  /* black */
+    .polaroid-circle.c-olive     { background: #8a6a24; }  /* navy blue */
+    .polaroid-circle.c-amber     { background: #c8a24a; }  /* black */
     .polaroid-circle.c-harvest   { background: #8a6a24; }  /* deep red */
-    .polaroid-circle.c-sienna    { background: #3a3a3a; }  /* bright blue */
+    .polaroid-circle.c-sienna    { background: #a07c28; }  /* bright blue */
     .polaroid-circle.c-gold      { background: #e6c76a; }  /* bright red */
-    .polaroid-circle.c-olive-mid { background: #0d0d0d; }  /* deep navy */
+    .polaroid-circle.c-olive-mid { background: #6e5417; }  /* deep navy */
 
     .polaroid {
       background: #faf6ee;
@@ -2270,7 +2271,7 @@
       background: linear-gradient(to top, rgba(0, 0, 0, .8), transparent);
       color: #fff;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .9rem;
+      font-size: 0.99rem;
       letter-spacing: .2em;
       text-align: center;
     }
@@ -2375,8 +2376,8 @@
     }
 
     .sig-halo.c-orange { background: #c8a24a; }  /* red */
-    .sig-halo.c-olive  { background: #1c1c1c; }  /* navy */
-    .sig-halo.c-amber  { background: #0a0a0a; }  /* black */
+    .sig-halo.c-olive  { background: #8a6a24; }  /* navy */
+    .sig-halo.c-amber  { background: #c8a24a; }  /* black */
 
     .sig-frame {
       position: relative;
@@ -2430,7 +2431,7 @@
       font-family: 'Bebas Neue', sans-serif;
       letter-spacing: 4px;
       color: var(--ink);
-      font-size: .95rem;
+      font-size: 1.045rem;
       position: relative;
       z-index: 2;
       padding: 6px 18px;
@@ -2573,14 +2574,14 @@
       font-family: 'Bebas Neue', sans-serif;
       letter-spacing: 2px;
       color: var(--ink);
-      font-size: .95rem;
+      font-size: 1.045rem;
       padding: 18px 22px;
       background: var(--cream-dark);
       border-left: 4px solid var(--orange);
     }
 
     .storefront-copy .sf-addr strong {
-      color: var(--orange);
+      color: var(--gold-ink);
       font-size: 1.1rem;
     }
 
@@ -2730,7 +2731,7 @@
     .test-stars {
       display: block;
       color: var(--amber);
-      font-size: .92rem;
+      font-size: 1.012rem;
       margin-top: 18px;
       letter-spacing: .22em
     }
@@ -2739,7 +2740,7 @@
       display: block;
       margin-top: 10px;
       font-family: 'Caveat', cursive;
-      font-size: .94rem;
+      font-size: 1.034rem;
       color: rgba(26, 23, 16, .38)
     }
 
@@ -2883,7 +2884,7 @@
     .hours-day {
       display: block;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .76rem;
+      font-size: 0.874rem;
       letter-spacing: .22em;
       color: rgba(255, 255, 255, .48);
       margin-bottom: 4px
@@ -2959,7 +2960,7 @@
     .footer-sub {
       font-family: 'Bitter', serif;
       font-style: italic;
-      font-size: .93rem;
+      font-size: 1.023rem;
       color: rgba(255, 255, 255, .28)
     }
 
@@ -2979,7 +2980,7 @@
       align-items: center;
       justify-content: center;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .78rem;
+      font-size: 0.897rem;
       letter-spacing: .08em;
       color: rgba(255, 255, 255, .45);
       transition: background .2s, color .2s, border-color .2s;
@@ -2998,7 +2999,7 @@
 
     .fcol-label {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: .82rem;
+      font-size: 0.943rem;
       letter-spacing: .28em;
       color: var(--amber);
       margin-bottom: 16px
@@ -3009,7 +3010,7 @@
       display: flex;
       flex-direction: column;
       gap: 0;
-      font-size: .91rem
+      font-size: 1.001rem
     }
 
     .flist a {
@@ -3057,7 +3058,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: .72rem;
+      font-size: 0.828rem;
       color: rgba(255, 255, 255, .18);
       flex-wrap: wrap;
       gap: 6px;
@@ -3174,8 +3175,8 @@
         bottom: 14px;
       }
 
-      .hero-stamp strong { font-size: .95rem; }
-      .hero-stamp span { font-size: .55rem; }
+      .hero-stamp strong { font-size: 1.045rem; }
+      .hero-stamp span { font-size: 0.72rem; }
 
       .signature-sec {
         padding: 80px 24px 100px;
@@ -3301,7 +3302,7 @@
 
       .orn-div,
       .billboard-label span {
-        font-size: .65rem;
+        font-size: 0.793rem;
         letter-spacing: .15em;
         line-height: 1.4;
       }
@@ -3760,9 +3761,9 @@
     .hero-left::after {
       inset: -12%;
       background-image:
-        radial-gradient(ellipse at 18% 24%, rgba(28, 28, 28, .08) 0%, transparent 44%),
-        radial-gradient(ellipse at 84% 78%, rgba(200, 162, 74, .055) 0%, transparent 42%),
-        radial-gradient(circle, rgba(0, 0, 0, .12) 1.4px, transparent 1.4px);
+        radial-gradient(ellipse at 18% 24%, rgba(255, 255, 255, .04) 0%, transparent 44%),
+        radial-gradient(ellipse at 84% 78%, rgba(200, 162, 74, .07) 0%, transparent 42%),
+        radial-gradient(circle, rgba(200, 162, 74, .09) 1.4px, transparent 1.4px);
       background-size: auto, auto, 22px 22px;
       background-repeat: no-repeat, no-repeat, repeat;
       animation: ambient-drift-a 38s ease-in-out infinite;
@@ -4560,7 +4561,7 @@
     <div class="footer-bottom">
       <span>© 2026 Elite Cuts Studio</span>
     </div>
-    <div class="forge-credit" style="font-size: 0.7rem; opacity: 0.5; margin-top: 12px; text-align: center; letter-spacing: 1px; font-family: 'Bebas Neue', sans-serif;">
+    <div class="forge-credit" style="font-size: 0.854rem; opacity: 0.5; margin-top: 12px; text-align: center; letter-spacing: 1px; font-family: 'Bebas Neue', sans-serif;">
       Built by <a href="https://forgedev.studio" style="color: inherit; text-decoration: underline;" target="_blank" rel="noopener">Forge</a>
     </div>
   </footer>
