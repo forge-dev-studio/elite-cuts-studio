@@ -1906,11 +1906,11 @@
     }
 
     .reels-grid {
-      max-width: 900px;
+      max-width: 980px;
       margin: 56px auto 0;
       display: flex;
       justify-content: center;
-      gap: 36px;
+      gap: 32px;
       flex-wrap: wrap;
     }
 
@@ -1976,18 +1976,17 @@
       text-align: center;
     }
 
-    /* Autoplaying (muted, looping) reel videos */
+    /* Autoplaying (muted, looping) reel videos — watch only, not clickable */
+    .reel-card--video { cursor: default; }
+    .reel-card--video:hover { transform: none; }
+
     .reel-card video.reel-video {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: brightness(.9);
-      transition: filter .35s ease;
-    }
-
-    .reel-card:hover video.reel-video {
-      filter: brightness(1.03);
+      filter: brightness(.92);
+      pointer-events: none;
     }
 
     /* muted-sound badge (indicates click for full reel with sound) */
@@ -3928,20 +3927,31 @@
       <span class="vhdr-orn">✦ &nbsp; ✦ &nbsp; ✦</span>
     </div>
     <div class="reels-grid">
-      <a class="reel-card reel-card--video rev" href="https://www.facebook.com/reel/877283478172449/" target="_blank" rel="noopener" aria-label="Watch this reel with sound on Facebook">
-        <video class="reel-video" autoplay muted loop playsinline preload="metadata" poster="assets/cut-02.jpg" aria-hidden="true">
+      <div class="reel-card reel-card--video rev">
+        <video class="reel-video" muted loop playsinline preload="none" poster="assets/cut-02.jpg" aria-hidden="true">
           <source src="assets/reel-1.mp4" type="video/mp4">
         </video>
-        <span class="reel-sound" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="#fff"/><path d="M17 9l4 6M21 9l-4 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>
-        <span class="reel-label" data-es="Ver con sonido">Watch with sound</span>
-      </a>
-      <a class="reel-card reel-card--video rev" href="https://www.facebook.com/61585323092499/videos/880977524451130/" target="_blank" rel="noopener" aria-label="Watch this reel with sound on Facebook">
-        <video class="reel-video" autoplay muted loop playsinline preload="metadata" poster="assets/cut-01.jpg" aria-hidden="true">
+      </div>
+      <div class="reel-card reel-card--video rev">
+        <video class="reel-video" muted loop playsinline preload="none" poster="assets/cut-01.jpg" aria-hidden="true">
           <source src="assets/reel-2.mp4" type="video/mp4">
         </video>
-        <span class="reel-sound" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="#fff"/><path d="M17 9l4 6M21 9l-4 6" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>
-        <span class="reel-label" data-es="Ver con sonido">Watch with sound</span>
-      </a>
+      </div>
+      <div class="reel-card reel-card--video rev">
+        <video class="reel-video" muted loop playsinline preload="none" poster="assets/reel-3-poster.jpg" aria-hidden="true">
+          <source src="assets/reel-3.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="reel-card reel-card--video rev">
+        <video class="reel-video" muted loop playsinline preload="none" poster="assets/reel-4-poster.jpg" aria-hidden="true">
+          <source src="assets/reel-4.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="reel-card reel-card--video rev">
+        <video class="reel-video" muted loop playsinline preload="none" poster="assets/reel-5-poster.jpg" aria-hidden="true">
+          <source src="assets/reel-5.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
   </section>
 
@@ -4405,13 +4415,23 @@
         }, { passive: true });
       }
 
-      // Respect reduced-motion: pause autoplaying reel videos (poster frame stays)
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        document.querySelectorAll('video.reel-video').forEach(v => {
-          v.removeAttribute('autoplay');
-          try { v.pause(); } catch (e) {}
-        });
-      }
+      // Reels: play (muted, looping) only while in view for performance; reduced-motion = stay paused on poster
+      (function () {
+        var reels = document.querySelectorAll('video.reel-video');
+        if (!reels.length) return;
+        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!('IntersectionObserver' in window)) {
+          reels.forEach(function (v) { v.play().catch(function () {}); });
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.play().catch(function () {}); }
+            else { e.target.pause(); }
+          });
+        }, { threshold: 0.25 });
+        reels.forEach(function (v) { io.observe(v); });
+      })();
 
     })();
   </script>
