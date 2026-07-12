@@ -1821,6 +1821,162 @@
       }
     }
 
+    /* ═══════════════════════════════════════
+       THE CRAFT — ATMOSPHERE DETAILS
+    ═══════════════════════════════════════ */
+    .craft-sec {
+      background: var(--ink);
+      padding: 112px clamp(20px, 4vw, 48px) 124px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .craft-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 50% 42%, transparent 24%, rgba(0, 0, 0, .58) 100%),
+        radial-gradient(ellipse at 12% 20%, rgba(200, 50, 63, .09) 0%, transparent 38%),
+        radial-gradient(ellipse at 88% 78%, rgba(30, 58, 111, .11) 0%, transparent 40%),
+        radial-gradient(circle, rgba(255, 255, 255, .045) 1px, transparent 1px);
+      background-size: auto, auto, auto, 18px 18px;
+    }
+
+    .craft-sec > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .craft-grid {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(16px, 2vw, 28px);
+    }
+
+    .craft-card {
+      min-width: 0;
+      aspect-ratio: 1;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 10px;
+      background: var(--brown);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .16),
+        inset 0 -2px 0 rgba(0, 0, 0, .55),
+        0 2px 5px rgba(0, 0, 0, .42),
+        5px 7px 0 rgba(255, 255, 255, .035),
+        0 20px 44px rgba(0, 0, 0, .42);
+      transition: box-shadow 420ms ease;
+    }
+
+    .craft-card::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      z-index: 1;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 6px;
+      box-shadow: inset 0 0 18px rgba(0, 0, 0, .28);
+    }
+
+    .craft-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transform: scale(1.001);
+      transition: transform 600ms cubic-bezier(.22, 1, .36, 1);
+      will-change: transform;
+    }
+
+    .craft-card:hover {
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .2),
+        inset 0 -2px 0 rgba(0, 0, 0, .5),
+        0 3px 7px rgba(0, 0, 0, .48),
+        5px 7px 0 rgba(200, 50, 63, .12),
+        0 28px 56px rgba(0, 0, 0, .58);
+    }
+
+    .craft-card:hover img {
+      transform: scale(1.055);
+    }
+
+    .craft-label {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 42px 18px 16px;
+      background: linear-gradient(to top, rgba(0, 0, 0, .94) 0%, rgba(0, 0, 0, .72) 45%, transparent 100%);
+      color: var(--white);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(.9rem, 1.4vw, 1.08rem);
+      line-height: 1;
+      letter-spacing: .18em;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, .9);
+    }
+
+    .craft-label::before {
+      content: '';
+      flex: 0 0 22px;
+      height: 2px;
+      background: var(--orange);
+      box-shadow: 0 0 8px rgba(200, 50, 63, .45);
+    }
+
+    @media (max-width: 900px) {
+      .craft-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .craft-sec {
+        padding: 88px 20px 96px;
+      }
+
+      .craft-grid {
+        max-width: 420px;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .craft-label {
+        gap: 8px;
+        padding: 36px 12px 13px;
+        font-size: .84rem;
+        letter-spacing: .14em;
+      }
+
+      .craft-label::before {
+        flex-basis: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .craft-card,
+      .craft-card img {
+        transition: none !important;
+      }
+
+      .craft-card img,
+      .craft-card:hover img {
+        transform: none !important;
+      }
+    }
+
     /* MODERN MINIMALIST CARD CTA (The White Box) */
     .contrast-cta-sec {
       background: var(--orange);
@@ -4086,6 +4242,34 @@
       </div>
     </div>
 
+  </section>
+
+  <!-- ══════════════ THE CRAFT ══════════════ -->
+  <section class="craft-sec">
+    <div class="vhdr vhdr-dark rev">
+      <div class="vhdr-rule"><span class="vhdr-eye" data-es="— Los Detalles —">— The Details —</span></div>
+      <h2 class="vhdr-h" data-es="El<br>Oficio">The<br>Craft</h2>
+      <span class="vhdr-orn">✦ &nbsp; ✦ &nbsp; ✦</span>
+    </div>
+
+    <div class="craft-grid">
+      <div class="craft-card rev d1">
+        <img src="assets/atmos-clippers.jpg" loading="lazy" width="1024" height="1024" alt="Matte-black and gold professional barber clippers in moody light">
+        <span class="craft-label" data-es="MAQUINAS">CLIPPERS</span>
+      </div>
+      <div class="craft-card rev d2">
+        <img src="assets/atmos-razor.jpg" loading="lazy" width="1024" height="1024" alt="Straight razor beside a steaming hot towel">
+        <span class="craft-label" data-es="AFEITADO">HOT SHAVE</span>
+      </div>
+      <div class="craft-card rev d3">
+        <img src="assets/atmos-tools.jpg" loading="lazy" width="1024" height="1024" alt="Barber scissors, comb, and brush arranged in a flat lay">
+        <span class="craft-label" data-es="LAS HERRAMIENTAS">THE TOOLS</span>
+      </div>
+      <div class="craft-card rev d4">
+        <img src="assets/atmos-pole.jpg" loading="lazy" width="1024" height="1024" alt="Classic red, white, and blue barber pole in cinematic light">
+        <span class="craft-label" data-es="EL OFICIO">THE CRAFT</span>
+      </div>
+    </div>
   </section>
 
   <!-- CONTRAST CTA SECTION -->
