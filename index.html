@@ -206,10 +206,11 @@
     .site-nav {
       background: var(--ink);
       padding: 0 48px;
-      height: 66px;
-      display: flex;
+      min-height: 72px;
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto minmax(260px, 1fr);
       align-items: center;
-      justify-content: space-between;
+      column-gap: clamp(16px, 2.4vw, 40px);
       position: sticky;
       top: 0;
       z-index: 500;
@@ -228,7 +229,9 @@
       transition: color .2s, transform .2s;
       display: flex;
       align-items: center;
-      gap: 10px;
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: center;
     }
 
     .nav-brand:hover {
@@ -237,12 +240,15 @@
     }
 
     .nav-logo-img {
-      width: 48px;
-      height: 48px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--amber);
-      box-shadow: 0 2px 12px rgba(0, 0, 0, .5);
+      box-shadow:
+        0 2px 4px rgba(0, 0, 0, .5),
+        0 8px 20px rgba(0, 0, 0, .48),
+        0 0 0 3px rgba(255, 255, 255, .06);
     }
 
     .nav-brand-text {
@@ -253,15 +259,28 @@
       display: none;
     }
 
-    @media (min-width: 720px) {
-      .nav-brand-text { display: block; }
+    .nav-menu {
+      display: contents;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
-      list-style: none
+      gap: clamp(14px, 1.8vw, 28px);
+      list-style: none;
+      min-width: 0;
+    }
+
+    .nav-links--left {
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: end;
+    }
+
+    .nav-links--right {
+      grid-column: 3;
+      grid-row: 1;
+      justify-self: start;
     }
 
     .nav-links a {
@@ -290,6 +309,9 @@
       border-radius: 2px;
       border: 2px solid var(--orange);
       transition: background .2s, color .2s;
+      grid-column: 3;
+      grid-row: 1;
+      justify-self: end;
     }
 
     .nav-book:hover {
@@ -309,6 +331,116 @@
       padding: 6px;
       background: none;
       border: none
+    }
+
+    /* Desktop: "wrapped" centered logo badge — header wraps around it, badge hangs below the bar */
+    @media (min-width: 769px) {
+      .site-nav { overflow: visible; }
+      .nav-brand {
+        position: relative;
+        width: 176px;
+        height: 60px;
+        justify-self: center;
+        z-index: 20;
+      }
+      .nav-logo-img {
+        position: absolute;
+        left: 50%;
+        top: 2px;
+        transform: translateX(-50%);
+        width: 144px;
+        height: 144px;
+        border: 8px solid var(--ink);
+        box-shadow:
+          0 12px 26px rgba(0, 0, 0, .5),
+          0 4px 10px rgba(0, 0, 0, .42);
+        background: var(--ink);
+        transition: transform .25s ease;
+      }
+      .nav-brand:hover { transform: none; }
+      .nav-brand:hover .nav-logo-img { transform: translateX(-50%) scale(1.05); }
+    }
+
+    @media (max-width: 768px) {
+      .site-nav {
+        padding: 0 14px;
+        min-height: 66px;
+        height: 66px;
+        grid-template-columns: minmax(44px, 1fr) auto minmax(92px, 1fr);
+        column-gap: 8px;
+        position: sticky;
+        top: 0;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+      }
+
+      .nav-brand {
+        grid-column: 2;
+      }
+
+      .nav-logo-img {
+        width: 52px;
+        height: 52px;
+      }
+
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 66px;
+        left: 0;
+        right: 0;
+        background: var(--ink);
+        flex-direction: column;
+        padding: 12px 0;
+        border-top: 1px solid rgba(255, 255, 255, .1);
+        border-bottom: 2px solid var(--orange);
+        box-shadow: 0 18px 32px rgba(0, 0, 0, .42);
+      }
+
+      .nav-menu.open,
+      .nav-menu.is-open,
+      .site-nav.is-open .nav-menu,
+      .site-nav.open .nav-menu {
+        display: flex;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+      }
+
+      .nav-links li {
+        width: 100%;
+      }
+
+      .nav-links a {
+        display: flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 12px 28px;
+      }
+
+      .nav-toggle {
+        display: flex;
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+      }
+
+      .nav-book {
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: end;
+        font-size: .72rem;
+        padding: 8px 12px;
+        min-height: 44px;
+        white-space: nowrap;
+      }
     }
 
     .nav-toggle span {
@@ -539,15 +671,15 @@
       color: #fff
     }
 
-    /* ── Right panel ── Logo showcase with orange halo ── */
+    /* ── Right panel ── Framed storefront photograph ── */
     .hero-right {
       background: var(--cream);
       position: relative;
       overflow: hidden;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 48px;
+      align-items: stretch;
+      justify-content: stretch;
+      padding: 0;
       will-change: transform;
     }
 
@@ -566,19 +698,22 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 560px;
-      height: 560px;
-      background: var(--orange);
-      border-radius: 50%;
+      width: min(76%, 620px);
+      height: min(72%, 520px);
+      background: rgba(200, 50, 63, .2);
+      border-radius: 24px;
       z-index: 0;
-      box-shadow: 0 0 0 14px rgba(200, 50, 63, .18), 0 20px 60px rgba(0, 0, 0, .25);
+      filter: blur(26px);
     }
 
-    .hero-logo-wrap {
+    .hero-photo-frame {
       position: relative;
       z-index: 2;
-      width: min(460px, 100%);
-      aspect-ratio: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--ink);
+      box-shadow: inset 22px 0 44px rgba(10, 10, 10, .28);
     }
 
     .hero-photo {
@@ -586,26 +721,34 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      position: relative;
+      position: absolute;
+      inset: 0;
       z-index: 2;
-      border-radius: 50%;
-      box-shadow:
-        0 24px 80px rgba(0, 0, 0, .45),
-        0 0 0 10px var(--cream),
-        0 0 0 13px var(--ink),
-        0 0 0 18px var(--cream);
-      animation: heroLogoFloat 6s ease-in-out infinite;
+      will-change: transform;
     }
 
-    @keyframes heroLogoFloat {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(-1deg); }
+    .hero-photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      border-radius: 4px;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, .22),
+        inset 0 0 44px rgba(10, 10, 10, .24);
+      background: linear-gradient(145deg, rgba(255, 255, 255, .1), transparent 34%);
+    }
+
+    @keyframes heroPhotoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
 
     .hero-stamp {
       position: absolute;
-      top: -14px;
-      right: -12px;
+      left: 18px;
+      bottom: 18px;
       width: 118px;
       height: 118px;
       border-radius: 50%;
@@ -2816,8 +2959,9 @@
 
     @media(max-width:960px) {
       .hero {
-        grid-template-columns: 1fr;
-        min-height: auto
+        display: block;
+        min-height: auto;
+        padding: 0;
       }
 
       .hero-left {
@@ -2825,24 +2969,22 @@
       }
 
       .hero-right {
-        min-height: 460px;
-        padding: 36px 24px;
+        min-height: 340px;
+        padding: 0;
+        display: block;
       }
 
-      .hero-right::after {
-        width: 380px;
-        height: 380px;
-      }
-
-      .hero-logo-wrap {
-        width: min(320px, 88%);
+      .hero-photo-frame {
+        width: 100%;
+        height: 340px;
+        box-shadow: none;
       }
 
       .hero-stamp {
         width: 86px;
         height: 86px;
-        top: -12px;
-        right: -6px;
+        left: 14px;
+        bottom: 14px;
       }
 
       .hero-stamp strong { font-size: .95rem; }
@@ -2927,67 +3069,6 @@
       .about-body {
         font-size: 1.02rem;
         line-height: 1.72;
-      }
-
-      /* Mobile top bar: keep a horizontal row (override shared styles.css off-canvas/column rules) */
-      .site-nav {
-        padding: 0 20px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        position: sticky;
-        top: 0;
-        right: auto;
-        left: auto;
-        bottom: auto;
-        width: auto;
-        height: 66px;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 66px;
-        left: 0;
-        right: 0;
-        background: var(--ink);
-        flex-direction: column;
-        gap: 0;
-        padding: 12px 0;
-        border-top: 1px solid rgba(255, 255, 255, .1);
-        border-bottom: 2px solid var(--orange);
-      }
-
-      /* Open the dropdown regardless of which toggle class is applied (site.js uses is-open on nav) */
-      .nav-links.open,
-      .nav-links.is-open,
-      .site-nav.is-open .nav-links,
-      .site-nav.open .nav-links {
-        display: flex
-      }
-
-      .nav-links li {
-        width: 100%
-      }
-
-      .nav-links a {
-        display: flex;
-        align-items: center;
-        min-height: 44px;
-        padding: 12px 28px
-      }
-
-      .nav-toggle {
-        display: flex;
-        margin-left: auto;
-        order: 2;
-      }
-
-      .nav-book {
-        font-size: .75rem;
-        padding: 8px 18px;
-        min-height: 44px;
-        order: 3;
       }
 
       .polaroid-wrap {
@@ -3094,7 +3175,7 @@
         0 3px 8px rgba(10, 10, 10, .08);
     }
 
-    /* Hero medallion, frame, dimensional lettering, and tactile controls */
+    /* Hero frame, dimensional lettering, and tactile controls */
     .hero-frame {
       border-color: rgba(255, 255, 255, .28);
       box-shadow:
@@ -3119,63 +3200,51 @@
         6px 8px 14px rgba(10, 10, 10, .16);
     }
 
-    .hero-logo-wrap {
+    .hero-photo-frame {
       isolation: isolate;
       transform-style: preserve-3d;
-      animation: medallion-float 7s ease-in-out infinite;
       transition: transform 440ms cubic-bezier(.22, 1, .36, 1);
     }
 
-    .hero-logo-wrap::before {
+    .hero-photo-frame::before {
       content: '';
       position: absolute;
-      inset: 1.5%;
+      top: -20%;
+      bottom: -20%;
+      left: 0;
+      width: 55%;
       z-index: 4;
-      border-radius: 50%;
       pointer-events: none;
-      background: linear-gradient(155deg,
-        rgba(255, 255, 255, .32) 2%,
-        rgba(255, 255, 255, .08) 25%,
-        transparent 44%);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, .38);
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, .08) 38%,
+        rgba(255, 255, 255, .55) 50%,
+        rgba(255, 255, 255, .08) 62%,
+        transparent 100%);
       mix-blend-mode: screen;
+      transform: translateX(-160%) skewX(-16deg);
+      will-change: transform;
+      animation: heroShine 6s ease-in-out infinite;
+      animation-delay: 1.6s;
     }
 
-    .hero-logo-wrap::after {
-      content: '';
-      position: absolute;
-      inset: -19px;
-      z-index: 1;
-      border-radius: 50%;
-      pointer-events: none;
-      border: 1px solid rgba(255, 255, 255, .68);
-      box-shadow:
-        inset 0 2px 3px rgba(255, 255, 255, .55),
-        inset 0 -7px 12px rgba(10, 10, 10, .25),
-        0 2px 4px rgba(10, 10, 10, .2),
-        0 22px 54px rgba(10, 10, 10, .28),
-        0 0 36px rgba(200, 50, 63, .12);
+    @keyframes heroShine {
+      0% { transform: translateX(-160%) skewX(-16deg); }
+      55%, 100% { transform: translateX(330%) skewX(-16deg); }
     }
 
-    .hero-logo-wrap:hover {
-      transform: perspective(1000px) rotateX(1deg) rotateY(-1.5deg) translateY(-5px);
+    @media (prefers-reduced-motion: reduce) {
+      .hero-photo-frame::before { animation: none; transform: translateX(-160%) skewX(-16deg); }
+    }
+
+    .hero-photo-frame:hover {
+      transform: perspective(1000px) rotateX(.5deg) rotateY(-.7deg) translateY(-4px);
     }
 
     .hero-photo {
       box-shadow:
-        inset 0 2px 2px rgba(255, 255, 255, .3),
-        inset 0 -8px 16px rgba(10, 10, 10, .2),
-        0 2px 5px rgba(10, 10, 10, .26),
-        0 25px 60px rgba(10, 10, 10, .34),
-        0 0 0 9px var(--cream),
-        0 0 0 12px var(--ink),
-        0 0 0 17px var(--cream),
-        0 0 34px rgba(200, 50, 63, .14);
-    }
-
-    @keyframes medallion-float {
-      0%, 100% { transform: perspective(1000px) translateY(0) rotateX(0) rotateY(0); }
-      50% { transform: perspective(1000px) translateY(-5px) rotateX(.6deg) rotateY(-.8deg); }
+        inset 0 2px 2px rgba(255, 255, 255, .2),
+        inset 0 -8px 16px rgba(10, 10, 10, .16);
     }
 
     .hero-stamp {
@@ -3192,7 +3261,7 @@
       transition: transform 320ms ease, box-shadow 320ms ease;
     }
 
-    .hero-logo-wrap:hover .hero-stamp {
+    .hero-photo-frame:hover .hero-stamp {
       transform: translateZ(22px) rotate(8deg) translateY(-2px);
       box-shadow:
         inset 0 2px 0 rgba(255, 255, 255, .16),
@@ -3626,7 +3695,7 @@
     @media (prefers-reduced-motion: reduce) {
       .barber-strip,
       .hero-photo,
-      .hero-logo-wrap,
+      .hero-photo-frame,
       .cta::before,
       .vegas-title,
       .vegas-open-sign,
@@ -3641,10 +3710,10 @@
       }
 
       .hero-photo,
-      .hero-logo-wrap,
-      .hero-logo-wrap:hover,
+      .hero-photo-frame,
+      .hero-photo-frame:hover,
       .hero-stamp,
-      .hero-logo-wrap:hover .hero-stamp,
+      .hero-photo-frame:hover .hero-stamp,
       .btn-ink,
       .btn-ink:hover,
       .btn-ink:active,
@@ -3717,20 +3786,25 @@
 
   <!-- NAV -->
   <nav class="site-nav" id="siteNav">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"
+      aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="navLinks">
+      <ul class="nav-links nav-links--left">
+        <li><a href="#about" data-es="Nosotros">About</a></li>
+        <li><a href="#services" data-es="Servicios">Services</a></li>
+        <li><a href="#barbers" data-es="Barberos">Barbers</a></li>
+      </ul>
+      <ul class="nav-links nav-links--right">
+        <li><a href="#gallery" data-es="Galeria">Gallery</a></li>
+        <li><a href="contact.html" data-es="Contacto">Contact</a></li>
+      </ul>
+    </div>
     <a href="index.html" class="nav-brand" aria-label="Elite Cuts Studio home">
       <img src="assets/logo.jpg" alt="Elite Cuts Studio" class="nav-logo-img">
       <span class="nav-brand-text">Elite Cuts</span>
     </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about" data-es="Nosotros">About</a></li>
-      <li><a href="#services" data-es="Servicios">Services</a></li>
-      <li><a href="#barbers" data-es="Barberos">Barbers</a></li>
-      <li><a href="#gallery" data-es="Galeria">Gallery</a></li>
-      <li><a href="contact.html" data-es="Contacto">Contact</a></li>
-    </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
     <a href="#barbers" class="nav-book" data-es="Reservar">Book Now</a>
   </nav>
 
@@ -3759,10 +3833,10 @@
     </div>
 
     <div class="hero-right" id="heroRight">
-      <div class="hero-logo-wrap">
+      <div class="hero-photo-frame">
         <img class="hero-photo" id="heroPhoto"
-          src="assets/logo.jpg" width="1100" height="1110"
-          alt="Elite Cuts Studio logo" loading="eager">
+          src="assets/shop-hero.jpg" width="1920" height="1548"
+          alt="Elite Cuts Studio storefront on M.L.K. Jr Blvd, Gainesville GA" loading="eager">
         <div class="hero-stamp" aria-hidden="true">
           <span>MASTER</span>
           <strong>BARBERING</strong>
@@ -4487,11 +4561,19 @@
          HERO PHOTO PARALLAX
       ══════════════════════════════════════ */
       const heroPhoto = document.getElementById('heroPhoto');
-      if (heroPhoto) {
-        window.addEventListener('scroll', () => {
-          if (window.scrollY < window.innerHeight * 1.5)
-            heroPhoto.style.transform = `translateY(${window.scrollY * 0.22}px)`;
-        }, { passive: true });
+      const heroRight = document.getElementById('heroRight');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (heroPhoto && heroRight && !reduceMotion.matches) {
+        const updateHeroParallax = () => {
+          const rect = heroRight.getBoundingClientRect();
+          if (rect.bottom > 0 && rect.top < window.innerHeight) {
+            const offset = Math.max(-20, Math.min(20,
+              (window.innerHeight / 2 - (rect.top + rect.height / 2)) * .08));
+            heroPhoto.style.transform = `translateY(${offset}px)`;
+          }
+        };
+        updateHeroParallax();
+        window.addEventListener('scroll', updateHeroParallax, { passive: true });
       }
 
 
