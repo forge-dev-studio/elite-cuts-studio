@@ -30,12 +30,12 @@ textarea:focus-visible {
 
 /* --- CUSTOM PROPERTIES --- */
 :root {
-  --orange: #c8323f;
-  --orange-deep: #8a1f28;
-  --orange-light: #e63946;
-  --olive: #1e3a6f;
-  --olive-dark: #0f2347;
-  --olive-light: #2c5ba8;
+  --orange: #c8a24a;
+  --orange-deep: #8a6a24;
+  --orange-light: #e6c76a;
+  --olive: #1c1c1c;
+  --olive-dark: #0d0d0d;
+  --olive-light: #3a3a3a;
   --cream: #f5f3ee;
   --cream-dark: #e8e4da;
   --cream-light: #faf8f4;
@@ -43,8 +43,8 @@ textarea:focus-visible {
   --brown: #1a1a1a;
   --brown-light: #333333;
   --white: #ffffff;
-  --red-barber: #c8323f;
-  --blue-barber: #1e3a6f;
+  --red-barber: #c8a24a;
+  --blue-barber: #1c1c1c;
 
   /* Transparency helpers */
   --ink-10: rgba(10, 10, 10, 0.1);
@@ -52,17 +52,17 @@ textarea:focus-visible {
   --ink-40: rgba(10, 10, 10, 0.4);
   --ink-60: rgba(10, 10, 10, 0.6);
   --ink-80: rgba(10, 10, 10, 0.8);
-  --orange-20: rgba(200, 50, 63, 0.2);
-  --orange-10: rgba(200, 50, 63, 0.1);
-  --olive-20: rgba(30, 58, 111, 0.2);
-  --olive-10: rgba(30, 58, 111, 0.1);
+  --orange-20: rgba(200, 162, 74, 0.2);
+  --orange-10: rgba(200, 162, 74, 0.1);
+  --olive-20: rgba(28, 28, 28, 0.2);
+  --olive-10: rgba(28, 28, 28, 0.1);
 
   --shadow-soft: 0 4px 30px rgba(10, 10, 10, 0.12);
   --shadow-card: 0 8px 40px rgba(10, 10, 10, 0.15);
-  --shadow-glow: 0 0 40px rgba(200, 50, 63, 0.12);
+  --shadow-glow: 0 0 40px rgba(200, 162, 74, 0.12);
   --shadow-e1: 0 1px 2px rgba(10, 10, 10, 0.16), 0 8px 24px rgba(10, 10, 10, 0.1);
   --shadow-e2: 0 2px 4px rgba(10, 10, 10, 0.18), 0 14px 34px rgba(10, 10, 10, 0.14);
-  --shadow-e3: 0 3px 7px rgba(10, 10, 10, 0.2), 0 24px 56px rgba(10, 10, 10, 0.18), 0 0 34px rgba(200, 50, 63, 0.1);
+  --shadow-e3: 0 3px 7px rgba(10, 10, 10, 0.2), 0 24px 56px rgba(10, 10, 10, 0.18), 0 0 34px rgba(200, 162, 74, 0.1);
   --shadow-pressed: 0 1px 2px rgba(10, 10, 10, 0.22), 0 3px 8px rgba(10, 10, 10, 0.12);
   --edge-card-light: inset 0 1px 0 rgba(255, 255, 255, 0.78);
   --bevel-control: inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 -2px 0 rgba(10, 10, 10, 0.18);
@@ -387,13 +387,13 @@ h4 {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-  box-shadow: 0 4px 20px rgba(255, 97, 25, 0.25);
+  box-shadow: 0 4px 20px rgba(210, 170, 80, 0.25);
 }
 
 .nav-cta:hover {
   background: var(--orange-deep);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(255, 97, 25, 0.35);
+  box-shadow: 0 8px 30px rgba(210, 170, 80, 0.35);
 }
 
 /* Hamburger */
@@ -453,13 +453,13 @@ h4 {
   background: var(--orange);
   color: var(--white);
   padding: 0.85rem 1.8rem;
-  box-shadow: 0 6px 25px rgba(255, 97, 25, 0.25);
+  box-shadow: 0 6px 25px rgba(210, 170, 80, 0.25);
 }
 
 .btn-primary:hover {
   background: var(--orange-deep);
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(255, 97, 25, 0.35);
+  box-shadow: 0 12px 35px rgba(210, 170, 80, 0.35);
 }
 
 .btn-olive {
@@ -677,7 +677,7 @@ h4 {
 .service-card-shine {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, transparent 40%, rgba(255, 97, 25, 0.04) 50%, transparent 60%);
+  background: linear-gradient(135deg, transparent 40%, rgba(210, 170, 80, 0.04) 50%, transparent 60%);
   opacity: 0;
   transition: opacity var(--transition-smooth);
   pointer-events: none;
@@ -1061,7 +1061,7 @@ h4 {
 }
 
 .testimonial-card:hover {
-  border-color: rgba(255, 97, 25, 0.3);
+  border-color: rgba(210, 170, 80, 0.3);
   transform: translateY(-4px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
@@ -1135,7 +1135,7 @@ h4 {
   inset: 0;
   background:
     radial-gradient(ellipse at 30% 50%, rgba(152, 162, 90, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 80%, rgba(255, 97, 25, 0.06) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 80%, rgba(210, 170, 80, 0.06) 0%, transparent 40%),
     var(--white);
 }
 
@@ -1486,7 +1486,7 @@ h4 {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--orange);
-  box-shadow: 0 0 0 3px rgba(255, 97, 25, 0.12);
+  box-shadow: 0 0 0 3px rgba(210, 170, 80, 0.12);
 }
 
 .form-group textarea {
@@ -2055,7 +2055,7 @@ h4 {
 
 .gallery-strips-item-wrapper {
   overflow: visible !important;
-  background-color: #1e3a6f !important;
+  background-color: #1c1c1c !important;
   /* Olive green */
   border-radius: 4px;
   position: relative;
@@ -2082,7 +2082,7 @@ h4 {
 /* Hover effects */
 .gallery-strips-item:hover .gallery-strips-item-wrapper {
   transform: scale(0.9);
-  background-color: #0f2347 !important;
+  background-color: #0d0d0d !important;
   /* Olive dark */
 }
 
@@ -2104,8 +2104,8 @@ h4 {
   font-family: 'Cooper Black', sans-serif !important;
   font-weight: 900 !important;
   font-style: italic !important;
-  color: #c8323f !important;
-  text-shadow: -2px 2px 0 #1e3a6f !important;
+  color: #c8a24a !important;
+  text-shadow: -2px 2px 0 #1c1c1c !important;
   letter-spacing: -0.02em !important;
 }
 
@@ -2182,10 +2182,10 @@ h4 {
   width: 95vw !important;
   max-width: 1800px !important;
   margin: 0 auto !important;
-  border: 22px solid #c8323f;
+  border: 22px solid #c8a24a;
   border-radius: 16px;
   box-shadow: 0 50px 150px rgba(0, 0, 0, 0.7),
-    0 0 0 14px #1e3a6f;
+    0 0 0 14px #1c1c1c;
   overflow: hidden;
   position: relative;
 }
@@ -2247,13 +2247,13 @@ h4 {
   justify-content: center;
   width: 50px;
   height: 50px;
-  color: #c8323f;
+  color: #c8a24a;
   filter: drop-shadow(0 2px 0 rgba(0, 0, 0, 0.2));
 }
 
 .price-dots {
   flex-grow: 1;
-  border-bottom: 3px dotted rgba(30, 58, 111, 0.3);
+  border-bottom: 3px dotted rgba(28, 28, 28, 0.3);
   margin: 0 15px;
   position: relative;
   top: -5px;
@@ -2262,7 +2262,7 @@ h4 {
 /* 4. Improved Cooper Black Header Shadow */
 .vhdr-h {
   font-family: 'Cooper Black', sans-serif !important;
-  text-shadow: -4px 4px 0px #c8323f, -8px 8px 0px rgba(30, 58, 111, 0.3) !important;
+  text-shadow: -4px 4px 0px #c8a24a, -8px 8px 0px rgba(28, 28, 28, 0.3) !important;
   letter-spacing: -0.03em !important;
   line-height: 0.9 !important;
 }
@@ -2270,7 +2270,7 @@ h4 {
 /* 5. Rainbow Accent Stripe */
 .rainbow-strip {
   height: 14px;
-  background: linear-gradient(90deg, #c8323f 25%, #1e3a6f 25% 50%, #f5f3ee 50% 75%, #0a0a0a 75%);
+  background: linear-gradient(90deg, #c8a24a 25%, #1c1c1c 25% 50%, #f5f3ee 50% 75%, #0a0a0a 75%);
   width: 100%;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -2768,7 +2768,7 @@ h4 {
 
 .barber-card--any {
   background:
-    radial-gradient(circle at 92% 20%, rgba(44, 91, 168, .24), transparent 34%),
+    radial-gradient(circle at 92% 20%, rgba(58, 58, 58, .24), transparent 34%),
     linear-gradient(145deg, rgba(255, 255, 255, .07), transparent 42%),
     var(--olive-dark);
   box-shadow:
@@ -2944,7 +2944,7 @@ body .signature-sec .sig-card:hover .sig-frame {
   transform: rotate(0deg) translateY(-10px) scale(1.025);
   box-shadow:
     8px 18px 46px rgba(10, 10, 10, .3),
-    0 0 0 7px rgba(200, 50, 63, .07),
+    0 0 0 7px rgba(200, 162, 74, .07),
     inset 0 0 0 1px rgba(10, 10, 10, .05);
 }
 
@@ -3008,7 +3008,7 @@ body .reels-sec .reel-card::after {
   pointer-events: none;
   background:
     linear-gradient(to top, rgba(10, 10, 10, .94) 0%, rgba(10, 10, 10, .25) 40%, transparent 68%),
-    linear-gradient(135deg, rgba(30, 58, 111, .12), rgba(200, 50, 63, .08));
+    linear-gradient(135deg, rgba(28, 28, 28, .12), rgba(200, 162, 74, .08));
   transition: opacity 420ms ease;
 }
 
@@ -3017,7 +3017,7 @@ body .reels-sec .reel-card:hover {
   border-color: var(--cream);
   box-shadow:
     0 28px 64px rgba(0, 0, 0, .64),
-    0 0 0 6px rgba(200, 50, 63, .18);
+    0 0 0 6px rgba(200, 162, 74, .18);
 }
 
 body .reels-sec .reel-card:hover::after {
@@ -3811,13 +3811,13 @@ body .hero-actions {
   padding: 7px 15px 5px;
   color: var(--olive-dark);
   background: linear-gradient(180deg, rgba(255, 255, 255, .88), var(--orange-10));
-  border: 1px solid rgba(200, 50, 63, .48);
+  border: 1px solid rgba(200, 162, 74, .48);
   border-right-width: 3px;
   border-left-width: 3px;
   border-radius: 4px;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, .92),
-    0 3px 0 rgba(200, 50, 63, .12);
+    0 3px 0 rgba(200, 162, 74, .12);
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1.08rem;
   font-weight: 400;
@@ -3842,23 +3842,23 @@ body .hero-actions {
   gap: clamp(42px, 7vw, 88px);
   padding: 42px clamp(42px, 8vw, 104px);
   background:
-    radial-gradient(circle at 16% 24%, rgba(30, 58, 111, .12), transparent 34%),
+    radial-gradient(circle at 16% 24%, rgba(28, 28, 28, .12), transparent 34%),
     linear-gradient(145deg, rgba(255, 255, 255, .96), rgba(245, 243, 238, .82));
-  border: 1px solid rgba(30, 58, 111, .28);
+  border: 1px solid rgba(28, 28, 28, .28);
   border-top: 5px solid var(--olive);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, .96),
-    inset 0 -18px 34px rgba(30, 58, 111, .06),
+    inset 0 -18px 34px rgba(28, 28, 28, .06),
     var(--edge-card-light),
     var(--shadow-e2);
   text-align: left;
 }
 
 .barber-card--owner:hover {
-  border-color: rgba(30, 58, 111, .4);
+  border-color: rgba(28, 28, 28, .4);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, .96),
-    inset 0 -18px 34px rgba(30, 58, 111, .07),
+    inset 0 -18px 34px rgba(28, 28, 28, .07),
     var(--edge-card-light),
     var(--shadow-e3);
 }
@@ -3873,7 +3873,7 @@ body .hero-actions {
   box-shadow:
     4px 5px 0 var(--orange),
     0 5px 10px rgba(10, 10, 10, .2),
-    0 20px 34px rgba(30, 58, 111, .16),
+    0 20px 34px rgba(28, 28, 28, .16),
     inset 0 1px 1px rgba(255, 255, 255, .96),
     inset 0 0 0 7px rgba(255, 255, 255, .5),
     inset 0 -9px 15px rgba(10, 10, 10, .12);
@@ -3901,7 +3901,7 @@ body .hero-actions {
   background: var(--olive-dark);
   border-left: 4px solid var(--orange);
   border-radius: 3px;
-  box-shadow: 3px 3px 0 rgba(200, 50, 63, .2);
+  box-shadow: 3px 3px 0 rgba(200, 162, 74, .2);
   font-family: var(--font-heading);
   font-size: .78rem;
   font-weight: 400;
@@ -3963,7 +3963,7 @@ body .hero-actions {
   min-height: 0;
   padding: 34px 42px;
   background:
-    radial-gradient(circle at 92% 20%, rgba(44, 91, 168, .24), transparent 34%),
+    radial-gradient(circle at 92% 20%, rgba(58, 58, 58, .24), transparent 34%),
     var(--olive-dark);
   border: 1px solid rgba(255, 255, 255, .12);
   border-top: 4px solid rgba(255, 255, 255, .12);
