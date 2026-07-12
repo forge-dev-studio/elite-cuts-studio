@@ -3481,6 +3481,148 @@
       animation: none;
     }
 
+    /* ═══════════════════════════════════════
+       AMBIENT STUDIO LIGHT — restrained brand-color drift
+    ═══════════════════════════════════════ */
+    @keyframes ambient-drift-a {
+      0%, 100% { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+      50% { transform: translate3d(2.5%, 1.5%, 0) scale(1.035); }
+    }
+
+    @keyframes ambient-drift-b {
+      0%, 100% { transform: translate3d(2%, -1.5%, 0) scale(1.025); }
+      50% { transform: translate3d(-2%, 2%, 0) scale(1); }
+    }
+
+    @keyframes ambient-drift-c {
+      0%, 100% { transform: translate3d(-1%, 1.5%, 0) scale(1); }
+      50% { transform: translate3d(2%, -1%, 0) scale(1.045); }
+    }
+
+    /* Hero panels retain their original patterns; the oversized layers keep
+       the movement clipped and well behind every foreground element. */
+    .hero-left::after {
+      inset: -12%;
+      background-image:
+        radial-gradient(ellipse at 18% 24%, rgba(30, 58, 111, .08) 0%, transparent 44%),
+        radial-gradient(ellipse at 84% 78%, rgba(200, 50, 63, .055) 0%, transparent 42%),
+        radial-gradient(circle, rgba(0, 0, 0, .12) 1.4px, transparent 1.4px);
+      background-size: auto, auto, 22px 22px;
+      background-repeat: no-repeat, no-repeat, repeat;
+      animation: ambient-drift-a 38s ease-in-out infinite;
+    }
+
+    .hero-right::before {
+      inset: -12%;
+      background-image:
+        radial-gradient(ellipse at 78% 18%, rgba(30, 58, 111, .07) 0%, transparent 43%),
+        radial-gradient(ellipse at 16% 82%, rgba(200, 50, 63, .055) 0%, transparent 40%),
+        repeating-linear-gradient(-55deg, transparent 0, transparent 18px, rgba(26, 23, 16, .045) 18px, rgba(26, 23, 16, .045) 19px);
+      background-repeat: no-repeat, no-repeat, repeat;
+      animation: ambient-drift-b 42s ease-in-out infinite;
+    }
+
+    .about::before {
+      inset: -14%;
+      background-image:
+        radial-gradient(ellipse at 16% 72%, rgba(200, 50, 63, .065) 0%, transparent 42%),
+        radial-gradient(ellipse at 78% 66%, rgba(30, 58, 111, .08) 0%, transparent 44%),
+        radial-gradient(circle, rgba(0, 0, 0, .08) 1px, transparent 1px);
+      background-size: auto, auto, 18px 18px;
+      background-repeat: no-repeat, no-repeat, repeat;
+      animation: ambient-drift-c 44s ease-in-out infinite;
+    }
+
+    .services::before {
+      inset: -14%;
+      background:
+        radial-gradient(ellipse at center, transparent 38%, rgba(139, 100, 50, .11) 100%),
+        radial-gradient(ellipse at 12% 24%, rgba(200, 50, 63, .055) 0%, transparent 40%),
+        radial-gradient(ellipse at 88% 76%, rgba(30, 58, 111, .06) 0%, transparent 42%);
+      animation: ambient-drift-b 40s ease-in-out infinite;
+    }
+
+    .vegas-inner {
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .vegas-inner::before {
+      content: '';
+      position: absolute;
+      inset: -6%;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 20% 30%, rgba(200, 50, 63, .085) 0%, transparent 42%),
+        radial-gradient(ellipse at 82% 72%, rgba(30, 58, 111, .09) 0%, transparent 45%);
+      animation: ambient-drift-c 35s ease-in-out infinite;
+    }
+
+    .reels-sec::before {
+      content: '';
+      position: absolute;
+      inset: -14%;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 18% 26%, rgba(200, 50, 63, .09) 0%, transparent 40%),
+        radial-gradient(ellipse at 82% 74%, rgba(30, 58, 111, .095) 0%, transparent 43%);
+      animation: ambient-drift-a 36s ease-in-out infinite;
+    }
+
+    .reels-sec > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .gallery::before {
+      inset: -14%;
+      background-image:
+        radial-gradient(ellipse at 14% 78%, rgba(200, 50, 63, .065) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 22%, rgba(30, 58, 111, .085) 0%, transparent 43%),
+        radial-gradient(circle, rgba(255, 255, 255, .05) 1.4px, transparent 1.4px);
+      background-size: auto, auto, 20px 20px;
+      background-repeat: no-repeat, no-repeat, repeat;
+      animation: ambient-drift-c 41s ease-in-out infinite;
+    }
+
+    .testimonials::before {
+      inset: -14%;
+      background:
+        radial-gradient(ellipse at center, transparent 42%, rgba(139, 100, 50, .12) 100%),
+        radial-gradient(ellipse at 14% 30%, rgba(30, 58, 111, .05) 0%, transparent 39%),
+        radial-gradient(ellipse at 86% 70%, rgba(200, 50, 63, .05) 0%, transparent 41%);
+      animation: ambient-drift-a 45s ease-in-out infinite;
+    }
+
+    .cta::after {
+      inset: -16%;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      background:
+        radial-gradient(circle at 88% 88%, rgba(0, 0, 0, .07) 0 15%, transparent 28%),
+        radial-gradient(ellipse at 16% 24%, rgba(200, 50, 63, .07) 0%, transparent 41%),
+        radial-gradient(ellipse at 78% 68%, rgba(30, 58, 111, .09) 0%, transparent 44%);
+      animation: ambient-drift-b 43s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-left::after,
+      .hero-right::before,
+      .about::before,
+      .services::before,
+      .vegas-inner::before,
+      .reels-sec::before,
+      .gallery::before,
+      .testimonials::before,
+      .cta::after {
+        animation: none !important;
+        transform: none !important;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .barber-strip,
       .hero-photo,
