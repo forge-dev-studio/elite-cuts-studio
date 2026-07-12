@@ -2283,7 +2283,7 @@ h4 {
   margin-left: calc(50% - 50vw) !important;
   margin-right: calc(50% - 50vw) !important;
   min-height: 500px;
-  background: #97a458 !important;
+  background: #0d0d0d !important;
   /* Force the green background */
   overflow: hidden;
   display: flex;

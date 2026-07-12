@@ -134,7 +134,7 @@
     select,
     textarea,
     label {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%2300e5a0' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%2300e5a0' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%2300e5a0' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%2300e5a0' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%2300e5a0'/%3E%3C/svg%3E") 16 16, pointer;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%23c8a24a' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%23c8a24a' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%23c8a24a' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%23c8a24a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23c8a24a'/%3E%3C/svg%3E") 16 16, pointer;
     }
 
     /* ═══════════════════════════════════════
@@ -180,7 +180,7 @@
       background: var(--cream);
       overflow-x: hidden;
       /* 🎯 RETRO CROSSHAIR CURSOR 🎯 */
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%23e85118' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%23e85118' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23e85118'/%3E%3C/svg%3E") 16 16, auto;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cline x1='16' y1='4' x2='16' y2='12' stroke='%23c8a24a' stroke-width='2'/%3E%3Cline x1='16' y1='20' x2='16' y2='28' stroke='%23c8a24a' stroke-width='2'/%3E%3Cline x1='4' y1='16' x2='12' y2='16' stroke='%23c8a24a' stroke-width='2'/%3E%3Cline x1='20' y1='16' x2='28' y2='16' stroke='%23c8a24a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23c8a24a'/%3E%3C/svg%3E") 16 16, auto;
       font-size: 1.06rem
     }
 
@@ -1403,7 +1403,7 @@
     }
 
     .vegas-bulb.dim {
-      background: #2a0810;
+      background: #201608;
       box-shadow: 0 0 2px rgba(200, 162, 74, .15);
     }
 
@@ -1568,6 +1568,18 @@
       color: #f5eed8;
       flex: 1;
       line-height: 1;
+    }
+
+    a.vi-name {
+      text-decoration: none;
+      transition: color .18s;
+    }
+
+    a.vi-name:hover {
+      color: var(--orange);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
     }
 
     .vi-desc {
@@ -3645,7 +3657,7 @@
     /* Wall-mounted Vegas sign and raised service chips */
     .vegas-billboard {
       isolation: isolate;
-      border-color: #b92b37;
+      border-color: #c8a24a;
       box-shadow:
         inset 0 2px 1px rgba(255, 255, 255, .09),
         inset 0 -18px 34px rgba(0, 0, 0, .54),
@@ -4061,7 +4073,7 @@
       </ul>
     </div>
     <a href="index.html" class="nav-brand" aria-label="Elite Cuts Studio home">
-      <img src="assets/logo.jpg" alt="Elite Cuts Studio" class="nav-logo-img">
+      <img src="assets/logo.jpg" alt="Elite Cuts Studio" class="nav-logo-img" width="58" height="58">
       <span class="nav-brand-text">Elite Cuts</span>
     </a>
     <a href="#barbers" class="nav-book" data-es="Reservar">Book Now</a>
@@ -4096,7 +4108,8 @@
       <div class="hero-photo-frame">
         <img class="hero-photo" id="heroPhoto"
           src="assets/shop-hero.jpg" width="1397" height="1126"
-          alt="Elite Cuts Studio storefront on M.L.K. Jr Blvd, Gainesville GA" loading="eager">
+          alt="Elite Cuts Studio storefront on M.L.K. Jr Blvd, Gainesville GA" loading="eager"
+          fetchpriority="high" decoding="async">
         <div class="hero-stamp" aria-hidden="true">
           <span>MASTER</span>
           <strong>BARBERING</strong>
@@ -4307,36 +4320,36 @@
         <div class="vegas-grid">
           <div class="vegas-col">
             <div class="vegas-col-head" data-es="<i class='fas fa-gem'></i> Servicios de Cabello <i class='fas fa-gem'></i>"><i class="fas fa-gem"></i> Hair Services <i class="fas fa-gem"></i></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-scissors"></i></span><span
-                class="vi-name" data-es="Corte Clasico">Classic Haircut</span><span class="vi-desc" data-es="atemporal">timeless</span></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-redo"></i></span><span
-                class="vi-name" data-es="Retoque">In-between cut</span><span class="vi-desc" data-es="clientes frecuentes">return clients</span></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-ruler-horizontal"></i></span><span
-                class="vi-name" data-es="Degradado">Taper</span><span class="vi-desc" data-es="acabado limpio">clean finish</span></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-layer-group"></i></span><span
-                class="vi-name" data-es="Desvanecido">Fade</span><span class="vi-desc" data-es="piel a largo">skin to length</span></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-bolt"></i></span><span class="vi-name" data-es="Corte al Rape">Buzz
-                Cut</span><span class="vi-desc" data-es="corto y nitido">close &amp; crisp</span></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-feather"></i></span><span
-                class="vi-name" data-es="Corte con Tijera">Sheer Cut</span><span class="vi-desc" data-es="textura y ligereza">textured &amp; light</span></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-child"></i></span><span
-                class="vi-name" data-es="Corte de Ninos">Kids' Cut</span><span class="vi-desc" data-es="para los pequenos">for the little ones</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-scissors"></i></span><a
+                class="vi-name" data-es="Corte Clasico" href="mens-haircuts-gainesville-ga.html">Classic Haircut</a><span class="vi-desc" data-es="atemporal">timeless</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-redo"></i></span><a
+                class="vi-name" data-es="Retoque" href="mens-haircuts-gainesville-ga.html">In-between cut</a><span class="vi-desc" data-es="clientes frecuentes">return clients</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-ruler-horizontal"></i></span><a
+                class="vi-name" data-es="Degradado" href="fades-tapers-gainesville-ga.html">Taper</a><span class="vi-desc" data-es="acabado limpio">clean finish</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-layer-group"></i></span><a
+                class="vi-name" data-es="Desvanecido" href="fades-tapers-gainesville-ga.html">Fade</a><span class="vi-desc" data-es="piel a largo">skin to length</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-bolt"></i></span><a class="vi-name" data-es="Corte al Rape" href="mens-haircuts-gainesville-ga.html">Buzz
+                Cut</a><span class="vi-desc" data-es="corto y nitido">close &amp; crisp</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-feather"></i></span><a
+                class="vi-name" data-es="Corte con Tijera" href="mens-haircuts-gainesville-ga.html">Shear Cut</a><span class="vi-desc" data-es="textura y ligereza">textured &amp; light</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-child"></i></span><a
+                class="vi-name" data-es="Corte de Ninos" href="kids-haircuts-gainesville-ga.html">Kids' Cut</a><span class="vi-desc" data-es="para los pequenos">for the little ones</span></div>
           </div>
           <div class="vegas-col-divider"></div>
           <div class="vegas-col">
             <div class="vegas-col-head" data-es="<i class='fas fa-gem'></i> Barba y Afeitado <i class='fas fa-gem'></i>"><i class="fas fa-gem"></i> Beard &amp; Shave <i class="fas fa-gem"></i></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-pen-nib"></i></span><span
-                class="vi-name" data-es="Perfilado de Barba">Beard Shaping</span><span class="vi-desc" data-es="lineas definidas">defined lines</span></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-sliders"></i></span><span
-                class="vi-name" data-es="Recorte de Barba">Beard Trim</span><span class="vi-desc" data-es="limpio y ordenado">neat &amp; tidy</span></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-fire-flame-curved"></i></span><span
-                class="vi-name" data-es="Afeitado con Toalla Caliente">Hot Towel Shave</span><span class="vi-desc" data-es="lujo clasico">old school luxury</span></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-droplet"></i></span><span
-                class="vi-name" data-es="Navaja Recta">Straight Razor</span><span class="vi-desc" data-es="clasico y al ras">classic &amp; close</span></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-plus"></i></span><span
-                class="vi-name" data-es="Recorte Premium">Premium Beard Trim</span><span class="vi-desc">+$20</span></div>
-            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-plus"></i></span><span
-                class="vi-name" data-es="Recorte Sencillo">Simple Beard Trim</span><span class="vi-desc">+$10</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-pen-nib"></i></span><a
+                class="vi-name" data-es="Perfilado de Barba" href="beard-trim-gainesville-ga.html">Beard Shaping</a><span class="vi-desc" data-es="lineas definidas">defined lines</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-sliders"></i></span><a
+                class="vi-name" data-es="Recorte de Barba" href="beard-trim-gainesville-ga.html">Beard Trim</a><span class="vi-desc" data-es="limpio y ordenado">neat &amp; tidy</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-fire-flame-curved"></i></span><a
+                class="vi-name" data-es="Afeitado con Toalla Caliente" href="hot-towel-shave-gainesville-ga.html">Hot Towel Shave</a><span class="vi-desc" data-es="lujo clasico">old school luxury</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-droplet"></i></span><a
+                class="vi-name" data-es="Navaja Recta" href="hot-towel-shave-gainesville-ga.html">Straight Razor</a><span class="vi-desc" data-es="clasico y al ras">classic &amp; close</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-plus"></i></span><a
+                class="vi-name" data-es="Recorte Premium" href="beard-trim-gainesville-ga.html">Premium Beard Trim</a><span class="vi-desc">+$20</span></div>
+            <div class="vegas-item"><span class="vi-bullet"><i class="fas fa-plus"></i></span><a
+                class="vi-name" data-es="Recorte Sencillo" href="beard-trim-gainesville-ga.html">Simple Beard Trim</a><span class="vi-desc">+$10</span></div>
           </div>
         </div>
         <div class="vegas-footer">
@@ -4432,12 +4445,12 @@
     </div>
     <div class="reels-grid">
       <div class="reel-card reel-card--video rev">
-        <video class="reel-video" muted loop playsinline preload="none" poster="assets/cut-02.jpg" aria-hidden="true">
+        <video class="reel-video" muted loop playsinline preload="none" poster="assets/reel-1-poster.jpg" aria-hidden="true">
           <source src="assets/reel-1.mp4" type="video/mp4">
         </video>
       </div>
       <div class="reel-card reel-card--video rev">
-        <video class="reel-video" muted loop playsinline preload="none" poster="assets/cut-01.jpg" aria-hidden="true">
+        <video class="reel-video" muted loop playsinline preload="none" poster="assets/reel-2-poster.jpg" aria-hidden="true">
           <source src="assets/reel-2.mp4" type="video/mp4">
         </video>
       </div>
@@ -4562,7 +4575,7 @@
       </div>
       <span class="cta-eyebrow" data-es="Listo para verte mejor?">Ready to look your best?</span>
       <span class="cta-heading" data-es="Haz Tu<br>Reservacion.">Get on<br>the Books.</span>
-      <p class="cta-sub" data-es="Agenda tu proximo desvanecido, degradado, corte con tijera o arreglo de barba en Elite Cuts Studio hoy. Sin esperas.">Schedule your next fade, taper, sheer cut, or beard trim with Elite Cuts Studio today. No waiting around.</p>
+      <p class="cta-sub" data-es="Agenda tu proximo desvanecido, degradado, corte con tijera o arreglo de barba en Elite Cuts Studio hoy. Sin esperas.">Schedule your next fade, taper, shear cut, or beard trim with Elite Cuts Studio today. No waiting around.</p>
       <a href="https://booksy.com/en-us/dl/show-business/1813863?utm_medium=c2c_referral" class="btn-white" target="_blank" rel="noopener" data-es="Reserva Tu Cita">
         Book Your Appointment
         <svg width="17" height="17" viewBox="0 0 18 18" fill="none">
@@ -4588,7 +4601,7 @@
   <footer class="footer">
     <div class="footer-logo-row">
       <div class="logo-seal footer-logo-seal">
-        <img src="assets/logo.jpg" alt="Elite Cuts Studio">
+        <img src="assets/logo.jpg" alt="Elite Cuts Studio" width="140" height="140">
       </div>
       <p class="footer-tagline-big">Look Sharp. Cut Elite.</p>
     </div>
