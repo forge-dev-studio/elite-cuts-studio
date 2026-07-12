@@ -2415,7 +2415,7 @@ h4 {
 
 .barber-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   width: min(1240px, 100%);
   margin: 0 auto;
@@ -3781,6 +3781,113 @@ body .hero-actions {
   padding: 12px 17px;
 }
 
+.barber-card--owner {
+  --barber-accent: var(--olive);
+  grid-column: 1 / -1;
+  min-height: 330px;
+  flex-direction: row;
+  justify-content: center;
+  gap: clamp(42px, 7vw, 88px);
+  padding: 42px clamp(42px, 8vw, 104px);
+  background:
+    radial-gradient(circle at 16% 24%, rgba(30, 58, 111, .12), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, .96), rgba(245, 243, 238, .82));
+  border: 1px solid rgba(30, 58, 111, .28);
+  border-top: 5px solid var(--olive);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .96),
+    inset 0 -18px 34px rgba(30, 58, 111, .06),
+    var(--edge-card-light),
+    var(--shadow-e2);
+  text-align: left;
+}
+
+.barber-card--owner:hover {
+  border-color: rgba(30, 58, 111, .4);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .96),
+    inset 0 -18px 34px rgba(30, 58, 111, .07),
+    var(--edge-card-light),
+    var(--shadow-e3);
+}
+
+.barber-card--owner .barber-avatar {
+  width: 148px;
+  height: 148px;
+  margin: 0;
+  flex: 0 0 auto;
+  color: var(--olive-dark);
+  border-width: 4px;
+  box-shadow:
+    4px 5px 0 var(--orange),
+    0 5px 10px rgba(10, 10, 10, .2),
+    0 20px 34px rgba(30, 58, 111, .16),
+    inset 0 1px 1px rgba(255, 255, 255, .96),
+    inset 0 0 0 7px rgba(255, 255, 255, .5),
+    inset 0 -9px 15px rgba(10, 10, 10, .12);
+}
+
+.barber-card--owner .barber-avatar .cred-seal {
+  width: 112px;
+  height: 112px;
+}
+
+.barber-owner-copy {
+  display: flex;
+  min-width: 0;
+  max-width: 520px;
+  flex: 1 1 420px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.barber-owner-tag {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 6px 11px 5px;
+  color: var(--cream);
+  background: var(--olive-dark);
+  border-left: 4px solid var(--orange);
+  border-radius: 3px;
+  box-shadow: 3px 3px 0 rgba(200, 50, 63, .2);
+  font-family: var(--font-heading);
+  font-size: .82rem;
+  letter-spacing: .18em;
+  line-height: 1;
+}
+
+.barber-card--owner .barber-name {
+  margin-bottom: 8px;
+  font-size: clamp(2.65rem, 5vw, 4.25rem);
+}
+
+.barber-card--owner .barber-role,
+.barber-card--owner .barber-services {
+  min-height: 0;
+}
+
+.barber-card--owner .barber-role {
+  margin-bottom: 10px;
+  color: var(--olive-dark);
+}
+
+.barber-card--owner .barber-services {
+  margin-bottom: 18px;
+  font-size: .98rem;
+}
+
+.barber-card--owner .barber-book--disabled {
+  width: auto;
+  min-width: 190px;
+  margin-top: 0;
+  color: var(--ink-60);
+  background: var(--cream-dark);
+  border-color: var(--ink-20);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), var(--shadow-pressed);
+  pointer-events: none;
+  user-select: none;
+}
+
 .barber-card--any {
   --barber-accent: var(--orange);
   min-height: 0;
@@ -3853,6 +3960,32 @@ body .hero-actions {
   .barber-card {
     min-height: 0;
     padding: 28px 22px 22px;
+  }
+
+  .barber-card--owner {
+    flex-direction: column;
+    gap: 26px;
+    padding: 34px 24px 30px;
+    text-align: center;
+  }
+
+  .barber-card--owner .barber-avatar {
+    width: 132px;
+    height: 132px;
+  }
+
+  .barber-card--owner .barber-avatar .cred-seal {
+    width: 100px;
+    height: 100px;
+  }
+
+  .barber-owner-copy {
+    flex: 0 1 auto;
+    align-items: center;
+  }
+
+  .barber-card--owner .barber-name {
+    font-size: clamp(2.6rem, 15vw, 3.7rem);
   }
 
   .barber-services {

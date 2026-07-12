@@ -3670,7 +3670,26 @@
     <p class="barbers-sub rev" data-es="Reserva directamente con tu barbero. Elige tu barbero y aparta tu cita en segundos.">Book directly with your barber. Each chair has its own online schedule — pick your barber and lock your time in seconds.</p>
 
     <div class="barber-grid">
-      <article class="barber-card rev" data-delay="0">
+      <article class="barber-card barber-card--soon barber-card--owner rev" data-delay="0">
+        <div class="barber-avatar" aria-hidden="true">
+          <svg class="cred-seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="36" cy="36" r="33" stroke="currentColor" stroke-width="2.5" />
+            <circle cx="36" cy="36" r="27" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
+            <circle cx="36" cy="36" r="21" stroke="currentColor" stroke-width="1.5" />
+            <text x="36" y="43" text-anchor="middle" font-family="Shrikhand,cursive" font-size="22" fill="currentColor">M</text>
+          </svg>
+        </div>
+        <div class="barber-owner-copy">
+          <span class="barber-owner-tag" aria-hidden="true">★ THE OWNER ★</span>
+          <h3 class="barber-name">Miguel</h3>
+          <p class="barber-role" data-es="Dueño · Barbero Maestro">Owner · Master Barber</p>
+          <p class="barber-services" data-es="Reservas muy pronto">Booking coming soon</p>
+          <!-- TODO: add Miguel's Booksy URL when live -->
+          <span class="barber-book barber-book--disabled" aria-disabled="true" data-es="Muy Pronto">Booking Soon</span>
+        </div>
+      </article>
+
+      <article class="barber-card rev" data-delay="100">
         <div class="barber-avatar" aria-hidden="true">
           <svg class="cred-seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="36" cy="36" r="33" stroke="currentColor" stroke-width="2.5" />
@@ -3688,7 +3707,7 @@
         </a>
       </article>
 
-      <article class="barber-card rev" data-delay="100">
+      <article class="barber-card rev" data-delay="200">
         <div class="barber-avatar" aria-hidden="true">
           <svg class="cred-seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="36" cy="36" r="33" stroke="currentColor" stroke-width="2.5" />
@@ -3706,7 +3725,7 @@
         </a>
       </article>
 
-      <article class="barber-card rev" data-delay="200">
+      <article class="barber-card rev" data-delay="300">
         <div class="barber-avatar" aria-hidden="true">
           <svg class="cred-seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="36" cy="36" r="33" stroke="currentColor" stroke-width="2.5" />
@@ -3722,22 +3741,6 @@
           Book Thomas
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
         </a>
-      </article>
-
-      <article class="barber-card barber-card--soon rev" data-delay="300">
-        <div class="barber-avatar" aria-hidden="true">
-          <svg class="cred-seal" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="36" cy="36" r="33" stroke="currentColor" stroke-width="2.5" />
-            <circle cx="36" cy="36" r="27" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3" />
-            <circle cx="36" cy="36" r="21" stroke="currentColor" stroke-width="1.5" />
-            <text x="36" y="43" text-anchor="middle" font-family="Shrikhand,cursive" font-size="22" fill="currentColor">M</text>
-          </svg>
-        </div>
-        <h3 class="barber-name">Miguel</h3>
-        <p class="barber-role" data-es="Dueño · Barbero Maestro">Owner · Master Barber</p>
-        <p class="barber-services" data-es="Reservas muy pronto">Booking coming soon</p>
-        <!-- TODO: add Miguel's Booksy URL when live -->
-        <span class="barber-book barber-book--disabled" aria-disabled="true" data-es="Muy Pronto">Booking Soon</span>
       </article>
 
       <article class="barber-card barber-card--any rev" data-delay="400">
