@@ -3760,20 +3760,41 @@ body .hero-actions {
 
 .barber-name {
   margin-bottom: 6px;
-  font-size: clamp(1.65rem, 2vw, 2.05rem);
-  line-height: 1;
-  letter-spacing: -.025em;
+  font-family: 'Shrikhand', cursive;
+  font-size: clamp(1.7rem, 2vw, 2.1rem);
+  line-height: 1.02;
+  letter-spacing: -.015em;
 }
 
 .barber-role {
   min-height: 2.4em;
-  margin-bottom: 8px;
+  margin-bottom: 11px;
+  color: var(--olive-dark);
+  font-family: var(--font-heading);
+  font-size: .94rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.barber-role::after {
+  content: '';
+  display: block;
+  width: 26px;
+  margin: 7px auto 0;
+  border-top: 1px solid color-mix(in srgb, var(--barber-accent) 72%, transparent);
 }
 
 .barber-services {
   min-height: 2.8em;
   margin-bottom: 15px;
-  line-height: 1.45;
+  color: rgba(15, 35, 71, .84);
+  font-family: 'Bitter', Georgia, serif;
+  font-size: .92rem;
+  font-weight: 400;
+  line-height: 1.62;
+  letter-spacing: .005em;
 }
 
 .barber-book {
@@ -3844,21 +3865,24 @@ body .hero-actions {
 .barber-owner-tag {
   display: inline-flex;
   margin-bottom: 10px;
-  padding: 6px 11px 5px;
+  padding: 6px 12px 5px;
   color: var(--cream);
   background: var(--olive-dark);
   border-left: 4px solid var(--orange);
   border-radius: 3px;
   box-shadow: 3px 3px 0 rgba(200, 50, 63, .2);
   font-family: var(--font-heading);
-  font-size: .82rem;
-  letter-spacing: .18em;
+  font-size: .78rem;
+  font-weight: 400;
+  letter-spacing: .16em;
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .barber-card--owner .barber-name {
   margin-bottom: 8px;
   font-size: clamp(2.65rem, 5vw, 4.25rem);
+  letter-spacing: -.018em;
 }
 
 .barber-card--owner .barber-role,
@@ -3871,9 +3895,20 @@ body .hero-actions {
   color: var(--olive-dark);
 }
 
+.barber-card--owner .barber-role::after {
+  margin-left: 0;
+}
+
 .barber-card--owner .barber-services {
   margin-bottom: 18px;
   font-size: .98rem;
+}
+
+.barber-owner-note {
+  color: rgba(15, 35, 71, .9);
+  font-size: 1.04rem;
+  font-style: italic;
+  line-height: 1.68;
 }
 
 .barber-card--owner .barber-book--disabled {
@@ -3906,6 +3941,15 @@ body .hero-actions {
 .barber-card--any .barber-services {
   min-height: 0;
   margin-bottom: 0;
+  color: rgba(255, 255, 255, .88);
+}
+
+.barber-any-eye {
+  font-size: .8rem;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: .16em;
+  text-transform: uppercase;
 }
 
 .barber-card--any:hover {
