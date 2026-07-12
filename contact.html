@@ -53,6 +53,167 @@
     /* Standalone contact detail links -> 44px tap target */
     .contact-info-section a[href^="tel:"],
     .contact-social-links a { display: inline-flex; align-items: center; min-height: 44px; }
+
+    /* Premium depth pass C: contact-specific surfaces */
+    .page-hero-section {
+      isolation: isolate;
+      overflow: hidden;
+      box-shadow:
+        inset 0 2px 0 rgba(255, 255, 255, .08),
+        inset 0 -24px 48px rgba(5, 14, 31, .28),
+        0 4px 10px rgba(10, 10, 10, .22),
+        0 24px 52px rgba(10, 10, 10, .2),
+        0 0 34px rgba(200, 50, 63, .08);
+    }
+    .page-hero-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 82% 18%, rgba(214, 69, 85, .13), transparent 32%),
+        linear-gradient(145deg, rgba(255, 255, 255, .045), transparent 36%);
+    }
+    .page-hero-content {
+      position: relative;
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, rgba(255, 255, 255, .055), rgba(5, 14, 31, .12));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .12),
+        inset 0 -12px 24px rgba(5, 14, 31, .2),
+        0 3px 7px rgba(5, 14, 31, .34),
+        0 20px 42px rgba(5, 14, 31, .3),
+        0 0 24px rgba(200, 50, 63, .08);
+    }
+    .page-hero-content .hero-badge {
+      filter: drop-shadow(0 3px 2px rgba(5, 14, 31, .38)) drop-shadow(0 9px 12px rgba(5, 14, 31, .22));
+      transform: translateY(-2px);
+    }
+    .page-hero-actions .btn,
+    #contactForm .btn[type="submit"] {
+      border-top-color: rgba(255, 255, 255, .32);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .24),
+        inset 0 -3px 0 rgba(10, 10, 10, .2),
+        0 3px 4px rgba(10, 10, 10, .24),
+        0 10px 20px rgba(10, 10, 10, .18),
+        0 0 15px rgba(200, 50, 63, .1);
+      transform: translateY(-1px);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .page-hero-actions .btn:hover,
+    #contactForm .btn[type="submit"]:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .3),
+        inset 0 -3px 0 rgba(10, 10, 10, .18),
+        0 4px 6px rgba(10, 10, 10, .22),
+        0 15px 25px rgba(10, 10, 10, .2),
+        0 0 20px rgba(200, 50, 63, .14);
+    }
+    .page-hero-actions .btn:active,
+    #contactForm .btn[type="submit"]:active {
+      transform: translateY(2px);
+      box-shadow:
+        inset 0 2px 4px rgba(10, 10, 10, .24),
+        0 1px 2px rgba(10, 10, 10, .22),
+        0 4px 8px rgba(10, 10, 10, .14);
+    }
+    #contactForm {
+      padding: clamp(1.4rem, 3vw, 2rem);
+      border: 1px solid rgba(10, 10, 10, .1);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, #fffefa, #f7f2e8);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .95),
+        inset 0 -4px 0 rgba(10, 10, 10, .035),
+        0 3px 7px rgba(10, 10, 10, .15),
+        0 20px 42px rgba(10, 10, 10, .14),
+        0 0 26px rgba(200, 50, 63, .06);
+    }
+    #contactForm input,
+    #contactForm textarea {
+      border-color: rgba(10, 10, 10, .16);
+      background: #fbfaf6;
+      box-shadow:
+        inset 0 2px 5px rgba(10, 10, 10, .1),
+        inset 0 1px 0 rgba(10, 10, 10, .035),
+        0 1px 0 rgba(255, 255, 255, .85);
+      transition: box-shadow 180ms ease;
+    }
+    #contactForm input:focus,
+    #contactForm textarea:focus {
+      border-color: var(--orange-deep);
+      box-shadow:
+        inset 0 2px 4px rgba(10, 10, 10, .08),
+        0 0 0 3px rgba(200, 50, 63, .18),
+        0 5px 12px rgba(10, 10, 10, .08);
+    }
+    .contact-hero-image,
+    .contact-location-card,
+    .contact-info-section .info-card {
+      border: 1px solid rgba(10, 10, 10, .1);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .82),
+        inset 0 -3px 0 rgba(10, 10, 10, .045),
+        0 3px 6px rgba(10, 10, 10, .14),
+        0 16px 32px rgba(10, 10, 10, .12),
+        0 0 20px rgba(200, 50, 63, .05);
+      transition: transform 280ms cubic-bezier(.22, 1, .36, 1), box-shadow 280ms ease;
+    }
+    .contact-hero-image:hover,
+    .contact-location-card:hover,
+    .contact-info-section .info-card:hover {
+      transform: perspective(900px) translateY(-5px) rotateX(1deg);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .9),
+        inset 0 -3px 0 rgba(10, 10, 10, .04),
+        0 4px 7px rgba(10, 10, 10, .14),
+        0 23px 40px rgba(10, 10, 10, .15),
+        0 0 24px rgba(200, 50, 63, .08);
+    }
+    .contact-social-links a {
+      padding: .45rem .8rem;
+      border: 1px solid rgba(10, 10, 10, .12);
+      border-radius: 999px;
+      background: linear-gradient(145deg, #fff, #f0ebe1);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .95),
+        inset 0 -2px 0 rgba(10, 10, 10, .08),
+        0 2px 3px rgba(10, 10, 10, .14),
+        0 7px 14px rgba(10, 10, 10, .1);
+      transform: translateY(-1px);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .contact-social-links a:hover { transform: translateY(-3px); }
+    .contact-social-links a:active {
+      transform: translateY(1px);
+      box-shadow: inset 0 2px 3px rgba(10, 10, 10, .14), 0 1px 2px rgba(10, 10, 10, .12);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .page-hero-content .hero-badge,
+      .page-hero-actions .btn,
+      .page-hero-actions .btn:hover,
+      .page-hero-actions .btn:active,
+      #contactForm .btn[type="submit"],
+      #contactForm .btn[type="submit"]:hover,
+      #contactForm .btn[type="submit"]:active,
+      .contact-hero-image,
+      .contact-hero-image:hover,
+      .contact-location-card,
+      .contact-location-card:hover,
+      .contact-info-section .info-card,
+      .contact-info-section .info-card:hover,
+      .contact-social-links a,
+      .contact-social-links a:hover,
+      .contact-social-links a:active {
+        transform: none !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 

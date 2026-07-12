@@ -573,6 +573,229 @@
       }
     }
     a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+
+    /* Premium depth pass C: standalone appointments surfaces */
+    .apt-hero {
+      isolation: isolate;
+      box-shadow:
+        inset 0 2px 0 rgba(255, 255, 255, .09),
+        inset 0 -28px 52px rgba(5, 14, 31, .26),
+        0 4px 10px rgba(10, 10, 10, .24),
+        0 25px 54px rgba(10, 10, 10, .2),
+        0 0 32px rgba(200, 50, 63, .08);
+    }
+    .apt-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(214, 69, 85, .14), transparent 31%),
+        linear-gradient(145deg, rgba(255, 255, 255, .045), transparent 38%);
+    }
+    .apt-hero > * { position: relative; z-index: 2; }
+    .apt-title {
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, .2),
+        1px 2px 0 #17305e,
+        2px 3px 0 #10264c,
+        0 7px 7px rgba(5, 14, 31, .42),
+        0 18px 28px rgba(5, 14, 31, .28),
+        0 0 24px rgba(214, 69, 85, .12);
+      transform: perspective(1000px) rotateX(1deg) translateY(-2px);
+    }
+    .vegas-billboard {
+      isolation: isolate;
+      border-color: #b92b37;
+      box-shadow:
+        inset 0 2px 1px rgba(255, 255, 255, .09),
+        inset 0 -20px 38px rgba(0, 0, 0, .58),
+        0 3px 7px rgba(10, 10, 10, .38),
+        0 28px 58px rgba(10, 10, 10, .38),
+        0 0 0 6px #050505,
+        0 0 36px rgba(200, 50, 63, .14);
+    }
+    .vegas-billboard::before {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      z-index: 0;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, .07);
+      background: linear-gradient(155deg, rgba(255, 255, 255, .025), transparent 30%, rgba(0, 0, 0, .12));
+      box-shadow: inset 0 2px 7px rgba(255, 255, 255, .045), inset 0 -9px 20px rgba(0, 0, 0, .48);
+    }
+    .vegas-billboard > * { position: relative; z-index: 2; }
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .018));
+      border-color: rgba(255, 255, 255, .13);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .1),
+        inset 0 -4px 8px rgba(0, 0, 0, .3),
+        0 3px 5px rgba(0, 0, 0, .42),
+        0 14px 28px rgba(0, 0, 0, .3),
+        0 0 16px rgba(200, 50, 63, .045);
+      transform: perspective(900px) translateY(0) rotateX(0);
+      transition: transform 280ms cubic-bezier(.22, 1, .36, 1), box-shadow 280ms ease;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .34;
+      background: linear-gradient(115deg, transparent 12%, rgba(255, 255, 255, .07) 32%, transparent 48%);
+      transform: translateX(-34%);
+      transition: transform 420ms ease, opacity 280ms ease;
+    }
+    .service-card > * { position: relative; z-index: 1; }
+    .service-card:hover {
+      transform: perspective(900px) translateY(-6px) rotateX(1.5deg);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .13),
+        inset 0 -4px 8px rgba(0, 0, 0, .26),
+        0 4px 7px rgba(0, 0, 0, .4),
+        0 22px 36px rgba(0, 0, 0, .38),
+        0 0 22px rgba(200, 50, 63, .1);
+    }
+    .service-card:hover::after { opacity: .5; transform: translateX(28%); }
+    .btn-book,
+    .nav-book {
+      border: 1px solid rgba(255, 255, 255, .16);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .28),
+        inset 0 -3px 0 rgba(10, 10, 10, .24),
+        0 3px 4px rgba(10, 10, 10, .36),
+        0 10px 18px rgba(10, 10, 10, .24),
+        0 0 14px rgba(200, 50, 63, .14);
+      transform: translateY(-1px);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .btn-book:hover,
+    .nav-book:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .34),
+        inset 0 -3px 0 rgba(10, 10, 10, .2),
+        0 4px 6px rgba(10, 10, 10, .32),
+        0 15px 24px rgba(10, 10, 10, .27),
+        0 0 20px rgba(200, 50, 63, .17);
+    }
+    .btn-book:active,
+    .nav-book:active {
+      transform: translateY(2px);
+      box-shadow: inset 0 2px 4px rgba(10, 10, 10, .28), 0 1px 2px rgba(10, 10, 10, .28), 0 4px 8px rgba(10, 10, 10, .18);
+    }
+    .contrast-card {
+      border-color: rgba(10, 10, 10, .1);
+      background: linear-gradient(145deg, #fff, #f4f0e8);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .95),
+        inset 0 -4px 0 rgba(10, 10, 10, .05),
+        0 3px 7px rgba(10, 10, 10, .2),
+        0 24px 52px rgba(10, 10, 10, .24),
+        0 0 24px rgba(200, 50, 63, .07);
+    }
+    .modal-content {
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .09),
+        inset 0 -18px 34px rgba(0, 0, 0, .34),
+        0 4px 8px rgba(0, 0, 0, .48),
+        0 30px 64px rgba(0, 0, 0, .55),
+        0 0 0 6px rgba(200, 50, 63, .1),
+        0 0 28px rgba(200, 50, 63, .12);
+    }
+    .booking-picker {
+      background:
+        radial-gradient(circle at 50% 0, rgba(200, 50, 63, .09), transparent 35%),
+        linear-gradient(145deg, rgba(255, 255, 255, .025), transparent 40%);
+    }
+    .bc-inner {
+      position: relative;
+      overflow: hidden;
+      border-color: rgba(255, 255, 255, .14);
+      background: linear-gradient(145deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .025));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .12),
+        inset 0 -4px 8px rgba(0, 0, 0, .28),
+        0 3px 5px rgba(0, 0, 0, .38),
+        0 13px 24px rgba(0, 0, 0, .26),
+        0 0 14px rgba(200, 50, 63, .05);
+      transform: perspective(850px) translateY(0) rotateX(0);
+      transition: transform 240ms cubic-bezier(.22, 1, .36, 1), box-shadow 240ms ease;
+    }
+    a.barber-card:hover .bc-inner {
+      transform: perspective(850px) translateY(-5px) rotateX(1.5deg);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .15),
+        inset 0 -4px 8px rgba(0, 0, 0, .24),
+        0 4px 7px rgba(0, 0, 0, .38),
+        0 20px 32px rgba(0, 0, 0, .34),
+        0 0 20px rgba(200, 50, 63, .12);
+    }
+    a.barber-card:active .bc-inner {
+      transform: translateY(1px);
+      box-shadow: inset 0 3px 6px rgba(0, 0, 0, .3), 0 2px 3px rgba(0, 0, 0, .3);
+    }
+    a.barber-card:focus-visible .bc-inner {
+      box-shadow:
+        0 0 0 3px var(--olive),
+        0 0 0 5px var(--cream),
+        0 13px 24px rgba(0, 0, 0, .3);
+    }
+    .bc-avatar {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: linear-gradient(145deg, #dd4b59, #a9222e);
+      box-shadow:
+        inset 0 2px 1px rgba(255, 255, 255, .32),
+        inset 0 -7px 11px rgba(61, 6, 14, .28),
+        0 3px 4px rgba(0, 0, 0, .4),
+        0 11px 18px rgba(0, 0, 0, .3),
+        0 0 0 4px rgba(200, 50, 63, .1);
+      filter: drop-shadow(0 4px 3px rgba(0, 0, 0, .22));
+      transform: translateY(-2px);
+      transition: transform 240ms ease, box-shadow 240ms ease;
+    }
+    .bc-avatar::after {
+      content: '';
+      position: absolute;
+      inset: 4px 7px 48% 7px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, .32), transparent);
+      opacity: .62;
+    }
+    a.barber-card:hover .bc-avatar { transform: translateY(-4px) rotate(-1.5deg); }
+    .barber-card[aria-disabled="true"] .bc-inner { box-shadow: inset 0 1px 0 rgba(255,255,255,.08), inset 0 -3px 7px rgba(0,0,0,.25), 0 5px 12px rgba(0,0,0,.2); }
+    .barber-card[aria-disabled="true"] .bc-avatar { background: linear-gradient(145deg, #294a80, #10264c); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .barber-strip { animation: none !important; }
+      .apt-title,
+      .service-card,
+      .service-card:hover,
+      .service-card::after,
+      .service-card:hover::after,
+      .btn-book,
+      .btn-book:hover,
+      .btn-book:active,
+      .nav-book,
+      .nav-book:hover,
+      .nav-book:active,
+      .bc-inner,
+      a.barber-card:hover .bc-inner,
+      a.barber-card:active .bc-inner,
+      .bc-avatar,
+      a.barber-card:hover .bc-avatar {
+        transform: none !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 
