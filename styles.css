@@ -71,7 +71,7 @@ textarea:focus-visible {
   --radius-md: 20px;
   --radius-lg: 32px;
   --radius-xl: 48px;
-  --font-display: 'Cooper Black', 'Fraunces', 'Playfair Display', Georgia, serif;
+  --font-display: 'Shrikhand', 'Cooper Black', 'Fraunces', Georgia, serif;
   --font-heading: 'Bebas Neue', 'Arial Black', sans-serif;
   --font-body: 'Inter', -apple-system, sans-serif;
   --max-w: 1200px;
@@ -2261,10 +2261,10 @@ h4 {
 
 /* 4. Improved Cooper Black Header Shadow */
 .vhdr-h {
-  font-family: 'Cooper Black', sans-serif !important;
-  text-shadow: -4px 4px 0px #c8a24a, -8px 8px 0px rgba(28, 28, 28, 0.3) !important;
-  letter-spacing: -0.03em !important;
-  line-height: 0.9 !important;
+  font-family: 'Shrikhand', 'Cooper Black', cursive !important;
+  text-shadow: -3px 3px 0px #c8a24a, -6px 6px 0px rgba(28, 28, 28, 0.28) !important;
+  letter-spacing: 0 !important;
+  line-height: 0.95 !important;
 }
 
 /* 5. Rainbow Accent Stripe */
