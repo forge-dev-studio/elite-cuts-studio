@@ -2507,6 +2507,37 @@
       filter: saturate(1.05) contrast(1.03);
     }
 
+    /* Floating barber-chair variant of the panel (transparent PNG, no frame) */
+    .storefront-frame--chair {
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+
+    .storefront-frame--chair img {
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto;
+      aspect-ratio: auto !important;
+      object-fit: contain !important;
+      background: transparent !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      filter: drop-shadow(0 28px 30px rgba(10, 10, 10, .55));
+      transition: transform 480ms cubic-bezier(.22, 1, .36, 1);
+    }
+
+    .storefront-frame--chair:hover {
+      transform: none !important;
+    }
+
+    .storefront-frame--chair:hover img {
+      transform: translateY(-8px) rotate(-.6deg);
+    }
+
     .storefront-copy .sf-eyebrow {
       font-family: 'Caveat', cursive;
       color: var(--orange);
@@ -4055,8 +4086,8 @@
 
     <!-- Storefront showcase -->
     <div class="storefront-panel rev">
-      <div class="storefront-frame">
-        <img src="assets/cut-06.jpg" width="960" height="774" alt="Elite Cuts Studio storefront on M.L.K. Jr Blvd, Gainesville GA">
+      <div class="storefront-frame storefront-frame--chair">
+        <img src="assets/chair.png" width="824" height="953" alt="Classic barber chair at Elite Cuts Studio" loading="lazy">
       </div>
       <div class="storefront-copy">
         <span class="sf-eyebrow" data-es="— Visita el Estudio —">— Visit the Studio —</span>
