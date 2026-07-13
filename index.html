@@ -100,7 +100,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="styles.css?v=20260713">
+  <link rel="stylesheet" href="styles.css?v=20260715">
   <style>
     /* ═══════════════════════════════════════
    VINTAGE CROSSHAIR CURSOR
@@ -3458,14 +3458,20 @@
         0 1px 0 rgba(10, 10, 10, .12);
     }
 
-    .hero-line1 {
-      /* white face, gold offset so it pops on black */
-      text-shadow: -3px 4px 0 var(--orange), 4px 6px 12px rgba(10, 10, 10, .5);
-    }
-
+    /* Storefront-sign gold: beveled gold (dark top/bottom) with a white outline */
+    .hero-line1,
     .hero-line2 {
-      /* gold face, DARK shadow (no gold-on-gold) so the gold pops */
-      text-shadow: 3px 4px 0 rgba(10, 10, 10, .62), 6px 9px 16px rgba(10, 10, 10, .4);
+      color: #d9b45c; /* fallback */
+      background: linear-gradient(180deg,
+        #6a4e16 0%, #9c7827 12%, #d9b657 32%, #f7e7a8 49%,
+        #f7e7a8 51%, #d9b657 68%, #9c7827 87%, #6a4e16 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 2px rgba(255, 255, 255, .95);
+      text-shadow: none;
+      filter: drop-shadow(2px 4px 0 rgba(10, 10, 10, .5)) drop-shadow(0 5px 9px rgba(0, 0, 0, .42));
+      paint-order: stroke fill;
     }
 
     .hero-photo-frame {
