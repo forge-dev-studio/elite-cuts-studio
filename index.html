@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Bitter:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=Caveat:wght@600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Shrikhand&family=Bitter:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=Caveat:wght@600;700&display=swap"
     rel="stylesheet">
 
   <!-- SOCIAL SHARE (OG TAGS) -->
@@ -100,7 +100,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="styles.css?v=20260712">
+  <link rel="stylesheet" href="styles.css?v=20260713">
   <style>
     /* ═══════════════════════════════════════
    VINTAGE CROSSHAIR CURSOR
@@ -645,20 +645,24 @@
 
     .hero-line1 {
       display: block;
-      font-family: 'Shrikhand', cursive;
-      font-size: clamp(5rem, 10vw, 9.5rem);
-      line-height: .88;
+      font-family: 'Anton', 'Shrikhand', sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(3.9rem, 9.4vw, 9rem);
+      line-height: 1.0;
+      letter-spacing: .005em;
       color: #fff;
-      text-shadow: 5px 5px 0 rgba(0, 0, 0, .2), 2px 2px 0 rgba(160, 130, 50, .4);
+      text-shadow: -3px 4px 0 var(--orange), 3px 5px 12px rgba(0, 0, 0, .5);
     }
 
     .hero-line2 {
       display: block;
-      font-family: 'Shrikhand', cursive;
-      font-size: clamp(4rem, 8.5vw, 8rem);
-      line-height: .9;
+      font-family: 'Anton', 'Shrikhand', sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(3.9rem, 9.4vw, 9rem);
+      line-height: 1.0;
+      letter-spacing: .005em;
       color: var(--orange);
-      text-shadow: 3px 3px 0 rgba(0, 0, 0, .45), 2px 2px 0 rgba(160, 130, 50, .4);
+      text-shadow: 3px 4px 0 rgba(0, 0, 0, .6), 6px 8px 14px rgba(0, 0, 0, .38);
     }
 
     .hero-dot {
@@ -3455,20 +3459,13 @@
     }
 
     .hero-line1 {
-      text-shadow:
-        1px 1px 0 rgba(255, 255, 255, .16),
-        2px 2px 0 rgba(110, 84, 23, .5),
-        3px 3px 0 rgba(90, 68, 18, .44),
-        4px 4px 0 rgba(70, 53, 15, .36),
-        7px 9px 16px rgba(10, 10, 10, .28);
+      /* white face, gold offset so it pops on black */
+      text-shadow: -3px 4px 0 var(--orange), 4px 6px 12px rgba(10, 10, 10, .5);
     }
 
     .hero-line2 {
-      text-shadow:
-        1px 1px 0 rgba(255, 255, 255, .12),
-        2px 2px 0 rgba(10, 10, 10, .22),
-        3px 3px 0 rgba(10, 10, 10, .16),
-        6px 8px 14px rgba(10, 10, 10, .16);
+      /* gold face, DARK shadow (no gold-on-gold) so the gold pops */
+      text-shadow: 3px 4px 0 rgba(10, 10, 10, .62), 6px 9px 16px rgba(10, 10, 10, .4);
     }
 
     .hero-photo-frame {

@@ -2261,10 +2261,11 @@ h4 {
 
 /* 4. Improved Cooper Black Header Shadow */
 .vhdr-h {
-  font-family: 'Shrikhand', 'Cooper Black', cursive !important;
-  text-shadow: -3px 3px 0px #c8a24a, -6px 6px 0px rgba(28, 28, 28, 0.28) !important;
-  letter-spacing: 0 !important;
-  line-height: 0.95 !important;
+  font-family: 'Anton', 'Shrikhand', sans-serif !important;
+  text-transform: uppercase;
+  text-shadow: -3px 4px 0px var(--orange), 5px 7px 13px rgba(10, 10, 10, 0.32) !important;
+  letter-spacing: 0.01em !important;
+  line-height: 0.98 !important;
 }
 
 /* 5. Rainbow Accent Stripe */
@@ -3450,19 +3451,19 @@ body .vhdr-h {
 
 body .hero-line1,
 body .hero-line2 {
-  letter-spacing: -.04em;
+  letter-spacing: .005em;
   text-wrap: balance;
 }
 
 body .hero-line1 {
-  font-size: clamp(4.8rem, 9.5vw, 9rem);
-  line-height: .84;
+  font-size: clamp(4.2rem, 9.5vw, 9rem);
+  line-height: 1.0;
 }
 
 body .hero-line2 {
-  font-size: clamp(3.9rem, 8vw, 7.6rem);
-  line-height: .86;
-  letter-spacing: -.055em;
+  font-size: clamp(4.2rem, 9.5vw, 9rem);
+  line-height: 1.0;
+  letter-spacing: .005em;
 }
 
 body .hero-dot {
@@ -4008,12 +4009,10 @@ body .hero-actions {
     padding: 48px 24px 56px;
   }
 
-  body .hero-line1 {
-    font-size: clamp(3.55rem, 18vw, 5rem);
-  }
-
+  body .hero-line1,
   body .hero-line2 {
-    font-size: clamp(3.1rem, 15.5vw, 4.4rem);
+    font-size: clamp(3rem, 14.5vw, 4.6rem);
+    line-height: 1.02;
   }
 
   body .hero-actions {
