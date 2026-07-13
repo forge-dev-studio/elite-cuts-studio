@@ -16,11 +16,18 @@
   <meta name="theme-color" content="#0d0d0d">
   <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
   <link rel="apple-touch-icon" href="assets/logo.jpg">
+  <!-- Preload the LCP hero image -->
+  <link rel="preload" as="image" href="assets/shop-hero.webp" type="image/webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
+  <!-- Google Fonts, loaded non-render-blocking -->
+  <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=Anton&family=Shrikhand&family=Bitter:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=Caveat:wght@600;700&display=swap"
-    rel="stylesheet">
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Shrikhand&family=Bitter:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&family=Caveat:wght@600;700&display=swap">
+  </noscript>
 
   <!-- SOCIAL SHARE (OG TAGS) -->
   <meta property="og:site_name" content="Elite Cuts Studio">
@@ -98,8 +105,12 @@
   }
   </script>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+  </noscript>
   <link rel="stylesheet" href="styles.css?v=20260716">
   <style>
     /* ═══════════════════════════════════════
@@ -4119,10 +4130,13 @@
 
     <div class="hero-right" id="heroRight">
       <div class="hero-photo-frame">
-        <img class="hero-photo" id="heroPhoto"
-          src="assets/shop-hero.jpg" width="1397" height="1126"
-          alt="Elite Cuts Studio storefront on M.L.K. Jr Blvd, Gainesville GA" loading="eager"
-          fetchpriority="high" decoding="async">
+        <picture>
+          <source srcset="assets/shop-hero.webp" type="image/webp">
+          <img class="hero-photo" id="heroPhoto"
+            src="assets/shop-hero.jpg" width="1397" height="1126"
+            alt="Elite Cuts Studio storefront on M.L.K. Jr Blvd, Gainesville GA" loading="eager"
+            fetchpriority="high" decoding="async">
+        </picture>
         <div class="hero-stamp" aria-hidden="true">
           <span>MASTER</span>
           <strong>BARBERING</strong>
@@ -4186,7 +4200,10 @@
     <!-- Storefront showcase -->
     <div class="storefront-panel rev">
       <div class="storefront-frame storefront-frame--chair">
-        <img src="assets/chair.png" width="824" height="953" alt="Classic barber chair at Elite Cuts Studio" loading="lazy">
+        <picture>
+          <source srcset="assets/chair.webp" type="image/webp">
+          <img src="assets/chair.png" width="824" height="953" alt="Classic barber chair at Elite Cuts Studio" loading="lazy">
+        </picture>
       </div>
       <div class="storefront-copy">
         <span class="sf-eyebrow" data-es="— Visita el Estudio —">— Visit the Studio —</span>
