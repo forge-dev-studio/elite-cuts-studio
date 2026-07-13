@@ -110,8 +110,8 @@
     .nav-links a:hover { color:#fff; }
     .nav-toggle { display:none; flex-direction:column; align-items:center; justify-content:center; min-width:44px; min-height:44px; background:none; border:none; padding:4px; cursor:pointer; }
     .nav-toggle span { display:block; width:22px; height:2px; background:#fff; margin:5px 0; transition:transform .3s, opacity .3s; }
-    .nav-book { display:inline-flex; align-items:center; justify-content:center; min-height:44px; font-family:'Bebas Neue',sans-serif; font-size:0.977rem; letter-spacing:.2em; padding:9px 26px; background:var(--orange); color:#fff; text-decoration:none; transition:background .2s; }
-    .nav-book:hover { background:var(--orange-deep); }
+    .nav-book { display:inline-flex; align-items:center; justify-content:center; min-height:44px; font-family:'Bebas Neue',sans-serif; font-size:0.977rem; letter-spacing:.2em; padding:9px 26px; background:var(--orange); color:var(--ink); text-decoration:none; transition:background .2s; }
+    .nav-book:hover { background:var(--amber); }
     @media(max-width:640px) {
       .site-nav { padding:0 20px; }
       .nav-links { display:none; position:absolute; top:66px; left:0; right:0; background:var(--ink); flex-direction:column; align-items:stretch; padding:12px 20px; gap:0; border-top:1px solid rgba(255,255,255,.1); }
@@ -276,7 +276,7 @@
 
     .btn-book {
       background: var(--orange);
-      color: #fff;
+      color: var(--ink);
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.1rem;
       letter-spacing: .1em;
@@ -443,6 +443,17 @@
       font-size: 1.5rem;
       cursor: pointer;
       font-family: 'Bebas Neue', sans-serif;
+      background: none;
+      border: none;
+      padding: 4px 8px;
+      letter-spacing: .1em;
+    }
+
+    .modal-close:hover,
+    .modal-close:focus-visible {
+      color: var(--amber);
+      outline: 2px solid var(--amber);
+      outline-offset: 2px;
     }
 
     /* ── BOOKSY BARBER PICKER ── */
@@ -985,11 +996,11 @@
   </main>
 
   <!-- ══════════════ BOOKSY BARBER PICKER ══════════════ -->
-  <div id="bookingModal">
+  <div id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle" aria-hidden="true">
     <div class="modal-content">
-      <span class="modal-close" onclick="closeBooking()">[ CLOSE X ]</span>
+      <button type="button" class="modal-close" onclick="closeBooking()" aria-label="Close booking">[ CLOSE X ]</button>
       <div class="booking-picker">
-        <h2 class="bf-title" data-es="Elige Tu Barbero">Choose Your Barber</h2>
+        <h2 class="bf-title" id="bookingTitle" data-es="Elige Tu Barbero">Choose Your Barber</h2>
         <p class="picker-intro"
           data-es="Cada barbero reserva por su propio horario en Booksy. Elige a quién quieres y te llevaremos directo a su calendario.">Each barber books through their own Booksy schedule. Pick who you want and you'll be taken straight to their live calendar.</p>
         <div class="picker-grid">
@@ -1096,15 +1107,34 @@
     }
     initVegasLights();
 
-    /* BOOKING MODAL */
+    /* BOOKING MODAL (accessible: focus mgmt, Escape, backdrop click) */
+    var bookingTrigger = null;
     function openBooking() {
-      document.getElementById('bookingModal').classList.add('open');
+      bookingTrigger = document.activeElement;
+      var m = document.getElementById('bookingModal');
+      m.classList.add('open');
+      m.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      var closeBtn = m.querySelector('.modal-close');
+      if (closeBtn) closeBtn.focus();
     }
     function closeBooking() {
-      document.getElementById('bookingModal').classList.remove('open');
+      var m = document.getElementById('bookingModal');
+      m.classList.remove('open');
+      m.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      if (bookingTrigger && bookingTrigger.focus) bookingTrigger.focus();
     }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        var m = document.getElementById('bookingModal');
+        if (m && m.classList.contains('open')) closeBooking();
+      }
+    });
+    (function () {
+      var m = document.getElementById('bookingModal');
+      if (m) m.addEventListener('click', function (e) { if (e.target === m) closeBooking(); });
+    })();
 
   </script>
   <script src="i18n.js"></script>

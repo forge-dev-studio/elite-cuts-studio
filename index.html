@@ -100,7 +100,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="styles.css?v=20260715">
+  <link rel="stylesheet" href="styles.css?v=20260716">
   <style>
     /* ═══════════════════════════════════════
    VINTAGE CROSSHAIR CURSOR
@@ -172,6 +172,16 @@
 
     html {
       scroll-behavior: smooth
+    }
+
+    /* Sticky-nav offset so in-page jumps clear the fixed header */
+    section[id],
+    [id].hero {
+      scroll-margin-top: 96px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
     }
 
     body {
@@ -373,7 +383,7 @@
       justify-content: center;
       min-height: 44px;
       background: var(--orange);
-      color: #fff;
+      color: var(--ink);
       font-family: 'Bebas Neue', sans-serif;
       font-size: 0.977rem;
       letter-spacing: .14em;

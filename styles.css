@@ -451,13 +451,14 @@ h4 {
 
 .btn-primary {
   background: var(--orange);
-  color: var(--white);
+  color: var(--ink);
   padding: 0.85rem 1.8rem;
   box-shadow: 0 6px 25px rgba(210, 170, 80, 0.25);
 }
 
 .btn-primary:hover {
   background: var(--orange-deep);
+  color: var(--white);
   transform: translateY(-3px);
   box-shadow: 0 12px 35px rgba(210, 170, 80, 0.35);
 }
